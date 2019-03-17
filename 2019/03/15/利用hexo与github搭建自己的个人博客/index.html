@@ -86,10 +86,12 @@
 <meta property="og:site_name" content="陈先生的博客">
 <meta property="og:description" content="享受时光洒在身上的温暖，体会油菜花间的甜蜜，在田野上，男孩多想让她知道，一辈子并不会随便说出口，因为说了就是一辈子的事。   这几日刚好是学校油菜花盛开的时节，去看了一次，很美，但同行人更美。可能会偶尔在博客上发一些感慨的话，就做这是自己的一个小天地吧。反正应该也没什么人会发现我这个小天地。 今天就来记录分享一下如何在Windows下用hexo与github搭建自己的个人hexo博客，并会分享一些">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-15T15:55:11.015Z">
+<meta property="og:image" content="https://wx1.sinaimg.cn/mw690/007G6M3sgy1g15nkv2edbj30i005fdfu.jpg">
+<meta property="og:updated_time" content="2019-03-17T04:01:09.398Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="利用hexo与github搭建自己的个人博客">
 <meta name="twitter:description" content="享受时光洒在身上的温暖，体会油菜花间的甜蜜，在田野上，男孩多想让她知道，一辈子并不会随便说出口，因为说了就是一辈子的事。   这几日刚好是学校油菜花盛开的时节，去看了一次，很美，但同行人更美。可能会偶尔在博客上发一些感慨的话，就做这是自己的一个小天地吧。反正应该也没什么人会发现我这个小天地。 今天就来记录分享一下如何在Windows下用hexo与github搭建自己的个人hexo博客，并会分享一些">
+<meta name="twitter:image" content="https://wx1.sinaimg.cn/mw690/007G6M3sgy1g15nkv2edbj30i005fdfu.jpg">
 
 
 
@@ -322,14 +324,29 @@
         <p>享受时光洒在身上的温暖，体会油菜花间的甜蜜，在田野上，男孩多想让她知道，一辈子并不会随便说出口，因为说了就是一辈子的事。</p>
 <p>  这几日刚好是学校油菜花盛开的时节，去看了一次，很美，但同行人更美。可能会偶尔在博客上发一些感慨的话，就做这是自己的一个小天地吧。反正应该也没什么人会发现我这个小天地。</p>
 <p>今天就来记录分享一下如何在Windows下用hexo与github搭建自己的个人hexo博客，并会分享一些自己遇到的一些错误与解决方法。</p>
-<p>##准备软件：</p>
-<p>###node.js</p>
-<p>用于产生静态页面</p>
-<p>###Git：</p>
-<p>用于将自己的博客推到github远端，这样别人就可以访问自己的博客，无须购买域名与服务器服务</p>
+<h3 id="准备软件："><a href="#准备软件：" class="headerlink" title="准备软件："></a>准备软件：</h3><p><strong>node.js</strong>：<br>用于产生静态页面</p>
+<p><img src="https://wx1.sinaimg.cn/mw690/007G6M3sgy1g15nkv2edbj30i005fdfu.jpg" alt="node下载"><br>下载左边即可</p>
+<p><strong>Git</strong>：<br>用于将自己的博客推到github远端，这样别人就可以访问自己的博客，无须购买域名与服务器服务</p>
+<p>直接搜索Git 下载</p>
+<p>查看是否安装成功</p>
+<p><code>node -v</code></p>
+<p><code>git --version</code></p>
 <hr>
-<p>##下载HEXO：</p>
-
+<h3 id="hexo下载安装"><a href="#hexo下载安装" class="headerlink" title="hexo下载安装"></a>hexo下载安装</h3><p>进入<strong>cmd</strong>命令行,执行全局安装：</p>
+<p><code>npm install hexo-cli -g</code></p>
+<p><code>npm install hexo --save</code></p>
+<p>npm可能下载速度会慢建议用Cnpm用国内的源进行下载</p>
+<p>查看是否安装成功<br><code>hexo -v</code></p>
+<h2 id="hexo命令报错解决"><a href="#hexo命令报错解决" class="headerlink" title="hexo命令报错解决"></a>hexo命令报错解决</h2><p>找到hexo的全局目录 我的目录：C:\Program Files\nodejs\node_global\node_modules\hexo-cli\bin 下会有一个hexo的cmd文件，而我会报错：hexo不是内部或外部命令。原因应该是环境变量的原因，配置这条cmd的地址即可</p>
+<h3 id="建立博客的配置目录："><a href="#建立博客的配置目录：" class="headerlink" title="建立博客的配置目录："></a>建立博客的配置目录：</h3><p>该目录会存放所有hexo搭建博客所需的文件，目录名一般为 <strong>blog</strong></p>
+<h2 id="1-在该目录下开启-git"><a href="#1-在该目录下开启-git" class="headerlink" title="1.在该目录下开启 git"></a>1.在该目录下开启 git</h2><p>初始化hexo目录：</p>
+<p><code>hexo init #初始化数据</code></p>
+<p><code>npm install #建立依赖</code></p>
+<p><code>hexo g #部署生成文件</code></p>
+<p><code>hexo s #启动服务，即可输出命令行给出的网址预览博客</code></p>
+<h3 id="利用github推至远端"><a href="#利用github推至远端" class="headerlink" title="利用github推至远端"></a>利用github推至远端</h3><h2 id="创建github账号"><a href="#创建github账号" class="headerlink" title="创建github账号"></a>创建github账号</h2><p>作为一名程序员，怎么可以不加人全球最大的同性交友网站呢</p>
+<p><a href="https://github.com/github" target="_blank" rel="noopener">创建账号</a></p>
+<h2 id="创建新仓库"><a href="#创建新仓库" class="headerlink" title="创建新仓库"></a>创建新仓库</h2>
       
     </div>
     
@@ -413,8 +430,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -456,6 +482,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#准备软件："><span class="nav-number">1.</span> <span class="nav-text">准备软件：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo下载安装"><span class="nav-number">2.</span> <span class="nav-text">hexo下载安装</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo命令报错解决"><span class="nav-number"></span> <span class="nav-text">hexo命令报错解决</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#建立博客的配置目录："><span class="nav-number">1.</span> <span class="nav-text">建立博客的配置目录：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-在该目录下开启-git"><span class="nav-number"></span> <span class="nav-text">1.在该目录下开启 git</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#利用github推至远端"><span class="nav-number">1.</span> <span class="nav-text">利用github推至远端</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建github账号"><span class="nav-number"></span> <span class="nav-text">创建github账号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建新仓库"><span class="nav-number"></span> <span class="nav-text">创建新仓库</span></a></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
