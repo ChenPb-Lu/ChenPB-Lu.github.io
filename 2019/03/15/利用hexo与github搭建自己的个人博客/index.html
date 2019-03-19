@@ -88,7 +88,11 @@
 <meta property="og:description" content="享受时光洒在身上的温暖，体会油菜花间的甜蜜，在田野上，男孩多想让她知道，一辈子并不会随便说出口，因为说了就是一辈子的事。   这几日刚好是学校油菜花盛开的时节，去看了一次，很美，但同行人更美。可能会偶尔在博客上发一些感慨的话，就做这是自己的一个小天地吧。反正应该也没什么人会发现我这个小天地。 今天就来记录分享一下如何在Windows下用hexo与github搭建自己的个人hexo博客，并会分享一些">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://wx1.sinaimg.cn/mw690/007G6M3sgy1g15nkv2edbj30i005fdfu.jpg">
-<meta property="og:updated_time" content="2019-03-17T15:32:59.470Z">
+<meta property="og:image" content="https://wx4.sinaimg.cn/mw690/007G6M3sly1g17w18n1omj30c904lq2v.jpg">
+<meta property="og:image" content="https://wx4.sinaimg.cn/mw690/007G6M3sly1g17w18qfehj30rr0j3dh6.jpg">
+<meta property="og:image" content="https://wx2.sinaimg.cn/mw690/007G6M3sly1g17w18pjcpj30lh0a43zc.jpg">
+<meta property="og:image" content="https://wx3.sinaimg.cn/mw690/007G6M3sly1g17w18n7tuj30hs04o3yh.jpg">
+<meta property="og:updated_time" content="2019-03-19T02:24:16.713Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="利用hexo与github搭建自己的个人博客">
 <meta name="twitter:description" content="享受时光洒在身上的温暖，体会油菜花间的甜蜜，在田野上，男孩多想让她知道，一辈子并不会随便说出口，因为说了就是一辈子的事。   这几日刚好是学校油菜花盛开的时节，去看了一次，很美，但同行人更美。可能会偶尔在博客上发一些感慨的话，就做这是自己的一个小天地吧。反正应该也没什么人会发现我这个小天地。 今天就来记录分享一下如何在Windows下用hexo与github搭建自己的个人hexo博客，并会分享一些">
@@ -390,7 +394,7 @@
 <p>今天就来记录分享一下如何在Windows下用hexo与github搭建自己的个人hexo博客，并会分享一些自己遇到的一些错误与解决方法。</p>
 <h3 id="准备软件："><a href="#准备软件：" class="headerlink" title="准备软件："></a>准备软件：</h3><a id="more"></a>
 <p><strong>node.js</strong>：<br>用于产生静态页面</p>
-<p><img src="https://wx1.sinaimg.cn/mw690/007G6M3sgy1g15nkv2edbj30i005fdfu.jpg" alt="node下载"><br>下载左边即可</p>
+<p><img src="https://wx1.sinaimg.cn/mw690/007G6M3sgy1g15nkv2edbj30i005fdfu.jpg" alt="node下载"><br>下载左边版本即可</p>
 <p><strong>Git</strong>：<br>用于将自己的博客推到github远端，这样别人就可以访问自己的博客，无须购买域名与服务器服务</p>
 <p>直接搜索Git 下载</p>
 <p>查看是否安装成功</p>
@@ -409,9 +413,40 @@
 <p><code>npm install #建立依赖</code></p>
 <p><code>hexo g #部署生成文件</code></p>
 <p><code>hexo s #启动服务，即可输出命令行给出的网址预览博客</code></p>
-<h3 id="利用github推至远端"><a href="#利用github推至远端" class="headerlink" title="利用github推至远端"></a>利用github推至远端</h3><h2 id="创建github账号"><a href="#创建github账号" class="headerlink" title="创建github账号"></a>创建github账号</h2><p>作为一名程序员，怎么可以不加人全球最大的同性交友网站呢</p>
+<h2 id="利用github推至远端"><a href="#利用github推至远端" class="headerlink" title="利用github推至远端"></a>利用github推至远端</h2><h3 id="创建github账号"><a href="#创建github账号" class="headerlink" title="创建github账号"></a>创建github账号</h3><p>作为一名程序员，怎么可以不加人全球最大的同性交友网站呢</p>
 <p><a href="https://github.com/github" target="_blank" rel="noopener">创建账号</a></p>
-<h2 id="创建新仓库"><a href="#创建新仓库" class="headerlink" title="创建新仓库"></a>创建新仓库</h2>
+<h3 id="创建新仓库"><a href="#创建新仓库" class="headerlink" title="创建新仓库"></a>创建新仓库</h3><p><img src="https://wx4.sinaimg.cn/mw690/007G6M3sly1g17w18n1omj30c904lq2v.jpg" alt="创建新仓库"></p>
+<p>仓库命名格式：<strong>yourname(gtihub账户名).github.io</strong>  </p>
+<p><img src="https://wx4.sinaimg.cn/mw690/007G6M3sly1g17w18qfehj30rr0j3dh6.jpg" alt="命名"></p>
+<p>以后直接把这个仓库名作为自己的博客域名打开</p>
+<h3 id="配置github远端地址"><a href="#配置github远端地址" class="headerlink" title="配置github远端地址"></a>配置github远端地址</h3><p>打开hexo配置目录中的配置文件_config.yml </p>
+<p><img src="https://wx2.sinaimg.cn/mw690/007G6M3sly1g17w18pjcpj30lh0a43zc.jpg" alt="配置文件"></p>
+<p>文件最底部进行设置</p>
+<p><img src="https://wx3.sinaimg.cn/mw690/007G6M3sly1g17w18n7tuj30hs04o3yh.jpg" alt="设置"></p>
+<p><code>type: git</code></p>
+<p> <code>repo: git@github.com:yourname/yourname.github.io.git</code></p>
+<p> <code>branch: master</code></p>
+<p>yourname 为github账户名称</p>
+<h3 id="安装部署软件"><a href="#安装部署软件" class="headerlink" title="安装部署软件"></a>安装部署软件</h3><p>npm install hexo-deployer-git –save</p>
+<h3 id="部署博客文件至github远端"><a href="#部署博客文件至github远端" class="headerlink" title="部署博客文件至github远端"></a>部署博客文件至github远端</h3><p>部署步骤</p>
+<p>每次部署的步骤，可按以下三步来进行。</p>
+<pre><code>hexo clean #清理环境
+
+hexo generate #部署文件
+
+hexo deploy #推送到github仓库
+</code></pre><p>这里我们的部署协议就用默认的http成，想用ssh可以搜一下教程，这里不做详解</p>
+<h3 id="打开博客"><a href="#打开博客" class="headerlink" title="打开博客"></a>打开博客</h3><p>一切就绪后就可以在浏览器<br>输入 <a href="https://yourname.githun.io" target="_blank" rel="noopener">https://yourname.githun.io</a> 浏览自己的博客了<br>快点去试一试吧！</p>
+<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><p><code>hexo new&quot;title&quot; #新建文章</code></p>
+<p><code>hexo new page&quot;pageName&quot; #新建页面</code></p>
+<p><code>hexo generate #生成静态页面至public目</code></p>
+<p><code>hexo server #开启预览访问端口（默认端口4000，&#39;ctrl + c&#39;关闭server）</code></p>
+<p><code>hexo deploy #将.deploy目录部署到GitHubhexo help # 查看帮助</code></p>
+<p><code>hexo version #查看Hexo的版本</code></p>
+<p>文章目录 blog/source/_posts</p>
+<p>文章格式是Markdown 格式，直接修改md文件写入自己的内容就成。</p>
+<p>教程就写到这里吧，有疑问可以留言哦，不过可能也没人看~</p>
+
       
     </div>
     
@@ -643,7 +678,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#准备软件："><span class="nav-number">1.</span> <span class="nav-text">准备软件：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo下载安装"><span class="nav-number">2.</span> <span class="nav-text">hexo下载安装</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo命令报错解决"><span class="nav-number"></span> <span class="nav-text">hexo命令报错解决</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#建立博客的配置目录："><span class="nav-number">1.</span> <span class="nav-text">建立博客的配置目录：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-在该目录下开启-git"><span class="nav-number"></span> <span class="nav-text">1.在该目录下开启 git</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#利用github推至远端"><span class="nav-number">1.</span> <span class="nav-text">利用github推至远端</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建github账号"><span class="nav-number"></span> <span class="nav-text">创建github账号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建新仓库"><span class="nav-number"></span> <span class="nav-text">创建新仓库</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#准备软件："><span class="nav-number">1.</span> <span class="nav-text">准备软件：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo下载安装"><span class="nav-number">2.</span> <span class="nav-text">hexo下载安装</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo命令报错解决"><span class="nav-number"></span> <span class="nav-text">hexo命令报错解决</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#建立博客的配置目录："><span class="nav-number">1.</span> <span class="nav-text">建立博客的配置目录：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-在该目录下开启-git"><span class="nav-number"></span> <span class="nav-text">1.在该目录下开启 git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用github推至远端"><span class="nav-number"></span> <span class="nav-text">利用github推至远端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建github账号"><span class="nav-number">1.</span> <span class="nav-text">创建github账号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建新仓库"><span class="nav-number">2.</span> <span class="nav-text">创建新仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置github远端地址"><span class="nav-number">3.</span> <span class="nav-text">配置github远端地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装部署软件"><span class="nav-number">4.</span> <span class="nav-text">安装部署软件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署博客文件至github远端"><span class="nav-number">5.</span> <span class="nav-text">部署博客文件至github远端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打开博客"><span class="nav-number">6.</span> <span class="nav-text">打开博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用命令"><span class="nav-number">7.</span> <span class="nav-text">常用命令</span></a></li></ol></li></div>
             
 
           </div>
