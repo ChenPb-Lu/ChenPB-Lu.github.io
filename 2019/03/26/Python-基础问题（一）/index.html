@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="python基础,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前言最近事情比较多，攒了蛮多东西没有写博客了，所以抓紧写一下。这一篇的话算是一个Python基础篇吧。也有助于自己日后复习。基本是都是一些面试会问到的问题。会持续更新！然后我觉得有句话说得好，细节决定成败，无论在哪一方面都是这样子！  本节问题： Python和Java、PHP、C、C#、C++等其他语言的对比？ 简述解释型和编译型编程语言？ 代码中要修改不可变数据会出现什么问题? 抛出什么异常">
+<meta name="keywords" content="python基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python 基础问题（一）">
+<meta property="og:url" content="http://yoursite.com/2019/03/26/Python-基础问题（一）/index.html">
+<meta property="og:site_name" content="陈先生的博客">
+<meta property="og:description" content="前言最近事情比较多，攒了蛮多东西没有写博客了，所以抓紧写一下。这一篇的话算是一个Python基础篇吧。也有助于自己日后复习。基本是都是一些面试会问到的问题。会持续更新！然后我觉得有句话说得好，细节决定成败，无论在哪一方面都是这样子！  本节问题： Python和Java、PHP、C、C#、C++等其他语言的对比？ 简述解释型和编译型编程语言？ 代码中要修改不可变数据会出现什么问题? 抛出什么异常">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-27T09:27:49.194Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python 基础问题（一）">
+<meta name="twitter:description" content="前言最近事情比较多，攒了蛮多东西没有写博客了，所以抓紧写一下。这一篇的话算是一个Python基础篇吧。也有助于自己日后复习。基本是都是一些面试会问到的问题。会持续更新！然后我觉得有句话说得好，细节决定成败，无论在哪一方面都是这样子！  本节问题： Python和Java、PHP、C、C#、C++等其他语言的对比？ 简述解释型和编译型编程语言？ 代码中要修改不可变数据会出现什么问题? 抛出什么异常">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/26/Python-基础问题（一）/">
+
+
+
+
+
+  <title>Python 基础问题（一） | 陈先生的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">陈先生的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/26/Python-基础问题（一）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈十三">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈先生的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Python 基础问题（一）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-26T09:55:56+08:00">
+                2019-03-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/03/26/Python-基础问题（一）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/03/26/Python-基础问题（一）/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近事情比较多，攒了蛮多东西没有写博客了，所以抓紧写一下。这一篇的话算是一个Python基础篇吧。也有助于自己日后复习。基本是都是一些面试会问到的问题。会持续更新！然后我觉得有句话说得好，细节决定成败，无论在哪一方面都是这样子！</p>
+<hr>
+<h2 id="本节问题："><a href="#本节问题：" class="headerlink" title="本节问题："></a>本节问题：</h2><ol>
+<li>Python和Java、PHP、C、C#、C++等其他语言的对比？</li>
+<li>简述解释型和编译型编程语言？</li>
+<li>代码中要修改不可变数据会出现什么问题? 抛出什么异常</li>
+<li>print 调用 Python 中底层的什么方法?</li>
+<li>简述你对 input()函数的理解?</li>
+<li>Python解释器种类以及特点？<a id="more"></a></li>
+<li>Python2 中 range 和 xrange 的区别?</li>
+<li>位和字节的关系？</li>
+<li>b、B、KB、MB、GB 的关系？</li>
+<li>请至少列举5个 PEP8 规范（越多越好）。</li>
+<li>python递归的最大层数？递归函数停止的条件?</li>
+<li>ascii、unicode、utf-8、gbk 区别？</li>
+<li>字节码和机器码的区别？</li>
+<li>三元运算规则以及应用场景？</li>
+<li>列举 Python2和Python3的区别？</li>
+</ol>
+<h2 id="Python和Java、PHP、C、C-、C-等其他语言的对比？"><a href="#Python和Java、PHP、C、C-、C-等其他语言的对比？" class="headerlink" title="Python和Java、PHP、C、C#、C++等其他语言的对比？"></a>Python和Java、PHP、C、C#、C++等其他语言的对比？</h2><ul>
+<li><p>1.Python</p>
+<p>  优势：简单易学，能够把用其他语言制作的各种模块很轻松地联结在一起。</p>
+<p>  劣势：速度较慢，且有一些特定情况下才会出现(无法重现)的 bug</p>
+</li>
+<li><p>2.C/C++</p>
+<p>  优势：可以被嵌入任何现代处理器中，几乎所有操作系统都支持 C/C++，跨平台性非常好</p>
+<p>  劣势：学习难度大，且拥有大量极为复杂的功能交互方式，容易造成资源浪费</p>
+</li>
+<li><p>3.Java</p>
+<p>  优势：世界上使用范围最广的语言Java</p>
+<p>  劣势：占用大量内存，并且启动时间较长</p>
+</li>
+<li><p>4.C#</p>
+<p>  优势：全面集成.Net 库，提供出色的功能与完美的库访问能力</p>
+<p>  劣势：跨平台能力太差，且在国内就业环境不太好，收入较低</p>
+</li>
+<li><p>5.JavaScript</p>
+<p>  优势：学习难度低，并且掌握了 JavaScript 语言就等于成为能同时开发网页、后台、移动端的全栈工程师</p>
+<p>  劣势：过于依赖浏览器，且代码在用户电脑上运行，容易被别有用心的坏人恶意利用</p>
+</li>
+<li><p>6.SQL</p>
+<p>  优势：开发速度快，安全性好</p>
+<p>  劣势：SQL开发速度是靠牺牲运行速度换来的，且可移植性极差</p>
+</li>
+<li><p>7.PHP</p>
+<p>  优势：社区庞大而活跃，易于快速上手</p>
+<p>  劣势：运行速度慢，且错误处理机制比较糟糕，需要支持大量旧版本的功能</p>
+</li>
+</ul>
+<p>开发语言：</p>
+<p>高级语言：Python Java、PHP Ｃ# Go ruby C++… ===》 字节码</p>
+<p>低级语言：C、汇编 ===》 机器码</p>
+<hr>
+<h4 id="语言之间的对比："><a href="#语言之间的对比：" class="headerlink" title="语言之间的对比："></a>语言之间的对比：</h4><ul>
+<li><p>PHP类：适用于写网页，局限性</p>
+</li>
+<li><p>Python Java: 即可以写网页    也可以写后台功能</p>
+<ul>
+<li><p>Python执行效率低，开发效率高</p>
+</li>
+<li><p>Java执行效率高， 开发效率低</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="简述解释型和编译型编程语言？"><a href="#简述解释型和编译型编程语言？" class="headerlink" title="简述解释型和编译型编程语言？"></a>简述解释型和编译型编程语言？</h2><p>1.编译型语言：在程序执行之前，有一个编译过程，将源程序翻译成机器码（CPU指令）、以二进制文件形式存在，之后再执行的时候直接执行，不再需要翻译的过程；坏处则是难以支持许多动态特性；</p>
+<ul>
+<li><p>C</p>
+</li>
+<li><p>C++</p>
+</li>
+</ul>
+<p>2.解释型语言：在执行的时候将程序翻译成机器码（CPU指令），所以运行速度要慢于编译型语言，每次执行都需要一个翻译的过程；大部分CPU时间花在了解释器运行上面；好处是实现起来非常简单，也很容易添加新特性；</p>
+<ul>
+<li><p>Python</p>
+</li>
+<li><p>Java</p>
+</li>
+</ul>
+<hr>
+<h2 id="代码中要修改不可变数据会出现什么问题-抛出什么异常"><a href="#代码中要修改不可变数据会出现什么问题-抛出什么异常" class="headerlink" title="代码中要修改不可变数据会出现什么问题? 抛出什么异常"></a>代码中要修改不可变数据会出现什么问题? 抛出什么异常</h2><p>会抛出异常，终止程序</p>
+<p><code>s = &quot;璐璐真好看&quot;</code></p>
+<p><code>s[1] = &#39;s&#39;</code></p>
+<p><code>print(s)</code></p>
+<p>结果：<br>TypeError: ‘str’ object does not support item assignment</p>
+<h3 id="print-调用-Python-中底层的什么方法"><a href="#print-调用-Python-中底层的什么方法" class="headerlink" title="print 调用 Python 中底层的什么方法?"></a>print 调用 Python 中底层的什么方法?</h3><p>print() 用 sys.stdout.write() 实现，不过print()能接收多个参数输出，write()只能接收一个参数,所以write()不会自动换行。</p>
+<p>Python3中的input()用sys.stdin.readline()实现。</p>
+<hr>
+<h3 id="简述你对-input-函数的理解"><a href="#简述你对-input-函数的理解" class="headerlink" title="简述你对 input()函数的理解?"></a>简述你对 input()函数的理解?</h3><p>接收用户的标准输入，并返回字符串</p>
+<hr>
+<h3 id="Python解释器种类以及特点？"><a href="#Python解释器种类以及特点？" class="headerlink" title="Python解释器种类以及特点？"></a>Python解释器种类以及特点？</h3><p>常见的Python解释器：</p>
+<p>1、Cpython（最常用的版本）<br>       Python的官方版本，使用C语言实现，使用最为广泛，CPython实现会将源文件（py文件）转换成字节码文件（pyc文件），然后运行在Python虚拟机上。</p>
+<p>2、Jyhton<br>       Python的Java实现，Jython会将Python代码动态编译成Java字节码，然后在JVM上运行。</p>
+<p>3、IronPython<br>      Python的C#实现，IronPython将Python代码编译成C#字节码，然后在CLR上运行。（与Jython类似）</p>
+<p>4、PyPy（特殊）<br>      Python实现的Python，将Python的字节码字节码再编译成机器码。</p>
+<hr>
+<h3 id="Python2-中-range-和-xrange-的区别"><a href="#Python2-中-range-和-xrange-的区别" class="headerlink" title="Python2 中 range 和 xrange 的区别?"></a>Python2 中 range 和 xrange 的区别?</h3><p>range(start, stop, step)返回一个递增或递减的数字列表，列表的元素值由三个参数决定：</p>
+<p>start表示列表开始的值，可省，默认为“0”</p>
+<p>stop表示列表结束的值，该参数不可缺少</p>
+<p>参数step表示步长，可省，默认值为“1”</p>
+<p>range返回的是一个列表，一次性计算并返回所有的值</p>
+<p>xrange是一个类，返回的是一个生成器：</p>
+<p>生成器是一个可迭代对象，在对生成器进行迭代时，元素是逐个被创建的</p>
+<p>使用xrange()进行遍历，每次遍历只返回一个值</p>
+<p>一般来看，在对大序列进行迭代的时候，因为xrange的特性，所以它会比较节约内存</p>
+<p>因此，xrange的执行效率要高于range</p>
+<p><a href="http://www.cnblogs.com/standby/p/6784808.html" target="_blank" rel="noopener">详细对比</a></p>
+<hr>
+<h3 id="位和字节的关系？"><a href="#位和字节的关系？" class="headerlink" title="位和字节的关系？"></a>位和字节的关系？</h3><ol>
+<li>位或比特（bit）。一个电子线路单元称为一个“位”（bit），它有两个稳定的工作状态，分别以“0”和“1”表示。是计算机中最小的数据单位。</li>
+<li><ol start="2">
+<li>字节（byte）。8位二进制数称为一个“字节”（byte，简写B）。它是计算机存储信息的基本单位，也是计算机存储空间大小的最基本容量单位。</li>
+</ol>
+</li>
+</ol>
+<h3 id="b、B、KB、MB、GB-的关系？"><a href="#b、B、KB、MB、GB-的关系？" class="headerlink" title="b、B、KB、MB、GB 的关系？"></a>b、B、KB、MB、GB 的关系？</h3><p>bit就是位，也叫比特位，是计算机表示数据最小的单位</p>
+<p>byte就是字节</p>
+<p>3.1byte=8bit</p>
+<p>4.1byte就是1B</p>
+<p>5.一个字符=2字节</p>
+<p>6.1KB=1024B</p>
+<p>字节就是Byte，也是B</p>
+<p>位就是bit也是b</p>
+<p>转换关系如下：<br>1GB= 1024MB 1MB=1024KB 1KB=1024B 1B= 8b </p>
+<hr>
+<h3 id="请至少列举5个-PEP8-规范（越多越好）"><a href="#请至少列举5个-PEP8-规范（越多越好）" class="headerlink" title="请至少列举5个 PEP8 规范（越多越好）"></a>请至少列举5个 PEP8 规范（越多越好）</h3><p>1、缩紧。四个空格的缩紧，不要混合使用tap和空格</p>
+<p>2、右括号前不要加空格</p>
+<p>3、函数左括号前不要加空格。Fun(n)</p>
+<p>4、函数默认参数使用的赋值符左右省略空格</p>
+<p>5、操作符左右各加一个空格</p>
+<p>6、长数可以使用_来分割,123_456_789</p>
+<p>7、命名规范：<br>尽量单独使用小写字母‘l’，大写字母‘O’等容易混淆的字母。</p>
+<p>模块：命名尽量短小，使用全部小写的方式，可以使用下划线。</p>
+<p>包：命名尽量短小，使用全部小写的方式，不可以使用下划线。</p>
+<p>类：的命名使用CapWords的方式，模块内部使用的类采用_CapWords的方<br>式。</p>
+<p>异常命名使用CapWords+Error后缀的方式。 </p>
+<p>类的属性（方法和变量）命名使用全部小写的方式，可以使用下划线。</p>
+<p>类的属性有3种作用域public、non-public和subclass API，可以理解成C++中的public、private、protected，non-public属性前，前缀一条下划线。</p>
+<p>类的属性若与关键字名字冲突，后缀一下划线，尽量不要使用缩略等其他方式。<br>为避免与子类属性命名冲突，在类的一些属性前，前缀两条下划线。比如：类Foo中声明<strong>a,访问时，只能通过Foo._Foo</strong>a，避免歧义。如果子类也叫Foo，那就无能为力了。</p>
+<p>类的方法第一个参数必须是self，而静态方法第一个参数必须是cls。<br>全局变量：尽量只在模块内有效，类似C语言中的static。实现方法有两种，一是all机制;二是前缀一个下划线。</p>
+<p>函数：命名使用全部小写的方式，可以使用下划线。</p>
+<p>常量：命名使用全部大写的方式，可以使用下划线。</p>
+<hr>
+<h3 id="python递归的最大层数？递归函数停止的条件"><a href="#python递归的最大层数？递归函数停止的条件" class="headerlink" title="python递归的最大层数？递归函数停止的条件?"></a>python递归的最大层数？递归函数停止的条件?</h3><p>Python递归最大层数为998</p>
+<p>递归停止条件：<br>递归的终止条件一般定义在递归函数内部，在递归调用前要做一个条件判断，根据判断的结果选择是继续调用自身，还是return；返回终止递归。<br>终止的条件：</p>
+<ol>
+<li>判断递归的次数是否达到某一限定值</li>
+<li>判断运算的结果是否达到某个范围等，根据设计的目的来选择</li>
+</ol>
+<hr>
+<h3 id="ascii、unicode、utf-8、gbk-区别？"><a href="#ascii、unicode、utf-8、gbk-区别？" class="headerlink" title="ascii、unicode、utf-8、gbk 区别？"></a>ascii、unicode、utf-8、gbk 区别？</h3><p>ascii：</p>
+<p>　　　　A：00000010 8位 一个字节</p>
+<p>ascii<br>8位一个字节,1个字节表示一个字符.即: 2 ** 8 = 256,所以ASCII码最多只能表示256个字符.</p>
+<p>unicode：</p>
+<p>　　　　A：00000000 00000001 00000010 00000100 32位 四个字节</p>
+<p>　　　　中：00000000 00000001 00000010 00000100 32位 四个字节</p>
+<p>unicode<br>俗称万国码,把所有的语言统一到一个编码里.解决了ascii码的限制以及乱码的问题.<br>unicode码一般是用两个字节表示一个字符,特别生僻的用四个字节表示一个字符.</p>
+<p>utf-8：</p>
+<p>　　　　A：00000110 8位 一个字节</p>
+<p>　　　　中：00000010 00000110 16位 两个字节<br>utf-8<br>新的问题出现了,如果统一成unicode编码,乱码问题从此消失了.但是如果你写的文本基本上都是英文的,<br>用Unicode编码比ascii编码需要多一倍的存储空间,在存储和传输上十分不方便.<br>utf-8应用而生,它是一个”可变长的编码方式”,如果是英文字符,则采用ascii编码,占用一个字节.<br>如果是常用汉字,就占用三个字节,如果是生僻的字就占用4~6个字节.</p>
+<p>gbk：</p>
+<p>　　　　A：00000110 8位 一个字节</p>
+<p>　　　　中：00000010 00000110 16位 两个字节</p>
+<p>gbk<br>国内版本,一个中文字符 == 两个字节  英文是一个字节</p>
+<p>1，各个编码之间的二进制，是不能互相识别的，会产生乱码。</p>
+<p>2，文件的存储，传输，不能是unicode （只能是utf-8 utf-16 gbk gbk2312 ascii等）</p>
+<hr>
+<h3 id="字节码和机器码的区别？"><a href="#字节码和机器码的区别？" class="headerlink" title="字节码和机器码的区别？"></a>字节码和机器码的区别？</h3><p>机器码：是电脑CPU直接读取运行的机器指令，运行速度最快，但是非常晦涩难懂</p>
+<p>字节码：是一种中间状态（中间码）的二进制代码（文件）。需要直译器转译后才能成为机器码</p>
+<hr>
+<h3 id="三元运算规则以及应用场景？"><a href="#三元运算规则以及应用场景？" class="headerlink" title="三元运算规则以及应用场景？"></a>三元运算规则以及应用场景？</h3><p>规则：为真时的结果 if 判定条件 else 为假时的结果</p>
+<p>应用场景：在赋值变量的时候，可以直接加判断，然后赋值</p>
+<hr>
+<h3 id="列举-Python2和Python3的区别？"><a href="#列举-Python2和Python3的区别？" class="headerlink" title="列举 Python2和Python3的区别？"></a>列举 Python2和Python3的区别？</h3><p>1、默认编码：2–&gt;ascii，3–&gt;utf-8</p>
+<p>2、print的区别：python2中print是一个语句，不论想输出什么，直接放到print关键字后面即可。python3里，print()是一个函数，像其他函数一样，print()需要你将要输出的东西作为参数传给它。</p>
+<p>3、input的区别：</p>
+<p>python2有两个全局函数，用在命令行请求用户输入。第一个叫input()，它等待用户输入一个python表达式(然后返回结果)。</p>
+<p>第二个叫做raw_input(),用户输入什么他就返回什么。python3 通过input替代了他们。</p>
+<p>4、字符串：</p>
+<p>python2中有两种字符串类型：Unicode字符串和非Unicode字符串。Python3中只有一种类型：Unicode字符串。</p>
+<p>5、xrange()</p>
+<p>python２里，有两种方法获得一定范围内的数字：range(),返回一个列表，还有xrange(),返回一个迭代器。</p>
+<p>python3　里，range()返回迭代器，xrange()不再存在。</p>
+<hr>
+<p>今天先写这么多吧！</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>赏瓶可乐吧(*^▽^*)</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="陈十三 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="陈十三 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python基础/" rel="tag"># python基础</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/21/leetcode-无重复字符最长子串/" rel="next" title="leetcode--无重复字符最长子串">
+                <i class="fa fa-chevron-left"></i> leetcode--无重复字符最长子串
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/1.jpg" alt="陈十三">
+            
+              <p class="site-author-name" itemprop="name">陈十三</p>
+              <p class="site-description motion-element" itemprop="description">学习与交流</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本节问题："><span class="nav-number">2.</span> <span class="nav-text">本节问题：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python和Java、PHP、C、C-、C-等其他语言的对比？"><span class="nav-number">3.</span> <span class="nav-text">Python和Java、PHP、C、C#、C++等其他语言的对比？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#语言之间的对比："><span class="nav-number">3.0.1.</span> <span class="nav-text">语言之间的对比：</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#简述解释型和编译型编程语言？"><span class="nav-number">4.</span> <span class="nav-text">简述解释型和编译型编程语言？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码中要修改不可变数据会出现什么问题-抛出什么异常"><span class="nav-number">5.</span> <span class="nav-text">代码中要修改不可变数据会出现什么问题? 抛出什么异常</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#print-调用-Python-中底层的什么方法"><span class="nav-number">5.1.</span> <span class="nav-text">print 调用 Python 中底层的什么方法?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简述你对-input-函数的理解"><span class="nav-number">5.2.</span> <span class="nav-text">简述你对 input()函数的理解?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Python解释器种类以及特点？"><span class="nav-number">5.3.</span> <span class="nav-text">Python解释器种类以及特点？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Python2-中-range-和-xrange-的区别"><span class="nav-number">5.4.</span> <span class="nav-text">Python2 中 range 和 xrange 的区别?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#位和字节的关系？"><span class="nav-number">5.5.</span> <span class="nav-text">位和字节的关系？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#b、B、KB、MB、GB-的关系？"><span class="nav-number">5.6.</span> <span class="nav-text">b、B、KB、MB、GB 的关系？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请至少列举5个-PEP8-规范（越多越好）"><span class="nav-number">5.7.</span> <span class="nav-text">请至少列举5个 PEP8 规范（越多越好）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#python递归的最大层数？递归函数停止的条件"><span class="nav-number">5.8.</span> <span class="nav-text">python递归的最大层数？递归函数停止的条件?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ascii、unicode、utf-8、gbk-区别？"><span class="nav-number">5.9.</span> <span class="nav-text">ascii、unicode、utf-8、gbk 区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字节码和机器码的区别？"><span class="nav-number">5.10.</span> <span class="nav-text">字节码和机器码的区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三元运算规则以及应用场景？"><span class="nav-number">5.11.</span> <span class="nav-text">三元运算规则以及应用场景？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列举-Python2和Python3的区别？"><span class="nav-number">5.12.</span> <span class="nav-text">列举 Python2和Python3的区别？</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">陈十三</span>
+
+  
+</div>
+
+<!-- 
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+ -->
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'vzmErYHn1YpeNJrQRiEaT80M-gzGzoHsz',
+        appKey: 'X8MpEppGeY0OcM9hkErRiiyo',
+        placeholder: '评论交流一下吧',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
