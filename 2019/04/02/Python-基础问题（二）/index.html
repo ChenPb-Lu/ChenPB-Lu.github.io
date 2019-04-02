@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="python基础,面试,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前言接着上次的Python基础面试题 题目： Python3和Python2中 int 和 long的区别？ 4G 内存怎么读取一个 5G 的数据? read、readline 和 readlines 的区别? 文件操作时：xreadlines和readlines的区别？ 列举布尔值为False的常见值？ 字符串、列表、元组、字典每个常用的5个方法？ lambda表达式格式以及应用场景? 用lam">
+<meta name="keywords" content="python基础,面试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python-基础问题（二）">
+<meta property="og:url" content="http://yoursite.com/2019/04/02/Python-基础问题（二）/index.html">
+<meta property="og:site_name" content="陈先生的博客">
+<meta property="og:description" content="前言接着上次的Python基础面试题 题目： Python3和Python2中 int 和 long的区别？ 4G 内存怎么读取一个 5G 的数据? read、readline 和 readlines 的区别? 文件操作时：xreadlines和readlines的区别？ 列举布尔值为False的常见值？ 字符串、列表、元组、字典每个常用的5个方法？ lambda表达式格式以及应用场景? 用lam">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-04-02T03:00:28.295Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python-基础问题（二）">
+<meta name="twitter:description" content="前言接着上次的Python基础面试题 题目： Python3和Python2中 int 和 long的区别？ 4G 内存怎么读取一个 5G 的数据? read、readline 和 readlines 的区别? 文件操作时：xreadlines和readlines的区别？ 列举布尔值为False的常见值？ 字符串、列表、元组、字典每个常用的5个方法？ lambda表达式格式以及应用场景? 用lam">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/04/02/Python-基础问题（二）/">
+
+
+
+
+
+  <title>Python-基础问题（二） | 陈先生的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">陈先生的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/02/Python-基础问题（二）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈十三">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈先生的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Python-基础问题（二）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-02T09:48:54+08:00">
+                2019-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/04/02/Python-基础问题（二）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/02/Python-基础问题（二）/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>接着上次的Python基础面试题</p>
+<h2 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h2><ol start="16">
+<li>Python3和Python2中 int 和 long的区别？</li>
+<li>4G 内存怎么读取一个 5G 的数据?</li>
+<li>read、readline 和 readlines 的区别?</li>
+<li>文件操作时：xreadlines和readlines的区别？</li>
+<li>列举布尔值为False的常见值？</li>
+<li>字符串、列表、元组、字典每个常用的5个方法？</li>
+<li>lambda表达式格式以及应用场景? 用lambda函数的好处?</li>
+<li>pass的作用？continue的作用? break的作用?</li>
+<li>*arg和**kwarg作用</li>
+<li>is和==的区别</li>
+<li>简述Python的深浅拷贝以及应用场景？</li>
+<li>拷贝的注意点?</li>
+<li>Python垃圾回收机制？</li>
+<li>Python的可变类型和不可变类型？</li>
+<li>列举常见的内置函数？</li>
+</ol>
+<h2 id="Python3和Python2中-int-和-long的区别？"><a href="#Python3和Python2中-int-和-long的区别？" class="headerlink" title="Python3和Python2中 int 和 long的区别？"></a>Python3和Python2中 int 和 long的区别？</h2><p>python2 中分int型 和 long型，long型为长整型比int型的取值范围要大</p>
+<p>Python3 取消long型 将int型的取值范围扩大到long型的范围</p>
+<h2 id="4G-内存怎么读取一个-5G-的数据"><a href="#4G-内存怎么读取一个-5G-的数据" class="headerlink" title="4G 内存怎么读取一个 5G 的数据?"></a>4G 内存怎么读取一个 5G 的数据?</h2><p>分段读取，每次读取固定的内容，与网络传输的分段传输差不多。<br>    def get_lines():  # 生成器<br>        with open(‘123.py’, ‘r’) as f:<br>            while True:<br>                data = f.readlines(100)<br>                if data:<br>                    yield data<br>                else:<br>                    break</p>
+<pre><code>f = get_lines()  # 迭代器对象
+print(next(f))
+</code></pre><h2 id="read、readline-和-readlines-的区别"><a href="#read、readline-和-readlines-的区别" class="headerlink" title="read、readline 和 readlines 的区别?"></a>read、readline 和 readlines 的区别?</h2><ol>
+<li><p>read() 方法用来直接读取字节到字符串中, 最多读取给定数目个字节. 如果没有给定 size 参数(默认值为 -1)或者 size 值为负, 文件将被读取直至末尾. 未来的某个版本可能会删除此方法. </p>
+</li>
+<li><p>readline() 方法读取打开文件的一行(读取下个行结束符之前的所有字节). 然后整行，包括行结束符，作为字符串返回. 和 read() 相同, 它也有一个可选的 size 参数, 默认为 -1, 代表读至行结束符. 如果提供了该参数, 那么在超过 size 个字节后会返回不完整的行. </p>
+</li>
+<li><p>readlines() 方法并不像其它两个输入方法一样返回一个字符串. 它会读取所有(剩余的)行然后把它们作为一个字符串列表返回. 它的可选参数 sizhint 代表返回的最大字节大小. 如果它大于 0 , 那么返回的所有行应该大约有 sizhint 字节(可能稍微大于这个数字, 因为需要凑齐缓冲区大小). </p>
+</li>
+</ol>
+<h2 id="文件操作时：xreadlines和readlines的区别？"><a href="#文件操作时：xreadlines和readlines的区别？" class="headerlink" title="文件操作时：xreadlines和readlines的区别？"></a>文件操作时：xreadlines和readlines的区别？</h2><p>readlines     返回一个列表</p>
+<p>xreadlines   返回一个生成器</p>
+<h2 id="列举布尔值为False的常见值？"><a href="#列举布尔值为False的常见值？" class="headerlink" title="列举布尔值为False的常见值？"></a>列举布尔值为False的常见值？</h2><p>False None ‘’ 0 [] {} () set() 不成立的表达式 </p>
+<h2 id="字符串、列表、元组、字典每个常用的5个方法？"><a href="#字符串、列表、元组、字典每个常用的5个方法？" class="headerlink" title="字符串、列表、元组、字典每个常用的5个方法？"></a>字符串、列表、元组、字典每个常用的5个方法？</h2><h3 id="字符串："><a href="#字符串：" class="headerlink" title="字符串："></a>字符串：</h3><ol>
+<li>find通过元素找索引，可切片，找不到返回-1</li>
+<li>index，找不到报错。</li>
+<li>split 由字符串分割成列表，默认按空格。</li>
+<li>captalize 首字母大写，其他字母小写。</li>
+<li>upper 全大写。</li>
+<li>lower 全小写。</li>
+<li>title，每个单词的首字母大写。</li>
+<li>startswith 判断以什么为开头，可以切片，整体概念。</li>
+<li>endswith 判断以什么为结尾，可以切片，整体概念。</li>
+<li>format格式化输出</li>
+<li>strip 默认去掉两侧空格，有条件， 12，lstrip,rstrip 14,center 居中，默认空格。 </li>
+<li>count查找元素的个数，可以切片，若没有返回0 </li>
+<li>expandtabs 将一个tab键变成8个空格，如果tab前面的字符长度不足8个，则补全8个，</li>
+<li>replace（old，new,次数） </li>
+<li>isdigit 字符串由字母或数字组成 isalpha, 字符串只由字母组成 isalnum 字符串只由数字组成 </li>
+<li>swapcase 大小写翻转 </li>
+<li>for i in 可迭代对象。 </li>
+</ol>
+<p>###字典：</p>
+<ol>
+<li>key： 输出所有的键</li>
+<li>clear：清空                       </li>
+<li>dic：删除的键如果没有则报错</li>
+<li>pop：键值对删，有返回，没有原来的键会报错（自行设置返回键就不会报错）</li>
+<li>popitem：随机删键值对</li>
+<li>del：删除的键如果没有则报错</li>
+</ol>
+<h3 id="列表："><a href="#列表：" class="headerlink" title="列表："></a>列表：</h3><ol>
+<li>append：在后面添加。</li>
+<li>Insert按照索引添加，</li>
+<li>expend：迭代着添加。</li>
+<li>list.extend(seq) - 在列表末尾一次性追加另一个序列中的多个值（用新列表扩展原来的列表）</li>
+<li>pop 删除   (pop 有返回值)</li>
+<li>remove 可以按照元素去删</li>
+<li>clear  清空列表</li>
+<li>del 1、可以按照索引去删除 2、切片 3、步长（隔着删）</li>
+<li>list.count(obj) - 统计某个元素在列表中出现的次数</li>
+<li>list.index(obj) - 从列表中找出某个值第一个匹配项的索引位置</li>
+<li>list.reverse() - 反向列表中元素</li>
+<li>list.sort([func]) - 对原列表进行排序</li>
+</ol>
+<p>###元组：</p>
+<ol>
+<li>cmp(tuple1, tuple2)：比较两个元组元素。</li>
+<li>len(tuple)：计算元组元素个数。</li>
+<li>max(tuple)：返回元组中元素最大值。</li>
+<li>min(tuple)：返回元组中元素最小值。</li>
+<li>tuple(seq)：将列表转换为元组。</li>
+</ol>
+<h2 id="lambda表达式格式以及应用场景-用lambda函数的好处"><a href="#lambda表达式格式以及应用场景-用lambda函数的好处" class="headerlink" title="lambda表达式格式以及应用场景? 用lambda函数的好处?"></a>lambda表达式格式以及应用场景? 用lambda函数的好处?</h2><p>匿名函数：为了解决那些功能很简单的需求而设计的一句话函数<br>函数名 = lambda 参数 ：返回值</p>
+<ul>
+<li>参数可以有多个，用逗号隔开</li>
+<li>匿名函数不管逻辑多复杂，只能写一行，且逻辑执行结束后的内容就是返回值</li>
+<li><p>返回值和正常的函数一样可以是任意数据类型</p>
+<pre><code>#lambda 表达式
+
+temp = lambda x,y:x+y
+
+print(temp(4,10))   
+
+#可替代：
+def foo(x,y):
+    return x+y
+print(foo(4,10))    
+</code></pre></li>
+</ul>
+<h2 id="pass的作用？continue的作用-break的作用"><a href="#pass的作用？continue的作用-break的作用" class="headerlink" title="pass的作用？continue的作用? break的作用?"></a>pass的作用？continue的作用? break的作用?</h2><p>###pass<br>pass是空语句，是为了保持程序结构的完整性。pass 不做任何事情，一般用做占位语句。</p>
+<p>###continue<br>退出本次循环，执行下一次循环</p>
+<p>###break<br>结束循环</p>
+<h2 id="arg和-kwarg作用"><a href="#arg和-kwarg作用" class="headerlink" title="*arg和**kwarg作用"></a>*arg和**kwarg作用</h2><p> *args代表位置参数，它会接收任意多个参数并把这些参数作为元祖传递给函数。</p>
+<p>**kwargs代表的关键字参数，返回的是字典，位置参数一定要放在关键字前面</p>
+<h2 id="is和-的区别"><a href="#is和-的区别" class="headerlink" title="is和==的区别"></a>is和==的区别</h2><p>is 比较的是两个实例对象是不是完全相同，它们是不是同一个对象，占用的内存地址是否相同。</p>
+<p>== 比较的是两个对象的内容是否相等，即内存地址可以不一样，内容一样就可以了。默认会调用对象的 <strong>eq</strong>()方法。</p>
+<pre><code>a = &apos;lishi&apos;
+str1 = &quot;li&quot;
+str2 = &quot;shi&quot;
+str3 = str1 + str2
+print(&quot;a == str3&quot;,a == str3)
+print(&quot;a is str3&quot;,a is str3)
+print(&quot;id(a)&quot;,id(a))
+print(&quot;id(str3)&quot;,id(str3))
+# a == str3 True    ==  ---&gt; 只需要内容相等
+# a is str3 False   is  ---&gt; 只需要内存地址相等
+# id(a) 38565848
+# id(str3) 39110280
+</code></pre><h2 id="简述Python的深浅拷贝以及应用场景？"><a href="#简述Python的深浅拷贝以及应用场景？" class="headerlink" title="简述Python的深浅拷贝以及应用场景？"></a>简述Python的深浅拷贝以及应用场景？</h2><p>浅拷贝只是增加了一个指针指向一个存在的地址，</p>
+<p>而深拷贝是增加一个指针并且开辟了新的内存，这个增加的指针指向这个新的内存，<br>采用浅拷贝的情况，释放内存，会释放同一内存，深拷贝就不会出现释放同一内存的错误</p>
+<p>一层的情况：</p>
+<pre><code>import copy
+
+ #浅拷贝
+li1 = [1, 2, 3]
+li2 = li1.copy()
+li1.append(4)
+print(li1, li2)  # [1, 2, 3, 4] [1, 2, 3]
+
+# 深拷贝
+li1 = [1, 2, 3]
+li2 = copy.deepcopy(li1)
+li1.append(4)
+print(li1, li2)  # [1, 2, 3, 4] [1, 2, 3]
+</code></pre><p>多层的情况：</p>
+<pre><code>import copy
+
+# 浅拷贝 指向共有的地址
+li1 = [1, 2, 3,[4,5],6]
+li2 = li1.copy()
+li1[3].append(7)
+print(li1, li2)  # [1, 2, 3, [4, 5, 7], 6] [1, 2, 3, [4, 5, 7], 6]
+
+# 深拷贝 重指向
+li1 = [1, 2, 3,[4,5],6]
+li2 = copy.deepcopy(li1)
+li1[3].append(7)
+print(li1, li2)  # [1, 2, 3, [4, 5, 7], 6] [1, 2, 3, [4, 5], 6]
+</code></pre><h2 id="拷贝的注意点"><a href="#拷贝的注意点" class="headerlink" title="拷贝的注意点?"></a>拷贝的注意点?</h2><p>区分深拷贝与浅拷贝</p>
+<h2 id="Python垃圾回收机制？"><a href="#Python垃圾回收机制？" class="headerlink" title="Python垃圾回收机制？"></a>Python垃圾回收机制？</h2><p>引用计数</p>
+<p>标记清除</p>
+<p>分代回收</p>
+<p><a href="https://blog.csdn.net/wxfghy/article/details/80901488" target="_blank" rel="noopener">python垃圾回收机制详解</a></p>
+<h2 id="Python的可变类型和不可变类型？"><a href="#Python的可变类型和不可变类型？" class="headerlink" title="Python的可变类型和不可变类型？"></a>Python的可变类型和不可变类型？</h2><p>可变类型：</p>
+<ul>
+<li>列表</li>
+<li>字典（索引不可变）</li>
+<li>可变集合</li>
+</ul>
+<p>不可变类型：</p>
+<ul>
+<li>字符串</li>
+<li>数字</li>
+<li>元祖</li>
+<li>不可变集合</li>
+</ul>
+<h2 id="列举常见的内置函数？"><a href="#列举常见的内置函数？" class="headerlink" title="列举常见的内置函数？"></a>列举常见的内置函数？</h2><p>①map():对可迭代对象中的每个元素都进行相同的处理，最后返回一个新的可迭代对象，python2中直接返回列表形式</p>
+<p>②filter():对可迭代对象中的每个元素进行筛选，最后将符合条件的元素装进一个新的可迭代对象里，python2中直接返回列表形式</p>
+<p>③reduce():对可迭代对象中的元素进行一个操作（如所有的值加起来），最后返回新数值</p>
+<pre><code>#===========input========输入
+s = input(&quot;请输入内容 ： &quot;)  #输入的内容赋值给s变量
+print(s)  #输入什么打印什么。数据类型是str
+# ==========abs==========绝对值
+print(abs(-1))  # 1
+
+# ==========all==========可迭代对象的每个元素的布尔操作都是True时返回True，若传入的可迭代对象是空则返回True
+print(all([&apos;&apos;, 1, &apos;s&apos;]))  # False
+
+# ==========any==========可迭代对象的每个元素的布尔操作中有一个是True时就返回True，若传入的可迭代对象是空则返回True
+print(any([&apos;&apos;, 5, &apos;0&apos;]))  # Ture
+
+# ==========bin==========将十进制数转成二进制数
+print(bin(3))  # 0b11
+
+# ==========hex==========将十进制数转成十六进制数
+print(hex(10))  # 0xa
+
+# ==========oct==========将十进制数转成八进制数
+print(oct(8))  # 0o10
+
+# ==========bool==========布尔值操作: 空 0 None 布尔操作为False
+print(bool([]))  # False
+
+# ==========bytes==========编码 将传入的字符串用某种编码方式转换成二进制
+print(bytes(&apos;陈&apos;, encoding=&apos;utf-8&apos;))  # b&apos;\xe9\x99\x88&apos;
+print(bytes(&apos;陈&apos;, encoding=&apos;utf-8&apos;).decode(&apos;utf-8&apos;))  # 陈  # 译码 译码与编码应采用一样的
+
+# ==========chr==========将ASCII码转成对应字符
+print(chr(97))  # a
+
+# ==========ord=========将字符转成对应的ASCII码值
+print(ord(&apos;a&apos;))  # 97
+
+# ==========dir==========打印某种对象里面的所有属性
+print(dir(all))
+
+# ==========divmod==========参数1除以参数2 返回一个元组（商，余数）
+print(divmod(10, 3))  # (3, 1)
+
+# ==========eval==========
+dic = {&apos;name&apos;: &apos;chen&apos;}
+dic_str = str(dic)
+# ===================================功能1：提取成传入的字符串中的数据类型
+print(dic_str)  # &apos;{&apos;name&apos;: &apos;chen&apos;}&apos;
+print(type(dic_str))  # &lt;class &apos;str&apos;&gt;
+print(eval(dic_str))  # {&apos;name&apos;: &apos;chen&apos;}
+print(type(eval(dic_str)))  # &lt;class &apos;dict&apos;&gt;
+# ===================================功能2：计算字符串中的数学运算
+s = &apos;1 + 2 * 1&apos;
+print(eval(s))  # 3
+
+# ==========hash==========hash运算
+print(hash(&apos;chen&apos;))  # -1076846465005340399
+print(hash(&apos;chenyuanyuan&apos;))  # -8978753568388561982  #hash()----&gt;hash运算
+
+# ==========help==========函数功能解释
+print(help(all))
+
+# ==========isinstance==========判断某个对象是否是某种数据类型的实例对象
+print(isinstance(&apos;2&apos;, str))  # True
+
+# ==========globals、locals==========全局变量、局部变量
+name = &apos;chen&apos;
+
+
+def test():
+    age = 18
+    print(globals())  # 打印所有的全局变量，包括name
+    print(locals())  # {&apos;age&apos;: 18} #打印所有的局部变量
+
+
+test()
+
+# ==========min、max==========最小值、最大值
+dic = {&apos;chen&apos;: 100, &apos;wang&apos;: 200, &apos;li&apos;: 500, &apos;do&apos;: 600}
+# ============一个可迭代参数
+print(min([&apos;a01&apos;, &apos;b10&apos;, &apos;c1&apos;]))  # a01 遍历出每个元素，比较它们的的第一位的ASCII码值，找到最小后就停止比较
+# print(min([&apos;a01&apos;, &apos;b10&apos;, &apos;c1&apos;, 30])) #报错 不同数据类型无法比较
+print(min(dic))  # chen
+print(max(dic))  # wang
+print(min(dic.values()))  # 100
+print(max(dic.values()))  # 600
+print(max(zip(dic.values(), dic.keys())))  # (600, &apos;do&apos;) #max与zip结合找出value值最大的那一组
+# ============两个参数
+print(min(dic, key=lambda k: dic[k]))  # chen
+print(max(dic, key=lambda k: dic[k]))  # do
+
+# ==========zip==========拉链操作，将多个可迭代对象(列表，元组，字符串)对应元素组成一个元组，多余元素自动去掉，返回可迭代对象
+print(list(zip(&apos;abc&apos;, &apos;def&apos;, &apos;ghihhhhh&apos;)))  # [(&apos;a&apos;, &apos;d&apos;, &apos;g&apos;), (&apos;b&apos;, &apos;e&apos;, &apos;h&apos;), (&apos;c&apos;, &apos;f&apos;, &apos;i&apos;)]
+print(list(zip(dic.keys(), dic.values())))  # [(&apos;chen&apos;, 100), (&apos;wang&apos;, 200), (&apos;li&apos;, 500), (&apos;do&apos;, 600)]
+
+# ==========pow==========参数1的参数2次方，结果对参数3进行取余操作
+print(pow(2, 3))  # 8
+print(pow(2, 3, 1))  # 0
+
+# ==========reversed==========反转可迭代对象中元素的排列顺序，返回迭代器
+a = [1, 2, 3]
+print(list(reversed(a)))  # [3, 2, 1]
+
+# ==========round==========四舍五入取整
+print(round(2.66))  # 3
+
+# ==========set==========将其他数据类型转换成集合
+print(set(&apos;hello&apos;))  # {&apos;h&apos;, &apos;o&apos;, &apos;e&apos;, &apos;l&apos;}
+
+# ==========slice==========切片：参数1--&gt;起始索引，参数2--&gt;结束索引，参数3--&gt;步长
+a = &apos;ehllovihgh&apos;
+s1 = slice(2, 6, 2)
+print(s1.start)  # 2
+print(s1.stop)  # 6
+print(s1.step)  # 2
+print(a[s1])  # lo
+
+# ==========sorted==========排序
+a = [1, 25, 2, 3]
+print(sorted(a)) #[1, 2, 3, 25]  #不同数据类型任然无法进行排序比较
+lists = [{&apos;name&apos;: &apos;chen&apos;, &apos;age&apos;: 18}, {&apos;name&apos;: &apos;wang&apos;, &apos;age&apos;: 25}, {&apos;name&apos;: &apos;li&apos;, &apos;age&apos;: 9}]
+print(sorted(lists, key = lambda dic:dic[&apos;age&apos;]))
+#[{&apos;name&apos;: &apos;li&apos;, &apos;age&apos;: 9}, {&apos;name&apos;: &apos;chen&apos;, &apos;age&apos;: 18}, {&apos;name&apos;: &apos;wang&apos;, &apos;age&apos;: 25}]
+info = {&apos;liu&apos;: 100, &apos;li&apos;: 12200, &apos;chen&apos;: 100000}
+print(sorted(info.keys()))  #[&apos;chen&apos;, &apos;li&apos;, &apos;liu&apos;]  #比较key值
+print(sorted(info.values())) #[100, 12200, 100000]  #比较value值
+print(sorted(info, key = lambda key: info[key]))   #[&apos;liu&apos;, &apos;li&apos;, &apos;chen&apos;] #比较value值，返回key值
+print(sorted(zip(info.values(), info.keys())))   #[(100, &apos;liu&apos;), (12200, &apos;li&apos;), (100000, &apos;chen&apos;)]
+
+# ==========type==========查看数据类型
+print(type(&apos;ll&apos;))  # &lt;class &apos;str&apos;&gt;
+
+# ==========sum==========求和
+print(sum([5, 2, 3])) #10
+
+# ==========range==========范围
+for item in range(5):
+    print(item)
+# 0
+# 1
+# 2
+# 3
+# 4
+for item in range(5, 7):
+    print(item)
+# 5
+# 6
+
+# ==========__import__==========引入字符串类型的模块名
+m = __import__(&apos;...&apos;)
+m.函数名()
+</code></pre><p><img src alt="常用内置函数列举"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>赏瓶可乐吧(*^▽^*)</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="陈十三 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="陈十三 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python基础/" rel="tag"># python基础</a>
+          
+            <a href="/tags/面试/" rel="tag"># 面试</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/31/Linux用户与组/" rel="next" title="Linux用户与组">
+                <i class="fa fa-chevron-left"></i> Linux用户与组
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/1.jpg" alt="陈十三">
+            
+              <p class="site-author-name" itemprop="name">陈十三</p>
+              <p class="site-description motion-element" itemprop="description">学习与交流</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题目："><span class="nav-number">2.</span> <span class="nav-text">题目：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python3和Python2中-int-和-long的区别？"><span class="nav-number">3.</span> <span class="nav-text">Python3和Python2中 int 和 long的区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4G-内存怎么读取一个-5G-的数据"><span class="nav-number">4.</span> <span class="nav-text">4G 内存怎么读取一个 5G 的数据?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#read、readline-和-readlines-的区别"><span class="nav-number">5.</span> <span class="nav-text">read、readline 和 readlines 的区别?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件操作时：xreadlines和readlines的区别？"><span class="nav-number">6.</span> <span class="nav-text">文件操作时：xreadlines和readlines的区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列举布尔值为False的常见值？"><span class="nav-number">7.</span> <span class="nav-text">列举布尔值为False的常见值？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串、列表、元组、字典每个常用的5个方法？"><span class="nav-number">8.</span> <span class="nav-text">字符串、列表、元组、字典每个常用的5个方法？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串："><span class="nav-number">8.1.</span> <span class="nav-text">字符串：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表："><span class="nav-number">8.2.</span> <span class="nav-text">列表：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lambda表达式格式以及应用场景-用lambda函数的好处"><span class="nav-number">9.</span> <span class="nav-text">lambda表达式格式以及应用场景? 用lambda函数的好处?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pass的作用？continue的作用-break的作用"><span class="nav-number">10.</span> <span class="nav-text">pass的作用？continue的作用? break的作用?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#arg和-kwarg作用"><span class="nav-number">11.</span> <span class="nav-text">*arg和**kwarg作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#is和-的区别"><span class="nav-number">12.</span> <span class="nav-text">is和==的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简述Python的深浅拷贝以及应用场景？"><span class="nav-number">13.</span> <span class="nav-text">简述Python的深浅拷贝以及应用场景？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拷贝的注意点"><span class="nav-number">14.</span> <span class="nav-text">拷贝的注意点?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python垃圾回收机制？"><span class="nav-number">15.</span> <span class="nav-text">Python垃圾回收机制？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python的可变类型和不可变类型？"><span class="nav-number">16.</span> <span class="nav-text">Python的可变类型和不可变类型？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列举常见的内置函数？"><span class="nav-number">17.</span> <span class="nav-text">列举常见的内置函数？</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">陈十三</span>
+
+  
+</div>
+
+<!-- 
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+ -->
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'vzmErYHn1YpeNJrQRiEaT80M-gzGzoHsz',
+        appKey: 'X8MpEppGeY0OcM9hkErRiiyo',
+        placeholder: '评论交流一下吧',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
