@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="鸡汤,">
+  <meta name="keywords" content="python,socket,ssh,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="奋斗的开始折腾了一两天，排除了蛮多错误，总算是把hexo博客搭建起来了。不得不说hexo还是多Mac用户有好一点，Windows用户全靠谷歌找教程。也希望自己可以坚持每天写写博客，吾日三省吾身嘛，用博客记录一下自己流走的时光。当然更多的是给自己提供一个记录笔记，分享代码的一个平台。希望可以坚持下去。">
-<meta name="keywords" content="鸡汤">
+<meta name="description" content="前言：多喝水，不仅身体好，啥都好。而且不喝水会有惩罚。emmm,肚子有点饿，没东西吃还要写博客也是蛮痛苦。用python实现ssh功能主要运用了socket编程，主要是加强一下自己对最近有些所学知识的运用。原理就不多写了，直接上代码吧！ 代码：实现的功能：实现多线程服务器，接收客户端的命令，在Windows系统下执行cmd命令实现简单的ssh功能，并记录日志">
+<meta name="keywords" content="python,socket,ssh">
 <meta property="og:type" content="article">
-<meta property="og:title" content="我的第一篇博文">
-<meta property="og:url" content="http://yoursite.com/2019/03/12/我的第一篇博文/index.html">
+<meta property="og:title" content="python实现ssh">
+<meta property="og:url" content="http://yoursite.com/2019/04/06/python实现ssh/index.html">
 <meta property="og:site_name" content="陈先生的博客">
-<meta property="og:description" content="奋斗的开始折腾了一两天，排除了蛮多错误，总算是把hexo博客搭建起来了。不得不说hexo还是多Mac用户有好一点，Windows用户全靠谷歌找教程。也希望自己可以坚持每天写写博客，吾日三省吾身嘛，用博客记录一下自己流走的时光。当然更多的是给自己提供一个记录笔记，分享代码的一个平台。希望可以坚持下去。">
+<meta property="og:description" content="前言：多喝水，不仅身体好，啥都好。而且不喝水会有惩罚。emmm,肚子有点饿，没东西吃还要写博客也是蛮痛苦。用python实现ssh功能主要运用了socket编程，主要是加强一下自己对最近有些所学知识的运用。原理就不多写了，直接上代码吧！ 代码：实现的功能：实现多线程服务器，接收客户端的命令，在Windows系统下执行cmd命令实现简单的ssh功能，并记录日志">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-17T15:29:45.354Z">
+<meta property="og:updated_time" content="2019-04-06T15:43:40.514Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我的第一篇博文">
-<meta name="twitter:description" content="奋斗的开始折腾了一两天，排除了蛮多错误，总算是把hexo博客搭建起来了。不得不说hexo还是多Mac用户有好一点，Windows用户全靠谷歌找教程。也希望自己可以坚持每天写写博客，吾日三省吾身嘛，用博客记录一下自己流走的时光。当然更多的是给自己提供一个记录笔记，分享代码的一个平台。希望可以坚持下去。">
+<meta name="twitter:title" content="python实现ssh">
+<meta name="twitter:description" content="前言：多喝水，不仅身体好，啥都好。而且不喝水会有惩罚。emmm,肚子有点饿，没东西吃还要写博客也是蛮痛苦。用python实现ssh功能主要运用了socket编程，主要是加强一下自己对最近有些所学知识的运用。原理就不多写了，直接上代码吧！ 代码：实现的功能：实现多线程服务器，接收客户端的命令，在Windows系统下执行cmd命令实现简单的ssh功能，并记录日志">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/12/我的第一篇博文/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/06/python实现ssh/">
 
 
 
 
 
-  <title>我的第一篇博文 | 陈先生的博客</title>
+  <title>python实现ssh | 陈先生的博客</title>
   
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/12/我的第一篇博文/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/06/python实现ssh/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陈十三">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">我的第一篇博文</h1>
+          <h1 class="post-title" itemprop="name headline">python实现ssh</h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-12T10:48:59+08:00">
-                2019-03-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-06T23:21:52+08:00">
+                2019-04-06
               </time>
             
 
@@ -305,8 +305,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/日记/" itemprop="url" rel="index">
-                    <span itemprop="name">日记</span>
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
                   </a>
                 </span>
 
@@ -323,8 +323,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/03/12/我的第一篇博文/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/03/12/我的第一篇博文/" itemprop="commentCount"></span>
+                <a href="/2019/04/06/python实现ssh/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/06/python实现ssh/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -383,12 +383,195 @@
       
 
       
-        <h2 id="奋斗的开始"><a href="#奋斗的开始" class="headerlink" title="奋斗的开始"></a>奋斗的开始</h2><p>折腾了一两天，排除了蛮多错误，总算是把hexo博客搭建起来了。不得不说hexo还是多Mac用户有好一点，Windows用户全靠谷歌找教程。也希望自己可以坚持每天写写博客，吾日三省吾身嘛，用博客记录一下自己流走的时光。当然更多的是给自己提供一个记录笔记，分享代码的一个平台。希望可以坚持下去。</p>
-<hr>
-<a id="more"></a>
-<h2 id="奋斗的计划"><a href="#奋斗的计划" class="headerlink" title="奋斗的计划"></a>奋斗的计划</h2><p>目前的语言以Python为主，再自己学习Django 和 爬虫 掌握后做一些小项目练手；<br>当然Qt 和 C++ 还是不能放下的，图形界面编程还是自己比较感兴趣的点；<br>复习以往自己学过的知识点，定时整理一下自己的Python笔记，会在博客建立一个标签存放自己的Python笔记与项目介绍；<br>刷题，LeetCode与自己手上的一些算法与数据结构的题要每天都写一写，为秋招做准备，当然，计算机网络、操作系统、数据库等知识也要不断巩固，以及兼顾好自己的学业；<br>动手做项目，多敲多打，才可以让自己保持一个好的编程状态。尽可能结合一些项目进行学习，同时上传github，也可以在github上学习别人的一些好的思路与想法；<br>陪伴(#^.^#)图书馆走起！！！</p>
-<hr>
-<h2 id="奋斗的鸡汤"><a href="#奋斗的鸡汤" class="headerlink" title="奋斗的鸡汤"></a>奋斗的鸡汤</h2><p>首先自己对编程这方面比较感兴趣，也是自己以后一个就业的方向。现在的努力是为了自己的发展，也是为了让自己爱的人以后可以过上好的生活。累了就停一会翻翻相册，回想一下那些美好的瞬间，听听歌单里的歌，哼一哼那些熟悉的旋律，浏览一下记事本，看看之前许下的诺言。就像星爷说的那句话：“2019，努力！奋斗！” 你也要好好加油哦。是的，我们要一起加油！</p>
+        <h2 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h2><p>多喝水，不仅身体好，啥都好。而且不喝水会有惩罚。emmm,肚子有点饿，没东西吃还要写博客也是蛮痛苦。用python实现ssh功能主要运用了socket编程，主要是加强一下自己对最近有些所学知识的运用。原理就不多写了，直接上代码吧！</p>
+<h2 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h2><h3 id="实现的功能："><a href="#实现的功能：" class="headerlink" title="实现的功能："></a>实现的功能：</h3><p>实现多线程服务器，接收客户端的命令，在Windows系统下执行cmd命令实现简单的ssh功能，并记录日志<br><a id="more"></a></p>
+<h3 id="连接设置："><a href="#连接设置：" class="headerlink" title="连接设置："></a>连接设置：</h3><pre><code>ADDRESS = &quot;127.0.0.1&quot;
+PORT = 2222
+</code></pre><h3 id="客户端："><a href="#客户端：" class="headerlink" title="客户端："></a>客户端：</h3><pre><code>import socket
+from ssh_settings import ADDRESS, PORT
+
+client = socket.socket()
+client.connect((ADDRESS, PORT))
+
+while True:
+    show = &apos;&apos;
+    command = input(&quot;&gt;&gt;&gt;&quot;).strip()
+    if not command:
+        continue
+    client.send(command.encode(&apos;utf-8&apos;))
+    result_len = client.recv(1024) #接收内容长度
+    meg_box = []
+    for len in range(0,int(result_len),1024):
+
+        result = client.recv(1024)
+        meg_box.append(result.decode(&apos;utf-8&apos;))
+
+    result = &apos;&apos;.join(meg_box) #拼接数据
+    print(result)
+
+    # result = client.recv(1024) #第二种方法接收数据
+    # print(result.decode(&apos;utf-8&apos;))
+    # while True:
+    #
+    #     print(len(result))
+    #     if not result: #分段接收
+    #         print(result.decode(&apos;utf-8&apos;))
+    #         result = client.recv(1024)
+    #     else:
+    #         break
+
+
+client.close()
+</code></pre><h3 id="服务器："><a href="#服务器：" class="headerlink" title="服务器："></a>服务器：</h3><pre><code>from socket import socket
+import os
+from ssh_settings import ADDRESS, PORT
+from threading import Thread
+import  logging
+from logging_settings import LOGGING_DIC
+
+logging.config.dictConfig(LOGGING_DIC)
+logger = logging.getLogger(&quot;log1&quot;)
+
+
+def server():
+    server = socket()
+    server.bind((ADDRESS, PORT))
+    server.listen(2)
+
+    conn, addr = server.accept()
+    while True:
+        print(&quot;等待指令...&quot;)
+        try:
+            logger.info(f&quot;{addr} is connected.&quot;)
+            data = conn.recv(1024)
+        except ConnectionResetError as e: #记录连接异常
+            logger.error(f&quot;Error: {e}&quot;, exc_info=True)
+            break
+        if not data:
+            print(&quot;client lost&quot;)
+            logger.warning(&quot;client lost&quot;)
+        else:
+            try :
+
+                print(&quot;receive:&quot;, data)
+                logger.info(f&quot;server receive: {data.decode(&apos;utf-8&apos;)}&quot;)
+                cmd_ret = os.popen(data.decode(&apos;utf-8&apos;)).read()
+                cmd_ret = cmd_ret.encode(&apos;utf-8&apos;)
+                result = str(len(cmd_ret)).encode(&apos;utf-8&apos;)  # 获得相应内容的长度
+                print(len(cmd_ret))
+                conn.send(result)  # 先发送内容的长度给客户端
+                conn.sendall(cmd_ret)
+                print(&quot;send done&quot;)
+                logger.info(&quot;send done&quot;)
+            except Exception as e:
+                logger.error(f&quot;Error: {e}&quot;,exc_info=True)
+
+            # python3 =&gt; bytes
+            # bytes -&gt; str   =&gt; decode
+            # str -&gt; bytes =&gt; encode
+
+while True:
+    Thread(target=server(), args=()).start()
+</code></pre><h3 id="日志格式设置："><a href="#日志格式设置：" class="headerlink" title="日志格式设置："></a>日志格式设置：</h3><pre><code>import os
+import logging.config
+import time
+
+
+def mkdir(path):
+    # 引入模块
+
+    # 去除首位空格
+    path = path.strip()
+    # 去除尾部 \ 符号
+    path = path.rstrip(&quot;\\&quot;)
+
+    # 判断路径是否存在
+    # 存在     True
+    # 不存在   False
+    isExists = os.path.exists(path)
+
+    # 判断结果
+    if not isExists:
+        # 如果不存在则创建目录
+        # 创建目录操作函数
+        os.makedirs(path)
+        return True
+    else:
+        # 如果目录存在则不创建，并提示目录已存在
+
+        return False
+
+# 定义三种日志输出格式 开始
+
+# 标准版 格式
+standard_format = &apos;[%(asctime)s][%(threadName)s:%(thread)d][task_id:%(name)s][%(filename)s:%(lineno)d]&apos; \
+                  &apos;[%(levelname)s][%(message)s]&apos; #其中name为getlogger指定的名字
+# 简单版 格式
+simple_format = &apos;[%(levelname)s][%(asctime)s][%(filename)s:%(lineno)d]%(message)s&apos;
+
+# boss版格式（lowb版）
+id_simple_format = &apos;[%(levelname)s][%(asctime)s] %(message)s&apos;
+
+# 定义日志输出格式 结束
+#
+
+# 定义要创建的目录
+mkpath = &quot;./Logs&quot;
+# 调用函数
+mkdir(mkpath)
+rq = time.strftime(&apos;%Y%m%d%H%M&apos;, time.localtime(time.time()))
+
+logfile_name = f&apos;{mkpath}/{rq}.log&apos;  # log文件名
+
+# log配置字典
+
+LOGGING_DIC = {
+    &apos;version&apos;: 1,  # 版本
+    &apos;disable_existing_loggers&apos;: False,  # 可否重复使用之前的logger对象
+    &apos;formatters&apos;: {
+        # standard, simple, boss_formatter =&gt; 自己定义的名字，后面要用
+        &apos;standard&apos;: {
+            &apos;format&apos;: standard_format
+        },
+        &apos;simple&apos;: {
+            &apos;format&apos;: simple_format
+        },
+        &apos;boss_formatter&apos;: {
+            &apos;format&apos;: id_simple_format
+        },
+    },
+    # 日志过滤器
+    &apos;filters&apos;: {},
+    # file/stream/rotating
+    &apos;handlers&apos;: {
+        #打印到终端的日志
+        # stream, file =&gt; 自定义的名字
+        &apos;stream&apos;: {
+            &apos;level&apos;: &apos;DEBUG&apos;,
+            &apos;class&apos;: &apos;logging.StreamHandler&apos;,  # 打印到屏幕
+            &apos;formatter&apos;: &apos;simple&apos;
+        },
+        #打印到文件的日志,收集info及以上的日志  文件句柄
+        &apos;file&apos;: {
+            &apos;level&apos;: 20,
+            &apos;class&apos;: &apos;logging.handlers.RotatingFileHandler&apos;,  # 保存到文件
+            &apos;formatter&apos;: &apos;standard&apos;,  # 标准
+            &apos;filename&apos;: logfile_name,  # 日志文件
+            # &apos;maxBytes&apos;: 300,  # 日志大小 300 bit
+            &apos;backupCount&apos;: 5,  #轮转文件数
+            &apos;encoding&apos;: &apos;utf-8&apos;,  # 日志文件的编码，再也不用担心中文log乱码了
+        },
+    },
+    &apos;loggers&apos;: {
+        # logging.getLogger(__name__)拿到的logger配置
+        &apos;log1&apos;: {
+            &apos;handlers&apos;: [ &apos;file&apos;],  # 这里把上面定义的两个handler都加上，即log数据既写入文件又打印到屏幕
+            &apos;level&apos;: &apos;DEBUG&apos;,  # 总级别
+            &apos;propagate&apos;: True,  # 向上（更高level的logger）传递
+        },
+    },
+}
+</code></pre><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这个小练习，让我最受用的就是我体会到了设置文件的好处。而且我们在编程的时候一定要考虑到日后维护的方便，所以一些编程的格式和模式都有讲究，不然以后苦的还是自己。</p>
 
       
     </div>
@@ -435,7 +618,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/鸡汤/" rel="tag"># 鸡汤</a>
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+            <a href="/tags/socket/" rel="tag"># socket</a>
+          
+            <a href="/tags/ssh/" rel="tag"># ssh</a>
           
         </div>
       
@@ -448,8 +635,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/12/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2019/04/02/Python-基础问题（二）/" rel="next" title="Python-基础问题（二）">
+                <i class="fa fa-chevron-left"></i> Python-基础问题（二）
               </a>
             
           </div>
@@ -457,10 +644,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/15/利用hexo与github搭建自己的个人博客/" rel="prev" title="利用hexo与github搭建自己的个人博客">
-                利用hexo与github搭建自己的个人博客 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -623,7 +806,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#奋斗的开始"><span class="nav-number">1.</span> <span class="nav-text">奋斗的开始</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#奋斗的计划"><span class="nav-number">2.</span> <span class="nav-text">奋斗的计划</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#奋斗的鸡汤"><span class="nav-number">3.</span> <span class="nav-text">奋斗的鸡汤</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言："><span class="nav-number">1.</span> <span class="nav-text">前言：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码："><span class="nav-number">2.</span> <span class="nav-text">代码：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实现的功能："><span class="nav-number">2.1.</span> <span class="nav-text">实现的功能：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#连接设置："><span class="nav-number">2.2.</span> <span class="nav-text">连接设置：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端："><span class="nav-number">2.3.</span> <span class="nav-text">客户端：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务器："><span class="nav-number">2.4.</span> <span class="nav-text">服务器：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#日志格式设置："><span class="nav-number">2.5.</span> <span class="nav-text">日志格式设置：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
