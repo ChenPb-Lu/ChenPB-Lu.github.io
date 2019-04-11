@@ -88,7 +88,7 @@
 <meta property="og:description" content="前言吸烟有害健康，切记。最近要抓紧练车，考完驾照。今天大扫除，有点烦躁，不过寝室干净了，也是有点舒坦的。开始解题吧！回头加一句，一篇博客都写完了，还没回我。o(╥﹏╥)o 题目在未排序的数组中找到第 k 个最大的元素。请注意，你需要找的是数组排序后的第 k 个最大的元素，而不是第 k 个不同的元素。 示例 1: 输入: [3,2,1,5,6,4] 和 k = 2输出: 5示例 2: 输入: [3,">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://wx3.sinaimg.cn/mw690/006AhDVYgy1g1yuu0999ij30zq0aejri.jpg">
-<meta property="og:updated_time" content="2019-04-11T10:17:32.121Z">
+<meta property="og:updated_time" content="2019-04-11T10:23:11.244Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="leetcode-寻找数组第K个最大数">
 <meta name="twitter:description" content="前言吸烟有害健康，切记。最近要抓紧练车，考完驾照。今天大扫除，有点烦躁，不过寝室干净了，也是有点舒坦的。开始解题吧！回头加一句，一篇博客都写完了，还没回我。o(╥﹏╥)o 题目在未排序的数组中找到第 k 个最大的元素。请注意，你需要找的是数组排序后的第 k 个最大的元素，而不是第 k 个不同的元素。 示例 1: 输入: [3,2,1,5,6,4] 和 k = 2输出: 5示例 2: 输入: [3,">
@@ -390,7 +390,7 @@
 <p>示例 1:</p>
 <p>输入: [3,2,1,5,6,4] 和 k = 2<br>输出: 5<br>示例 2:</p>
 <p>输入: [3,2,3,1,2,4,5,5,6] 和 k = 4<br>输出: 4<br>说明:</p>
-<p>你可以假设 k 总是有效的，且 1 ≤ k ≤ 数组的长度。</p>
+<p>你可以假设 k 总是有效的，且 1 ≤ k ≤ 数组的长度。<br><a id="more"></a></p>
 <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>对于这个问题，可以说思路是比较清晰的，不过就是对这个数组进行排序而，然后输出对应下标的元素就行，不过我们还是要追求时间复杂度与空间复杂度尽可能的小。一开始我尝试着写了一个快排进行解决，不过不得不说，leetcode的测试用例也是蛮好，毕竟我们能想到的别人也能想到，快排的效率让我诧异，2016ms，只能说测试用例可能都是快排的最坏情况了。<br><img src="https://wx3.sinaimg.cn/mw690/006AhDVYgy1g1yuu0999ij30zq0aejri.jpg" alt="快排执行结果"></p>
 <p>不过这样才有改进的空间嘛！这个时候我想到一个结构————堆.小顶堆完美契合这道题。首先将数组中前k个数构造一个节点数为k的小顶堆，然后剩余的数与根节点进行比较，再下沉调整，最后将根节点输出即可。代码如下：</p>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre><code>class Solution:
