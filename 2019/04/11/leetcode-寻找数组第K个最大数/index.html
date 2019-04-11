@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="leetcode,算法,">
+  <meta name="keywords" content="leetcode,算法,堆排序,">
 
 
 
@@ -79,18 +79,20 @@
 
 
 
-<meta name="description" content="前言：本来应该是昨天就写的，可以寝室没电，电脑罢工没法写。不过今天要和我们家领导说声对不起，最近的表现真的太糟糕，无论什么方面都是这么糟糕。我要好好调整自己的心态。你是第一位，说什么都没有用，错了就是错了，错了就改。我会加油让你成为世界上最幸福的人，不过我才是最幸福的，因为我有你。言归正传，这道题目还是相对简单，思路比较容易。 题目：给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进">
-<meta name="keywords" content="leetcode,算法">
+<meta name="description" content="前言吸烟有害健康，切记。最近要抓紧练车，考完驾照。今天大扫除，有点烦躁，不过寝室干净了，也是有点舒坦的。开始解题吧！回头加一句，一篇博客都写完了，还没回我。o(╥﹏╥)o 题目在未排序的数组中找到第 k 个最大的元素。请注意，你需要找的是数组排序后的第 k 个最大的元素，而不是第 k 个不同的元素。 示例 1: 输入: [3,2,1,5,6,4] 和 k = 2输出: 5示例 2: 输入: [3,">
+<meta name="keywords" content="leetcode,算法,堆排序">
 <meta property="og:type" content="article">
-<meta property="og:title" content="leetcode-整数反转">
-<meta property="og:url" content="http://yoursite.com/2019/03/29/leetcode-整数反转/index.html">
+<meta property="og:title" content="leetcode-寻找数组第K个最大数">
+<meta property="og:url" content="http://yoursite.com/2019/04/11/leetcode-寻找数组第K个最大数/index.html">
 <meta property="og:site_name" content="陈先生的博客">
-<meta property="og:description" content="前言：本来应该是昨天就写的，可以寝室没电，电脑罢工没法写。不过今天要和我们家领导说声对不起，最近的表现真的太糟糕，无论什么方面都是这么糟糕。我要好好调整自己的心态。你是第一位，说什么都没有用，错了就是错了，错了就改。我会加油让你成为世界上最幸福的人，不过我才是最幸福的，因为我有你。言归正传，这道题目还是相对简单，思路比较容易。 题目：给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进">
+<meta property="og:description" content="前言吸烟有害健康，切记。最近要抓紧练车，考完驾照。今天大扫除，有点烦躁，不过寝室干净了，也是有点舒坦的。开始解题吧！回头加一句，一篇博客都写完了，还没回我。o(╥﹏╥)o 题目在未排序的数组中找到第 k 个最大的元素。请注意，你需要找的是数组排序后的第 k 个最大的元素，而不是第 k 个不同的元素。 示例 1: 输入: [3,2,1,5,6,4] 和 k = 2输出: 5示例 2: 输入: [3,">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-31T03:03:08.421Z">
+<meta property="og:image" content="https://wx3.sinaimg.cn/mw690/006AhDVYgy1g1yuu0999ij30zq0aejri.jpg">
+<meta property="og:updated_time" content="2019-04-11T10:17:32.121Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="leetcode-整数反转">
-<meta name="twitter:description" content="前言：本来应该是昨天就写的，可以寝室没电，电脑罢工没法写。不过今天要和我们家领导说声对不起，最近的表现真的太糟糕，无论什么方面都是这么糟糕。我要好好调整自己的心态。你是第一位，说什么都没有用，错了就是错了，错了就改。我会加油让你成为世界上最幸福的人，不过我才是最幸福的，因为我有你。言归正传，这道题目还是相对简单，思路比较容易。 题目：给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进">
+<meta name="twitter:title" content="leetcode-寻找数组第K个最大数">
+<meta name="twitter:description" content="前言吸烟有害健康，切记。最近要抓紧练车，考完驾照。今天大扫除，有点烦躁，不过寝室干净了，也是有点舒坦的。开始解题吧！回头加一句，一篇博客都写完了，还没回我。o(╥﹏╥)o 题目在未排序的数组中找到第 k 个最大的元素。请注意，你需要找的是数组排序后的第 k 个最大的元素，而不是第 k 个不同的元素。 示例 1: 输入: [3,2,1,5,6,4] 和 k = 2输出: 5示例 2: 输入: [3,">
+<meta name="twitter:image" content="https://wx3.sinaimg.cn/mw690/006AhDVYgy1g1yuu0999ij30zq0aejri.jpg">
 
 
 
@@ -120,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/29/leetcode-整数反转/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/11/leetcode-寻找数组第K个最大数/">
 
 
 
 
 
-  <title>leetcode-整数反转 | 陈先生的博客</title>
+  <title>leetcode-寻找数组第K个最大数 | 陈先生的博客</title>
   
 
 
@@ -253,7 +255,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/29/leetcode-整数反转/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/11/leetcode-寻找数组第K个最大数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陈十三">
@@ -270,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">leetcode-整数反转</h1>
+          <h1 class="post-title" itemprop="name headline">leetcode-寻找数组第K个最大数</h1>
         
 
         <div class="post-meta">
@@ -282,8 +284,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-29T23:13:15+08:00">
-                2019-03-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-11T17:35:31+08:00">
+                2019-04-11
               </time>
             
 
@@ -323,8 +325,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/03/29/leetcode-整数反转/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/03/29/leetcode-整数反转/" itemprop="commentCount"></span>
+                <a href="/2019/04/11/leetcode-寻找数组第K个最大数/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/11/leetcode-寻找数组第K个最大数/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -383,68 +385,99 @@
       
 
       
-        <h2 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h2><p>本来应该是昨天就写的，可以寝室没电，电脑罢工没法写。不过今天要和我们家领导说声对不起，最近的表现真的太糟糕，无论什么方面都是这么糟糕。我要好好调整自己的心态。你是第一位，说什么都没有用，错了就是错了，错了就改。我会加油让你成为世界上最幸福的人，不过我才是最幸福的，因为我有你。<br>言归正传，这道题目还是相对简单，思路比较容易。</p>
-<h2 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h2><p>给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进行反转。</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>吸烟有害健康，切记。最近要抓紧练车，考完驾照。今天大扫除，有点烦躁，不过寝室干净了，也是有点舒坦的。开始解题吧！回头加一句，一篇博客都写完了，还没回我。o(╥﹏╥)o</p>
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>在未排序的数组中找到第 k 个最大的元素。请注意，你需要找的是数组排序后的第 k 个最大的元素，而不是第 k 个不同的元素。</p>
 <p>示例 1:</p>
-<p>输入: 123<br>输出: 321<br><a id="more"></a><br>示例 2:</p>
-<p>输入: -123<br>输出: -321</p>
-<p>示例 3:</p>
-<p>输入: 120<br>输出: 21<br>注意:</p>
-<p>假设我们的环境只能存储得下 32 位的有符号整数，则其数值范围为 [−231,  231 − 1]。请根据这个假设，如果反转后整数溢出那么就返回 0</p>
-<hr>
-<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><h3 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h3><p>因为目前主攻的语言是python，所以一般都是用python来刷题。有时间也会用C++再写一遍。这道题的话，一个最简单的思路就是先转字符串，然后将字符串倒序。</p>
-<h3 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h3><pre><code>class Solution: 
-    def reverse(self, x: int) -&gt; int:
-        if x &gt;= 0:
-            reversed_x = int(str(x)[::-1])
-        else:
-            reversed_x = -int(str(x)[:0:-1])
+<p>输入: [3,2,1,5,6,4] 和 k = 2<br>输出: 5<br>示例 2:</p>
+<p>输入: [3,2,3,1,2,4,5,5,6] 和 k = 4<br>输出: 4<br>说明:</p>
+<p>你可以假设 k 总是有效的，且 1 ≤ k ≤ 数组的长度。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>对于这个问题，可以说思路是比较清晰的，不过就是对这个数组进行排序而，然后输出对应下标的元素就行，不过我们还是要追求时间复杂度与空间复杂度尽可能的小。一开始我尝试着写了一个快排进行解决，不过不得不说，leetcode的测试用例也是蛮好，毕竟我们能想到的别人也能想到，快排的效率让我诧异，2016ms，只能说测试用例可能都是快排的最坏情况了。<br><img src="https://wx3.sinaimg.cn/mw690/006AhDVYgy1g1yuu0999ij30zq0aejri.jpg" alt="快排执行结果"></p>
+<p>不过这样才有改进的空间嘛！这个时候我想到一个结构————堆.小顶堆完美契合这道题。首先将数组中前k个数构造一个节点数为k的小顶堆，然后剩余的数与根节点进行比较，再下沉调整，最后将根节点输出即可。代码如下：</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre><code>class Solution:
 
-        if -2 ** 31 &lt; reversed_x &lt; 2 ** 31 - 1:
-            return reversed_x
-        else:
-            return 0
-</code></pre><h3 id="结果："><a href="#结果：" class="headerlink" title="结果："></a>结果：</h3><p>执行结果还不错，72ms。不过还是有接近40%的人用的方法比这个快</p>
-<hr>
-<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><h3 id="思路：-1"><a href="#思路：-1" class="headerlink" title="思路："></a>思路：</h3><p>这个方法就是用一个数学的思想，对输入数x不断取余，获取最后一位数字，存入记录数num,然后将x除以10，将最后一位砍断。并将num增大，同时判断是否溢出。代码中也会给出注释。</p>
-<h3 id="代码：-1"><a href="#代码：-1" class="headerlink" title="代码："></a>代码：</h3><pre><code>class Solution:
-    def reverse(self, x: int) -&gt; int:
-        max = 2**31 - 1
-        min = -2 ** 31
-        num = 0
-        if x &lt; 0 : #判断是否是负数
-            is_minus = True
-        else:
-            is_minus = False
-        while x != 0:    
-            if is_minus :#由于python对负数的运算机制问题，所以正数与负数取余与除法操作不同
-                if x % 10 == 0:
-                    index = x % 10#python的一些负数取余除法操作会在下面进行介绍
-                    x = x // 10
-                else:
-                    index = 10 - x % 10
-                    x = x // 10 + 1
-                if num &lt;min // 10 or (num == min // 10 and index &lt; min % 10):#判断溢出
-                    num = 0
-                    break
-                else:
-                    num = num * 10 + index * -1
-                    flag = False
-            else:
-                index = x % 10 #取最后一位数字
-                x = x // 10 #去除x的最后一位
-                if num &gt; max // 10 or (num == max // 10 and index &gt; max % 10):#判断溢出
-                    num = 0
-                    break
-                else:
-                    num = num * 10 + index #将num增大
-        return num
-</code></pre><h3 id="结果：-1"><a href="#结果：-1" class="headerlink" title="结果："></a>结果：</h3><p>执行时间为56ms，感觉速度还不错。不过最主要的就是上文一直提到的负数取余除法机制问题，这也是写题过程中让我困惑的地方。</p>
-<h3 id="python负数除法与取余："><a href="#python负数除法与取余：" class="headerlink" title="python负数除法与取余："></a>python负数除法与取余：</h3><p>在Python中，取余的计算公式与别的语言并没有什么区别：r=a-n*[a//n]</p>
-<p>这里r是余数，a是被除数，n是除数。</p>
-<p>不过在“a//n”这一步，当a是负数的时候，我们上面说了，会向下取整，也就是说向负无穷方向取整。这也就得到：</p>
-<p>-123%10 = -123 - 10 <em> (-123 // 10) = -123 - 10 </em> (-13) = 7<br>所以代码中我会对负数取余后的数字进行一个减法，不过可以直接对-10取余也是可以的。而对于python的取整，123//10=12 -123//10=-13 显然//做除法是取整都是向下即（无穷小方向）取整，所以并不是我们想要的，想要在负数做完除法后进行加一得到我们想要的结果。</p>
-<p><a href="https://blog.csdn.net/sunimage/article/details/84143537" target="_blank" rel="noopener">python负数除法与取余</a></p>
+
+    def findKthLargest(self, nums: List[int], k: int) -&gt; int:
+        self.build_heap(nums,k)
+        # print(&quot;小顶堆构造完毕&quot;)
+        for i in range(k,len(nums)):
+            if nums[i] &gt; nums[0]:
+                nums[0] = nums[i]
+                self.maintain(nums,0,k)
+        return nums[0]
+
+    def maintain(self,List, index, length):
+    # print(&quot;父节点位置:&quot;,index,&quot;父节点：&quot;,List[index])
+        temp = List[index]
+        childindex = 2 * index + 1
+        # print(&quot;左子节点 :&quot;,childindex)
+        while childindex &lt; length:
+            if (childindex + 1 &lt; length ) and (List[childindex + 1] &lt; List[childindex]): #判断左右子节点的大小
+                childindex = childindex + 1
+                # print(&quot;右节点小&quot;)
+            if temp &lt;= List[childindex]:
+                break
+            # print(&quot;位置：&quot;,childindex,&quot;子节点 &quot;,List[childindex])
+            List[index] = List[childindex]
+            index = childindex
+            childindex = 2*childindex+1
+            # print(&apos;节点下沉&apos;,List)
+        List[index] = temp
+
+    def build_heap(self,list,length):
+        i = int((length-2)/2) # 深度
+        while i&gt;=0 :
+            self.maintain(list,i,length)
+            i -= 1
+</code></pre><h3 id="堆的执行过程："><a href="#堆的执行过程：" class="headerlink" title="堆的执行过程："></a>堆的执行过程：</h3><pre><code>数组为： [7, 9, 4, 2, 5, 1, 3, 6, 8, -1]
+构建小顶堆
+第2层
+父节点的数组下标: 2 父节点值： 4
+左子节点的数组下标 : 5
+子节点的数组下标： 5 子节点值：  1
+节点下沉 [7, 9, 1, 2, 5, 1, 3, 6, 8, -1]
+下沉结束： [7, 9, 1, 2, 5, 4, 3, 6, 8, -1]
+第1层
+父节点的数组下标: 1 父节点值： 9
+左子节点的数组下标 : 3
+子节点的数组下标： 3 子节点值：  2
+节点下沉 [7, 2, 1, 2, 5, 4, 3, 6, 8, -1]
+下沉结束： [7, 2, 1, 9, 5, 4, 3, 6, 8, -1]
+第0层
+父节点的数组下标: 0 父节点值： 7
+左子节点的数组下标 : 1
+右节点小
+子节点的数组下标： 2 子节点值：  1
+节点下沉 [1, 2, 1, 9, 5, 4, 3, 6, 8, -1]
+子节点的数组下标： 5 子节点值：  4
+节点下沉 [1, 2, 4, 9, 5, 4, 3, 6, 8, -1]
+下沉结束： [1, 2, 4, 9, 5, 7, 3, 6, 8, -1]
+小顶堆构造完毕
+
+ 比较其余数字
+父节点的数组下标: 0 父节点值： 3
+左子节点的数组下标 : 1
+子节点的数组下标： 1 子节点值：  2
+节点下沉 [2, 2, 4, 9, 5, 7, 3, 6, 8, -1]
+右节点小
+下沉结束： [2, 3, 4, 9, 5, 7, 3, 6, 8, -1]
+父节点的数组下标: 0 父节点值： 6
+左子节点的数组下标 : 1
+子节点的数组下标： 1 子节点值：  3
+节点下沉 [3, 3, 4, 9, 5, 7, 3, 6, 8, -1]
+右节点小
+子节点的数组下标： 4 子节点值：  5
+节点下沉 [3, 5, 4, 9, 5, 7, 3, 6, 8, -1]
+下沉结束： [3, 5, 4, 9, 6, 7, 3, 6, 8, -1]
+父节点的数组下标: 0 父节点值： 8
+左子节点的数组下标 : 1
+右节点小
+子节点的数组下标： 2 子节点值：  4
+节点下沉 [4, 5, 4, 9, 6, 7, 3, 6, 8, -1]
+子节点的数组下标： 5 子节点值：  7
+节点下沉 [4, 5, 7, 9, 6, 7, 3, 6, 8, -1]
+下沉结束： [4, 5, 7, 9, 6, 8, 3, 6, 8, -1]
+第6大的数为：4
+</code></pre><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>在评论区看到一些人总结调用了python内置库的sort（）函数，说实话我蛮不屑这些拿内置函数来刷题的人，不过试了一下，真香。比堆排序快一点，那sort()函数的机制并不是用来一个快排这么简单，以前觉得sort()=快排，现在看来sort()还是一个优化过的快排，内部对不同情况进行不同的排序使用与它们的组合。我还只是个井底之蛙。不过你终于回我了。加油！！！</p>
 
       
     </div>
@@ -495,6 +528,8 @@
           
             <a href="/tags/算法/" rel="tag"># 算法</a>
           
+            <a href="/tags/堆排序/" rel="tag"># 堆排序</a>
+          
         </div>
       
 
@@ -506,8 +541,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/26/Python-基础问题（一）/" rel="next" title="Python 基础问题（一）">
-                <i class="fa fa-chevron-left"></i> Python 基础问题（一）
+              <a href="/2019/04/07/leetcode-寻找两个有序数组的中位数/" rel="next" title="leetcode-寻找两个有序数组的中位数">
+                <i class="fa fa-chevron-left"></i> leetcode-寻找两个有序数组的中位数
               </a>
             
           </div>
@@ -515,10 +550,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/31/Linux用户与组/" rel="prev" title="Linux用户与组">
-                Linux用户与组 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -681,7 +712,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言："><span class="nav-number">1.</span> <span class="nav-text">前言：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题目："><span class="nav-number">2.</span> <span class="nav-text">题目：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法一"><span class="nav-number">3.</span> <span class="nav-text">方法一</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#思路："><span class="nav-number">3.1.</span> <span class="nav-text">思路：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码："><span class="nav-number">3.2.</span> <span class="nav-text">代码：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结果："><span class="nav-number">3.3.</span> <span class="nav-text">结果：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二"><span class="nav-number">4.</span> <span class="nav-text">方法二</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#思路：-1"><span class="nav-number">4.1.</span> <span class="nav-text">思路：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码：-1"><span class="nav-number">4.2.</span> <span class="nav-text">代码：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结果：-1"><span class="nav-number">4.3.</span> <span class="nav-text">结果：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#python负数除法与取余："><span class="nav-number">4.4.</span> <span class="nav-text">python负数除法与取余：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">2.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路"><span class="nav-number">3.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">4.</span> <span class="nav-text">代码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#堆的执行过程："><span class="nav-number">4.1.</span> <span class="nav-text">堆的执行过程：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>

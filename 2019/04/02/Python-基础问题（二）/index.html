@@ -87,10 +87,12 @@
 <meta property="og:site_name" content="陈先生的博客">
 <meta property="og:description" content="前言接着上次的Python基础面试题 题目： Python3和Python2中 int 和 long的区别？ 4G 内存怎么读取一个 5G 的数据? read、readline 和 readlines 的区别? 文件操作时：xreadlines和readlines的区别？ 列举布尔值为False的常见值？ 字符串、列表、元组、字典每个常用的5个方法？ lambda表达式格式以及应用场景? 用lam">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-02T03:00:28.295Z">
+<meta property="og:image" content="https://wx1.sinaimg.cn/mw690/006AhDVYgy1g1yuu0ckghj30i308v40q.jpg">
+<meta property="og:updated_time" content="2019-04-11T10:10:02.139Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python-基础问题（二）">
 <meta name="twitter:description" content="前言接着上次的Python基础面试题 题目： Python3和Python2中 int 和 long的区别？ 4G 内存怎么读取一个 5G 的数据? read、readline 和 readlines 的区别? 文件操作时：xreadlines和readlines的区别？ 列举布尔值为False的常见值？ 字符串、列表、元组、字典每个常用的5个方法？ lambda表达式格式以及应用场景? 用lam">
+<meta name="twitter:image" content="https://wx1.sinaimg.cn/mw690/006AhDVYgy1g1yuu0ckghj30i308v40q.jpg">
 
 
 
@@ -401,6 +403,7 @@
 <li>Python的可变类型和不可变类型？</li>
 <li>列举常见的内置函数？</li>
 </ol>
+<a id="more"></a>
 <h2 id="Python3和Python2中-int-和-long的区别？"><a href="#Python3和Python2中-int-和-long的区别？" class="headerlink" title="Python3和Python2中 int 和 long的区别？"></a>Python3和Python2中 int 和 long的区别？</h2><p>python2 中分int型 和 long型，long型为长整型比int型的取值范围要大</p>
 <p>Python3 取消long型 将int型的取值范围扩大到long型的范围</p>
 <h2 id="4G-内存怎么读取一个-5G-的数据"><a href="#4G-内存怎么读取一个-5G-的数据" class="headerlink" title="4G 内存怎么读取一个 5G 的数据?"></a>4G 内存怎么读取一个 5G 的数据?</h2><p>分段读取，每次读取固定的内容，与网络传输的分段传输差不多。<br>    def get_lines():  # 生成器<br>        with open(‘123.py’, ‘r’) as f:<br>            while True:<br>                data = f.readlines(100)<br>                if data:<br>                    yield data<br>                else:<br>                    break</p>
@@ -702,7 +705,7 @@ for item in range(5, 7):
 # ==========__import__==========引入字符串类型的模块名
 m = __import__(&apos;...&apos;)
 m.函数名()
-</code></pre><p><img src alt="常用内置函数列举"></p>
+</code></pre><p><img src="https://wx1.sinaimg.cn/mw690/006AhDVYgy1g1yuu0ckghj30i308v40q.jpg" alt="常用内置函数列举"></p>
 
       
     </div>
@@ -884,7 +887,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -906,7 +909,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

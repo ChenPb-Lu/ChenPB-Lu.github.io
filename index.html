@@ -252,6 +252,281 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/11/leetcode-寻找数组第K个最大数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈十三">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈先生的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/11/leetcode-寻找数组第K个最大数/" itemprop="url">leetcode-寻找数组第K个最大数</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-11T17:35:31+08:00">
+                2019-04-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode-题解/" itemprop="url" rel="index">
+                    <span itemprop="name">leetcode 题解</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/04/11/leetcode-寻找数组第K个最大数/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/11/leetcode-寻找数组第K个最大数/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>吸烟有害健康，切记。最近要抓紧练车，考完驾照。今天大扫除，有点烦躁，不过寝室干净了，也是有点舒坦的。开始解题吧！回头加一句，一篇博客都写完了，还没回我。o(╥﹏╥)o</p>
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>在未排序的数组中找到第 k 个最大的元素。请注意，你需要找的是数组排序后的第 k 个最大的元素，而不是第 k 个不同的元素。</p>
+<p>示例 1:</p>
+<p>输入: [3,2,1,5,6,4] 和 k = 2<br>输出: 5<br>示例 2:</p>
+<p>输入: [3,2,3,1,2,4,5,5,6] 和 k = 4<br>输出: 4<br>说明:</p>
+<p>你可以假设 k 总是有效的，且 1 ≤ k ≤ 数组的长度。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>对于这个问题，可以说思路是比较清晰的，不过就是对这个数组进行排序而，然后输出对应下标的元素就行，不过我们还是要追求时间复杂度与空间复杂度尽可能的小。一开始我尝试着写了一个快排进行解决，不过不得不说，leetcode的测试用例也是蛮好，毕竟我们能想到的别人也能想到，快排的效率让我诧异，2016ms，只能说测试用例可能都是快排的最坏情况了。<br><img src="https://wx3.sinaimg.cn/mw690/006AhDVYgy1g1yuu0999ij30zq0aejri.jpg" alt="快排执行结果"></p>
+<p>不过这样才有改进的空间嘛！这个时候我想到一个结构————堆.小顶堆完美契合这道题。首先将数组中前k个数构造一个节点数为k的小顶堆，然后剩余的数与根节点进行比较，再下沉调整，最后将根节点输出即可。代码如下：</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre><code>class Solution:
+
+
+    def findKthLargest(self, nums: List[int], k: int) -&gt; int:
+        self.build_heap(nums,k)
+        # print(&quot;小顶堆构造完毕&quot;)
+        for i in range(k,len(nums)):
+            if nums[i] &gt; nums[0]:
+                nums[0] = nums[i]
+                self.maintain(nums,0,k)
+        return nums[0]
+
+    def maintain(self,List, index, length):
+    # print(&quot;父节点位置:&quot;,index,&quot;父节点：&quot;,List[index])
+        temp = List[index]
+        childindex = 2 * index + 1
+        # print(&quot;左子节点 :&quot;,childindex)
+        while childindex &lt; length:
+            if (childindex + 1 &lt; length ) and (List[childindex + 1] &lt; List[childindex]): #判断左右子节点的大小
+                childindex = childindex + 1
+                # print(&quot;右节点小&quot;)
+            if temp &lt;= List[childindex]:
+                break
+            # print(&quot;位置：&quot;,childindex,&quot;子节点 &quot;,List[childindex])
+            List[index] = List[childindex]
+            index = childindex
+            childindex = 2*childindex+1
+            # print(&apos;节点下沉&apos;,List)
+        List[index] = temp
+
+    def build_heap(self,list,length):
+        i = int((length-2)/2) # 深度
+        while i&gt;=0 :
+            self.maintain(list,i,length)
+            i -= 1
+</code></pre><h3 id="堆的执行过程："><a href="#堆的执行过程：" class="headerlink" title="堆的执行过程："></a>堆的执行过程：</h3><pre><code>数组为： [7, 9, 4, 2, 5, 1, 3, 6, 8, -1]
+构建小顶堆
+第2层
+父节点的数组下标: 2 父节点值： 4
+左子节点的数组下标 : 5
+子节点的数组下标： 5 子节点值：  1
+节点下沉 [7, 9, 1, 2, 5, 1, 3, 6, 8, -1]
+下沉结束： [7, 9, 1, 2, 5, 4, 3, 6, 8, -1]
+第1层
+父节点的数组下标: 1 父节点值： 9
+左子节点的数组下标 : 3
+子节点的数组下标： 3 子节点值：  2
+节点下沉 [7, 2, 1, 2, 5, 4, 3, 6, 8, -1]
+下沉结束： [7, 2, 1, 9, 5, 4, 3, 6, 8, -1]
+第0层
+父节点的数组下标: 0 父节点值： 7
+左子节点的数组下标 : 1
+右节点小
+子节点的数组下标： 2 子节点值：  1
+节点下沉 [1, 2, 1, 9, 5, 4, 3, 6, 8, -1]
+子节点的数组下标： 5 子节点值：  4
+节点下沉 [1, 2, 4, 9, 5, 4, 3, 6, 8, -1]
+下沉结束： [1, 2, 4, 9, 5, 7, 3, 6, 8, -1]
+小顶堆构造完毕
+
+ 比较其余数字
+父节点的数组下标: 0 父节点值： 3
+左子节点的数组下标 : 1
+子节点的数组下标： 1 子节点值：  2
+节点下沉 [2, 2, 4, 9, 5, 7, 3, 6, 8, -1]
+右节点小
+下沉结束： [2, 3, 4, 9, 5, 7, 3, 6, 8, -1]
+父节点的数组下标: 0 父节点值： 6
+左子节点的数组下标 : 1
+子节点的数组下标： 1 子节点值：  3
+节点下沉 [3, 3, 4, 9, 5, 7, 3, 6, 8, -1]
+右节点小
+子节点的数组下标： 4 子节点值：  5
+节点下沉 [3, 5, 4, 9, 5, 7, 3, 6, 8, -1]
+下沉结束： [3, 5, 4, 9, 6, 7, 3, 6, 8, -1]
+父节点的数组下标: 0 父节点值： 8
+左子节点的数组下标 : 1
+右节点小
+子节点的数组下标： 2 子节点值：  4
+节点下沉 [4, 5, 4, 9, 6, 7, 3, 6, 8, -1]
+子节点的数组下标： 5 子节点值：  7
+节点下沉 [4, 5, 7, 9, 6, 7, 3, 6, 8, -1]
+下沉结束： [4, 5, 7, 9, 6, 8, 3, 6, 8, -1]
+第6大的数为：4
+</code></pre><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>在评论区看到一些人总结调用了python内置库的sort（）函数，说实话我蛮不屑这些拿内置函数来刷题的人，不过试了一下，真香。比堆排序快一点，那sort()函数的机制并不是用来一个快排这么简单，以前觉得sort()=快排，现在看来sort()还是一个优化过的快排，内部对不同情况进行不同的排序使用与它们的组合。我还只是个井底之蛙。不过你终于回我了。加油！！！</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/07/leetcode-寻找两个有序数组的中位数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -767,8 +1042,7 @@
 
       
         
-          
-            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>接着上次的Python基础面试题</p>
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>接着上次的Python基础面试题</p>
 <h2 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h2><ol start="16">
 <li>Python3和Python2中 int 和 long的区别？</li>
 <li>4G 内存怎么读取一个 5G 的数据?</li>
@@ -786,310 +1060,13 @@
 <li>Python的可变类型和不可变类型？</li>
 <li>列举常见的内置函数？</li>
 </ol>
-<h2 id="Python3和Python2中-int-和-long的区别？"><a href="#Python3和Python2中-int-和-long的区别？" class="headerlink" title="Python3和Python2中 int 和 long的区别？"></a>Python3和Python2中 int 和 long的区别？</h2><p>python2 中分int型 和 long型，long型为长整型比int型的取值范围要大</p>
-<p>Python3 取消long型 将int型的取值范围扩大到long型的范围</p>
-<h2 id="4G-内存怎么读取一个-5G-的数据"><a href="#4G-内存怎么读取一个-5G-的数据" class="headerlink" title="4G 内存怎么读取一个 5G 的数据?"></a>4G 内存怎么读取一个 5G 的数据?</h2><p>分段读取，每次读取固定的内容，与网络传输的分段传输差不多。<br>    def get_lines():  # 生成器<br>        with open(‘123.py’, ‘r’) as f:<br>            while True:<br>                data = f.readlines(100)<br>                if data:<br>                    yield data<br>                else:<br>                    break</p>
-<pre><code>f = get_lines()  # 迭代器对象
-print(next(f))
-</code></pre><h2 id="read、readline-和-readlines-的区别"><a href="#read、readline-和-readlines-的区别" class="headerlink" title="read、readline 和 readlines 的区别?"></a>read、readline 和 readlines 的区别?</h2><ol>
-<li><p>read() 方法用来直接读取字节到字符串中, 最多读取给定数目个字节. 如果没有给定 size 参数(默认值为 -1)或者 size 值为负, 文件将被读取直至末尾. 未来的某个版本可能会删除此方法. </p>
-</li>
-<li><p>readline() 方法读取打开文件的一行(读取下个行结束符之前的所有字节). 然后整行，包括行结束符，作为字符串返回. 和 read() 相同, 它也有一个可选的 size 参数, 默认为 -1, 代表读至行结束符. 如果提供了该参数, 那么在超过 size 个字节后会返回不完整的行. </p>
-</li>
-<li><p>readlines() 方法并不像其它两个输入方法一样返回一个字符串. 它会读取所有(剩余的)行然后把它们作为一个字符串列表返回. 它的可选参数 sizhint 代表返回的最大字节大小. 如果它大于 0 , 那么返回的所有行应该大约有 sizhint 字节(可能稍微大于这个数字, 因为需要凑齐缓冲区大小). </p>
-</li>
-</ol>
-<h2 id="文件操作时：xreadlines和readlines的区别？"><a href="#文件操作时：xreadlines和readlines的区别？" class="headerlink" title="文件操作时：xreadlines和readlines的区别？"></a>文件操作时：xreadlines和readlines的区别？</h2><p>readlines     返回一个列表</p>
-<p>xreadlines   返回一个生成器</p>
-<h2 id="列举布尔值为False的常见值？"><a href="#列举布尔值为False的常见值？" class="headerlink" title="列举布尔值为False的常见值？"></a>列举布尔值为False的常见值？</h2><p>False None ‘’ 0 [] {} () set() 不成立的表达式 </p>
-<h2 id="字符串、列表、元组、字典每个常用的5个方法？"><a href="#字符串、列表、元组、字典每个常用的5个方法？" class="headerlink" title="字符串、列表、元组、字典每个常用的5个方法？"></a>字符串、列表、元组、字典每个常用的5个方法？</h2><h3 id="字符串："><a href="#字符串：" class="headerlink" title="字符串："></a>字符串：</h3><ol>
-<li>find通过元素找索引，可切片，找不到返回-1</li>
-<li>index，找不到报错。</li>
-<li>split 由字符串分割成列表，默认按空格。</li>
-<li>captalize 首字母大写，其他字母小写。</li>
-<li>upper 全大写。</li>
-<li>lower 全小写。</li>
-<li>title，每个单词的首字母大写。</li>
-<li>startswith 判断以什么为开头，可以切片，整体概念。</li>
-<li>endswith 判断以什么为结尾，可以切片，整体概念。</li>
-<li>format格式化输出</li>
-<li>strip 默认去掉两侧空格，有条件， 12，lstrip,rstrip 14,center 居中，默认空格。 </li>
-<li>count查找元素的个数，可以切片，若没有返回0 </li>
-<li>expandtabs 将一个tab键变成8个空格，如果tab前面的字符长度不足8个，则补全8个，</li>
-<li>replace（old，new,次数） </li>
-<li>isdigit 字符串由字母或数字组成 isalpha, 字符串只由字母组成 isalnum 字符串只由数字组成 </li>
-<li>swapcase 大小写翻转 </li>
-<li>for i in 可迭代对象。 </li>
-</ol>
-<p>###字典：</p>
-<ol>
-<li>key： 输出所有的键</li>
-<li>clear：清空                       </li>
-<li>dic：删除的键如果没有则报错</li>
-<li>pop：键值对删，有返回，没有原来的键会报错（自行设置返回键就不会报错）</li>
-<li>popitem：随机删键值对</li>
-<li>del：删除的键如果没有则报错</li>
-</ol>
-<h3 id="列表："><a href="#列表：" class="headerlink" title="列表："></a>列表：</h3><ol>
-<li>append：在后面添加。</li>
-<li>Insert按照索引添加，</li>
-<li>expend：迭代着添加。</li>
-<li>list.extend(seq) - 在列表末尾一次性追加另一个序列中的多个值（用新列表扩展原来的列表）</li>
-<li>pop 删除   (pop 有返回值)</li>
-<li>remove 可以按照元素去删</li>
-<li>clear  清空列表</li>
-<li>del 1、可以按照索引去删除 2、切片 3、步长（隔着删）</li>
-<li>list.count(obj) - 统计某个元素在列表中出现的次数</li>
-<li>list.index(obj) - 从列表中找出某个值第一个匹配项的索引位置</li>
-<li>list.reverse() - 反向列表中元素</li>
-<li>list.sort([func]) - 对原列表进行排序</li>
-</ol>
-<p>###元组：</p>
-<ol>
-<li>cmp(tuple1, tuple2)：比较两个元组元素。</li>
-<li>len(tuple)：计算元组元素个数。</li>
-<li>max(tuple)：返回元组中元素最大值。</li>
-<li>min(tuple)：返回元组中元素最小值。</li>
-<li>tuple(seq)：将列表转换为元组。</li>
-</ol>
-<h2 id="lambda表达式格式以及应用场景-用lambda函数的好处"><a href="#lambda表达式格式以及应用场景-用lambda函数的好处" class="headerlink" title="lambda表达式格式以及应用场景? 用lambda函数的好处?"></a>lambda表达式格式以及应用场景? 用lambda函数的好处?</h2><p>匿名函数：为了解决那些功能很简单的需求而设计的一句话函数<br>函数名 = lambda 参数 ：返回值</p>
-<ul>
-<li>参数可以有多个，用逗号隔开</li>
-<li>匿名函数不管逻辑多复杂，只能写一行，且逻辑执行结束后的内容就是返回值</li>
-<li><p>返回值和正常的函数一样可以是任意数据类型</p>
-<pre><code>#lambda 表达式
-
-temp = lambda x,y:x+y
-
-print(temp(4,10))   
-
-#可替代：
-def foo(x,y):
-    return x+y
-print(foo(4,10))    
-</code></pre></li>
-</ul>
-<h2 id="pass的作用？continue的作用-break的作用"><a href="#pass的作用？continue的作用-break的作用" class="headerlink" title="pass的作用？continue的作用? break的作用?"></a>pass的作用？continue的作用? break的作用?</h2><p>###pass<br>pass是空语句，是为了保持程序结构的完整性。pass 不做任何事情，一般用做占位语句。</p>
-<p>###continue<br>退出本次循环，执行下一次循环</p>
-<p>###break<br>结束循环</p>
-<h2 id="arg和-kwarg作用"><a href="#arg和-kwarg作用" class="headerlink" title="*arg和**kwarg作用"></a>*arg和**kwarg作用</h2><p> *args代表位置参数，它会接收任意多个参数并把这些参数作为元祖传递给函数。</p>
-<p>**kwargs代表的关键字参数，返回的是字典，位置参数一定要放在关键字前面</p>
-<h2 id="is和-的区别"><a href="#is和-的区别" class="headerlink" title="is和==的区别"></a>is和==的区别</h2><p>is 比较的是两个实例对象是不是完全相同，它们是不是同一个对象，占用的内存地址是否相同。</p>
-<p>== 比较的是两个对象的内容是否相等，即内存地址可以不一样，内容一样就可以了。默认会调用对象的 <strong>eq</strong>()方法。</p>
-<pre><code>a = &apos;lishi&apos;
-str1 = &quot;li&quot;
-str2 = &quot;shi&quot;
-str3 = str1 + str2
-print(&quot;a == str3&quot;,a == str3)
-print(&quot;a is str3&quot;,a is str3)
-print(&quot;id(a)&quot;,id(a))
-print(&quot;id(str3)&quot;,id(str3))
-# a == str3 True    ==  ---&gt; 只需要内容相等
-# a is str3 False   is  ---&gt; 只需要内存地址相等
-# id(a) 38565848
-# id(str3) 39110280
-</code></pre><h2 id="简述Python的深浅拷贝以及应用场景？"><a href="#简述Python的深浅拷贝以及应用场景？" class="headerlink" title="简述Python的深浅拷贝以及应用场景？"></a>简述Python的深浅拷贝以及应用场景？</h2><p>浅拷贝只是增加了一个指针指向一个存在的地址，</p>
-<p>而深拷贝是增加一个指针并且开辟了新的内存，这个增加的指针指向这个新的内存，<br>采用浅拷贝的情况，释放内存，会释放同一内存，深拷贝就不会出现释放同一内存的错误</p>
-<p>一层的情况：</p>
-<pre><code>import copy
-
- #浅拷贝
-li1 = [1, 2, 3]
-li2 = li1.copy()
-li1.append(4)
-print(li1, li2)  # [1, 2, 3, 4] [1, 2, 3]
-
-# 深拷贝
-li1 = [1, 2, 3]
-li2 = copy.deepcopy(li1)
-li1.append(4)
-print(li1, li2)  # [1, 2, 3, 4] [1, 2, 3]
-</code></pre><p>多层的情况：</p>
-<pre><code>import copy
-
-# 浅拷贝 指向共有的地址
-li1 = [1, 2, 3,[4,5],6]
-li2 = li1.copy()
-li1[3].append(7)
-print(li1, li2)  # [1, 2, 3, [4, 5, 7], 6] [1, 2, 3, [4, 5, 7], 6]
-
-# 深拷贝 重指向
-li1 = [1, 2, 3,[4,5],6]
-li2 = copy.deepcopy(li1)
-li1[3].append(7)
-print(li1, li2)  # [1, 2, 3, [4, 5, 7], 6] [1, 2, 3, [4, 5], 6]
-</code></pre><h2 id="拷贝的注意点"><a href="#拷贝的注意点" class="headerlink" title="拷贝的注意点?"></a>拷贝的注意点?</h2><p>区分深拷贝与浅拷贝</p>
-<h2 id="Python垃圾回收机制？"><a href="#Python垃圾回收机制？" class="headerlink" title="Python垃圾回收机制？"></a>Python垃圾回收机制？</h2><p>引用计数</p>
-<p>标记清除</p>
-<p>分代回收</p>
-<p><a href="https://blog.csdn.net/wxfghy/article/details/80901488" target="_blank" rel="noopener">python垃圾回收机制详解</a></p>
-<h2 id="Python的可变类型和不可变类型？"><a href="#Python的可变类型和不可变类型？" class="headerlink" title="Python的可变类型和不可变类型？"></a>Python的可变类型和不可变类型？</h2><p>可变类型：</p>
-<ul>
-<li>列表</li>
-<li>字典（索引不可变）</li>
-<li>可变集合</li>
-</ul>
-<p>不可变类型：</p>
-<ul>
-<li>字符串</li>
-<li>数字</li>
-<li>元祖</li>
-<li>不可变集合</li>
-</ul>
-<h2 id="列举常见的内置函数？"><a href="#列举常见的内置函数？" class="headerlink" title="列举常见的内置函数？"></a>列举常见的内置函数？</h2><p>①map():对可迭代对象中的每个元素都进行相同的处理，最后返回一个新的可迭代对象，python2中直接返回列表形式</p>
-<p>②filter():对可迭代对象中的每个元素进行筛选，最后将符合条件的元素装进一个新的可迭代对象里，python2中直接返回列表形式</p>
-<p>③reduce():对可迭代对象中的元素进行一个操作（如所有的值加起来），最后返回新数值</p>
-<pre><code>#===========input========输入
-s = input(&quot;请输入内容 ： &quot;)  #输入的内容赋值给s变量
-print(s)  #输入什么打印什么。数据类型是str
-# ==========abs==========绝对值
-print(abs(-1))  # 1
-
-# ==========all==========可迭代对象的每个元素的布尔操作都是True时返回True，若传入的可迭代对象是空则返回True
-print(all([&apos;&apos;, 1, &apos;s&apos;]))  # False
-
-# ==========any==========可迭代对象的每个元素的布尔操作中有一个是True时就返回True，若传入的可迭代对象是空则返回True
-print(any([&apos;&apos;, 5, &apos;0&apos;]))  # Ture
-
-# ==========bin==========将十进制数转成二进制数
-print(bin(3))  # 0b11
-
-# ==========hex==========将十进制数转成十六进制数
-print(hex(10))  # 0xa
-
-# ==========oct==========将十进制数转成八进制数
-print(oct(8))  # 0o10
-
-# ==========bool==========布尔值操作: 空 0 None 布尔操作为False
-print(bool([]))  # False
-
-# ==========bytes==========编码 将传入的字符串用某种编码方式转换成二进制
-print(bytes(&apos;陈&apos;, encoding=&apos;utf-8&apos;))  # b&apos;\xe9\x99\x88&apos;
-print(bytes(&apos;陈&apos;, encoding=&apos;utf-8&apos;).decode(&apos;utf-8&apos;))  # 陈  # 译码 译码与编码应采用一样的
-
-# ==========chr==========将ASCII码转成对应字符
-print(chr(97))  # a
-
-# ==========ord=========将字符转成对应的ASCII码值
-print(ord(&apos;a&apos;))  # 97
-
-# ==========dir==========打印某种对象里面的所有属性
-print(dir(all))
-
-# ==========divmod==========参数1除以参数2 返回一个元组（商，余数）
-print(divmod(10, 3))  # (3, 1)
-
-# ==========eval==========
-dic = {&apos;name&apos;: &apos;chen&apos;}
-dic_str = str(dic)
-# ===================================功能1：提取成传入的字符串中的数据类型
-print(dic_str)  # &apos;{&apos;name&apos;: &apos;chen&apos;}&apos;
-print(type(dic_str))  # &lt;class &apos;str&apos;&gt;
-print(eval(dic_str))  # {&apos;name&apos;: &apos;chen&apos;}
-print(type(eval(dic_str)))  # &lt;class &apos;dict&apos;&gt;
-# ===================================功能2：计算字符串中的数学运算
-s = &apos;1 + 2 * 1&apos;
-print(eval(s))  # 3
-
-# ==========hash==========hash运算
-print(hash(&apos;chen&apos;))  # -1076846465005340399
-print(hash(&apos;chenyuanyuan&apos;))  # -8978753568388561982  #hash()----&gt;hash运算
-
-# ==========help==========函数功能解释
-print(help(all))
-
-# ==========isinstance==========判断某个对象是否是某种数据类型的实例对象
-print(isinstance(&apos;2&apos;, str))  # True
-
-# ==========globals、locals==========全局变量、局部变量
-name = &apos;chen&apos;
-
-
-def test():
-    age = 18
-    print(globals())  # 打印所有的全局变量，包括name
-    print(locals())  # {&apos;age&apos;: 18} #打印所有的局部变量
-
-
-test()
-
-# ==========min、max==========最小值、最大值
-dic = {&apos;chen&apos;: 100, &apos;wang&apos;: 200, &apos;li&apos;: 500, &apos;do&apos;: 600}
-# ============一个可迭代参数
-print(min([&apos;a01&apos;, &apos;b10&apos;, &apos;c1&apos;]))  # a01 遍历出每个元素，比较它们的的第一位的ASCII码值，找到最小后就停止比较
-# print(min([&apos;a01&apos;, &apos;b10&apos;, &apos;c1&apos;, 30])) #报错 不同数据类型无法比较
-print(min(dic))  # chen
-print(max(dic))  # wang
-print(min(dic.values()))  # 100
-print(max(dic.values()))  # 600
-print(max(zip(dic.values(), dic.keys())))  # (600, &apos;do&apos;) #max与zip结合找出value值最大的那一组
-# ============两个参数
-print(min(dic, key=lambda k: dic[k]))  # chen
-print(max(dic, key=lambda k: dic[k]))  # do
-
-# ==========zip==========拉链操作，将多个可迭代对象(列表，元组，字符串)对应元素组成一个元组，多余元素自动去掉，返回可迭代对象
-print(list(zip(&apos;abc&apos;, &apos;def&apos;, &apos;ghihhhhh&apos;)))  # [(&apos;a&apos;, &apos;d&apos;, &apos;g&apos;), (&apos;b&apos;, &apos;e&apos;, &apos;h&apos;), (&apos;c&apos;, &apos;f&apos;, &apos;i&apos;)]
-print(list(zip(dic.keys(), dic.values())))  # [(&apos;chen&apos;, 100), (&apos;wang&apos;, 200), (&apos;li&apos;, 500), (&apos;do&apos;, 600)]
-
-# ==========pow==========参数1的参数2次方，结果对参数3进行取余操作
-print(pow(2, 3))  # 8
-print(pow(2, 3, 1))  # 0
-
-# ==========reversed==========反转可迭代对象中元素的排列顺序，返回迭代器
-a = [1, 2, 3]
-print(list(reversed(a)))  # [3, 2, 1]
-
-# ==========round==========四舍五入取整
-print(round(2.66))  # 3
-
-# ==========set==========将其他数据类型转换成集合
-print(set(&apos;hello&apos;))  # {&apos;h&apos;, &apos;o&apos;, &apos;e&apos;, &apos;l&apos;}
-
-# ==========slice==========切片：参数1--&gt;起始索引，参数2--&gt;结束索引，参数3--&gt;步长
-a = &apos;ehllovihgh&apos;
-s1 = slice(2, 6, 2)
-print(s1.start)  # 2
-print(s1.stop)  # 6
-print(s1.step)  # 2
-print(a[s1])  # lo
-
-# ==========sorted==========排序
-a = [1, 25, 2, 3]
-print(sorted(a)) #[1, 2, 3, 25]  #不同数据类型任然无法进行排序比较
-lists = [{&apos;name&apos;: &apos;chen&apos;, &apos;age&apos;: 18}, {&apos;name&apos;: &apos;wang&apos;, &apos;age&apos;: 25}, {&apos;name&apos;: &apos;li&apos;, &apos;age&apos;: 9}]
-print(sorted(lists, key = lambda dic:dic[&apos;age&apos;]))
-#[{&apos;name&apos;: &apos;li&apos;, &apos;age&apos;: 9}, {&apos;name&apos;: &apos;chen&apos;, &apos;age&apos;: 18}, {&apos;name&apos;: &apos;wang&apos;, &apos;age&apos;: 25}]
-info = {&apos;liu&apos;: 100, &apos;li&apos;: 12200, &apos;chen&apos;: 100000}
-print(sorted(info.keys()))  #[&apos;chen&apos;, &apos;li&apos;, &apos;liu&apos;]  #比较key值
-print(sorted(info.values())) #[100, 12200, 100000]  #比较value值
-print(sorted(info, key = lambda key: info[key]))   #[&apos;liu&apos;, &apos;li&apos;, &apos;chen&apos;] #比较value值，返回key值
-print(sorted(zip(info.values(), info.keys())))   #[(100, &apos;liu&apos;), (12200, &apos;li&apos;), (100000, &apos;chen&apos;)]
-
-# ==========type==========查看数据类型
-print(type(&apos;ll&apos;))  # &lt;class &apos;str&apos;&gt;
-
-# ==========sum==========求和
-print(sum([5, 2, 3])) #10
-
-# ==========range==========范围
-for item in range(5):
-    print(item)
-# 0
-# 1
-# 2
-# 3
-# 4
-for item in range(5, 7):
-    print(item)
-# 5
-# 6
-
-# ==========__import__==========引入字符串类型的模块名
-m = __import__(&apos;...&apos;)
-m.函数名()
-</code></pre><p><img src alt="常用内置函数列举"></p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/02/Python-基础问题（二）/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2263,178 +2240,13 @@ m.函数名()
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/12/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈十三">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="陈先生的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/12/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-12T10:28:15+08:00">
-                2019-03-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/03/12/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/03/12/hello-world/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -2480,7 +2292,7 @@ m.函数名()
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2502,7 +2314,7 @@ m.函数名()
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
