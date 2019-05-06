@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="O2O优惠券预测,数据挖掘,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="##前言人啊，往往是在失去一些东西之后才懂得珍惜，才懂得害怕。但是还好她回来了。曲曲转转，还是那一份甜蜜。说不出太多的什么，因为那两天我觉得我的世界被摧毁了。不过现在，要打起精神努力奋斗了。因为我要还你一个美好的未来。You’ve always been important  这个五月给自己制定了很多的计划。有得忙的了。不过也结束了很多事情，包括我的不懂事。前两天，疯狂看视频，敲代码，总算是搞完了">
+<meta name="keywords" content="O2O优惠券预测,数据挖掘">
+<meta property="og:type" content="article">
+<meta property="og:title" content="O2O优惠券预测分析">
+<meta property="og:url" content="http://yoursite.com/2019/05/06/O2O优惠券预测分析/index.html">
+<meta property="og:site_name" content="陈先生的博客">
+<meta property="og:description" content="##前言人啊，往往是在失去一些东西之后才懂得珍惜，才懂得害怕。但是还好她回来了。曲曲转转，还是那一份甜蜜。说不出太多的什么，因为那两天我觉得我的世界被摧毁了。不过现在，要打起精神努力奋斗了。因为我要还你一个美好的未来。You’ve always been important  这个五月给自己制定了很多的计划。有得忙的了。不过也结束了很多事情，包括我的不懂事。前两天，疯狂看视频，敲代码，总算是搞完了">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-06T15:24:10.086Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="O2O优惠券预测分析">
+<meta name="twitter:description" content="##前言人啊，往往是在失去一些东西之后才懂得珍惜，才懂得害怕。但是还好她回来了。曲曲转转，还是那一份甜蜜。说不出太多的什么，因为那两天我觉得我的世界被摧毁了。不过现在，要打起精神努力奋斗了。因为我要还你一个美好的未来。You’ve always been important  这个五月给自己制定了很多的计划。有得忙的了。不过也结束了很多事情，包括我的不懂事。前两天，疯狂看视频，敲代码，总算是搞完了">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/05/06/O2O优惠券预测分析/">
+
+
+
+
+
+  <title>O2O优惠券预测分析 | 陈先生的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">陈先生的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/06/O2O优惠券预测分析/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈十三">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈先生的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">O2O优惠券预测分析</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-06T20:52:04+08:00">
+                2019-05-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据分析/" itemprop="url" rel="index">
+                    <span itemprop="name">数据分析</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/05/06/O2O优惠券预测分析/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/06/O2O优惠券预测分析/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>##前言<br>人啊，往往是在失去一些东西之后才懂得珍惜，才懂得害怕。但是还好她回来了。曲曲转转，还是那一份甜蜜。说不出太多的什么，因为那两天我觉得我的世界被摧毁了。不过现在，要打起精神努力奋斗了。因为我要还你一个美好的未来。You’ve always been important </p>
+<p>这个五月给自己制定了很多的计划。有得忙的了。不过也结束了很多事情，包括我的不懂事。前两天，疯狂看视频，敲代码，总算是搞完了数据挖掘课程的结课项目。也是对自己的一个学习能力有点小骄傲，不过还是蛮拖，硬是拖到最后几天才写。就当做之前学生组织的事太忙了吧。现在清闲了，可以好好学习，好好陪我的小草莓了。</p>
+<p>这次的数据挖掘项目是阿里云的天池大赛的一道新人赛的题，应该说是不难，很基础的一道题。感觉数据挖掘比较符合我的专业与我学的语言，所以做一下记录，毕竟以后是数据的时代。</p>
+<p>##题目分析</p>
+<p>###题目描述<br>随着移动设备的完善和普及，移动互联网+各行各业进入了高速发展阶段，这其中以O2O（Online to Offline）消费最为吸引眼球。据不完全统计，O2O行业估值上亿的创业公司至少有10家，也不乏百亿巨头的身影。O2O行业天然关联数亿消费者，各类APP每天记录了超过百亿条用户行为和位置记录，因而成为大数据科研和商业化运营的最佳结合点之一。 以优惠券盘活老用户或吸引新客户进店消费是O2O的一种重要营销方式。然而随机投放的优惠券对多数用户造成无意义的干扰。对商家而言，滥发的优惠券可能降低品牌声誉，同时难以估算营销成本。 个性化投放是提高优惠券核销率的重要技术，它可以让具有一定偏好的消费者得到真正的实惠，同时赋予商家更强的营销能力。本次大赛为参赛选手提供了O2O场景相关的丰富数据，希望参赛选手通过分析建模，精准预测用户是否会在规定时间内使用相应优惠券。</p>
+<p>###问题分析</p>
+<p>题目给予了下面三个数据集</p>
+<ul>
+<li>ccf_offline_stage1_test_revised.csv     # 线下数据测试集</li>
+<li>ccf_offline_stage1_train.csv                 # 线下训练集           </li>
+<li><p>ccf_online_stage1_train.csv                 # 线上训练集             </p>
+<a id="more"></a>
+<p>其中ccf_offline_stage1_train.csv为主要数据集，csv文件中包含以下数据：</p>
+</li>
+<li><p>Field Description</p>
+</li>
+<li>User_id      用户ID</li>
+<li>Merchant_id    商户ID</li>
+<li>Coupon_id    优惠券ID：null表示无优惠券消费，此时Discount_rate和Date_received字段无意义</li>
+<li>Discount_rate    优惠率：x \in [0,1]代表折扣率；x:y表示满x减y。单位是元</li>
+<li>Distance    user经常活动的地点离该merchant的最近门店距离是x*500米（如果是连锁店，则取最近的一家门店），x\in[0,10]；null表示无此信息，0表示低于500米，10表示大于5公里；</li>
+<li>Date_received    领取优惠券日期</li>
+<li>Date    消费日期：如果Date=null &amp; Coupon_id != null，该记录表示领取优惠券但没有使用，即负样本；如果Date!=null &amp; Coupon_id = null，则表示普通消费日期；如果Date!=null &amp; Coupon_id != null，则表示用优惠券消费日期，即正样本；</li>
+</ul>
+<p>读取数据集内容，统计部分数据如下：<br>    import pandas as pd</p>
+<pre><code>name1 = [&quot;User_id&quot;,&apos;Merchant_id&apos;,&apos;Coupon_id&apos;,&apos;Discount_rate&apos;,&apos;Distance&apos;,&apos;Date_received&apos;,&apos;Date&apos;]
+off_train = pd.read_csv(&apos;./data/ccf_offline_stage1_train.csv&apos;,names=name1)
+#查看记录数
+record_count = off_train.shape[0]
+received_count = off_train[&apos;Date_received&apos;].count()
+coupon_count = len(off_train[&quot;Coupon_id&quot;].value_counts())
+user_count = len(off_train[&apos;User_id&apos;].value_counts())
+merchant_count = len(off_train[&apos;Merchant_id&apos;].value_counts())
+min_received = int(off_train[&quot;Date_received&quot;].min())
+max_received = int(off_train[&quot;Date_received&quot;].max())
+max_pay = int(off_train[&quot;Date&quot;].max())
+min_pay = int(off_train[&quot;Date&quot;].min())
+print(&apos;记录数为：&apos;,record_count)
+print(&quot;优惠券领取记录：&quot;,received_count)
+print(&quot;优惠券数量：&quot;,coupon_count)
+print(&quot;用户数量：&quot;,user_count)
+print(&quot;商家数量：&quot;,merchant_count)
+print(&quot;最早领券时间;&quot;,min_received)
+print(&quot;最晚领券时间;&quot;,max_received)
+print(&quot;最早消费时间;&quot;,min_pay)
+print(&quot;最晚消费时间;&quot;,max_pay)
+
+有优惠卷，购买商品：75382
+有优惠卷，未购商品：977900
+无优惠卷，购买商品：701602
+记录数为： 1754884
+优惠券领取记录： 1053282
+优惠券数量： 9738
+用户数量： 539438
+商家数量： 8415
+最早领券时间; 20160101
+最晚领券时间; 20160615
+最早消费时间; 20160101
+最晚消费时间; 20160630
+</code></pre><p>因此可以知道本题的目的为训练一个模型进行预测某用户是否使用优惠券，故该问题为二分类问题。</p>
+<p>##数据预处理</p>
+<p>###缺失值检测：<br>查看缺省值</p>
+<p>print(dfoff.isnull().any())</p>
+<p>统计缺省值的比例</p>
+<p>print(dfoff.isnull().sum() / len(dfoff))</p>
+<pre><code>User_id               False
+Merchant_id           False
+Coupon_id              True
+Discount_rate          True
+Distance               True
+Date_received          True
+Date                   True
+is_manjian            False
+min_pay_of_manjian    False
+discount_rate          True
+date_received          True
+date                   True
+</code></pre><p>###折扣处理：</p>
+<p>折扣是一条重要数据，不过数据集中的折扣有两种不同的类型，故要对两种类型进行统一，并添加其他与折扣有关的数据列，有助于后期的特征工程处理。</p>
+<pre><code>#判断是否为满减折扣
+dfoff[&apos;is_manjian&apos;] = dfoff[&apos;Discount_rate&apos;].map(lambda x : 1 if &apos;:&apos; in str(x) else 0)
+#找出优惠的最低消费
+dfoff[&apos;min_pay_of_manjian&apos;] = dfoff[&apos;Discount_rate&apos;].map(lambda x : -1 if &quot;:&quot; not in str(x) else int(str(x).split(&apos;:&apos;)[0]))
+#将满减的优惠也转换成折扣率
+dfoff[&apos;discount_rate&apos;] = dfoff[&apos;Discount_rate&apos;].map(lambda x : float(x) if &apos;:&apos; not in str(x) else (float(str(x).split(&apos;:&apos;)[0]) - float(str(x).split(&apos;:&apos;)[1]))/float(str(x).split(&apos;:&apos;)[0]))
+</code></pre><p>###日期处理<br>导入数据后日期变为float类型，不变与处理，所以需要转换成date类型，并且日期如节假日对优惠券的使用影响很大，如周末的消费率会大大上涨</p>
+<pre><code>#设置一列为datel类型发日期数据领取优惠券日期数据
+dfoff[&apos;date_received&apos;] = pd.to_datetime(dfoff[&apos;Date_received&apos;],format=&apos;%Y%m%d&apos;)
+#设置一列为datel类型发日期数据的消费日期数据
+dfoff[&apos;date&apos;] = pd.to_datetime(dfoff[&apos;Date&apos;],format=&apos;%Y%m%d&apos;)
+#将日期转换成周几，便于分析
+dfoff[&apos;weekday_Receive&apos;] = dfoff[&apos;date_received&apos;].apply(lambda  x :x.isoweekday())
+</code></pre><p>###距离处理<br>将距离为空的数据进行处理</p>
+<p>dfoff[‘Distance’].fillna(-1,inplace= True)</p>
+<p>标记距离是否为空</p>
+<p>dfoff[‘null_Distance’] = dfoff[‘Distance’].map(lambda x : 1 if x == -1 else 0)</p>
+<p>数据预处理后可以通过pyecharts进行绘图，更直观的感受数据的变化</p>
+<p>##特征工程</p>
+<p>特征提取这一步，应该按照预处理所得的新的数据列进行特征的提取。主要有五大特征类：用户特征、商户特征、优惠券特征、用户商户组合特征、用户优惠券组合特征，不过由于能力有限，对pandas的一些方法没太弄懂，就提取了一些相对简单的特征。</p>
+<ol>
+<li>用户领取优惠券的数量</li>
+<li>用户当天领取特定的优惠券</li>
+<li>用户当天领取特定的优惠券数量</li>
+<li>用户当天重复领取特定的优惠券</li>
+<li>用户当天领取的优惠券数量</li>
+</ol>
+<p>即”User_id”, “Coupon_id”, ‘Date_received’<br>这三个数值的不同组合。</p>
+<p>然后对数据集进行划分，以两个月为一个区间划分为训练集、验证集与预测集</p>
+<p>训练集 ： 2016-3-2  ~  2016-5-3<br>验证集：2016-1-16  ~ 2016-3-17<br>预测集：2016-4-17 ~ 2016-6-18</p>
+<p>从特征的提取来看在数据预处理中绘制的图表来看，许多重要的特征并没有被利用，如周末等，当然这主要是因为我的水平还不够，而且赶作业，不想提取太麻烦的特征</p>
+<pre><code>def get_feature(dfoff):
+    # 优惠券类型转换，会把null也转换
+    dfoff[&apos;Coupon_id&apos;] = dfoff[&apos;Coupon_id&apos;].map(lambda x: 0 if math.isnan(x) else int(x))
+    dfoff[&apos;Date_received&apos;] = dfoff[&apos;Date_received&apos;].map(lambda x: 0 if math.isnan(x) else int(x))
+    dfoff[&apos;cnt&apos;] = 1  # 便于提取特征
+    feature = dfoff.copy()
+    # 用户领券数
+    keys = [&quot;User_id&quot;]
+    prefixs = &apos;simple_&apos; + &apos;_&apos;.join(keys) + &apos;_&apos;
+    pivot = pd.pivot_table(dfoff, index=keys, values=&apos;cnt&apos;, aggfunc=len)
+    pivot = pd.DataFrame(pivot).rename(columns={&apos;cnt&apos;: prefixs + &apos;received_cnt&apos;}).reset_index()
+    feature = pd.merge(feature, pivot, on=keys, how=&apos;left&apos;)
+
+    # 用户领取某个优惠券
+    keys = [&quot;User_id&quot;, &apos;Coupon_id&apos;]
+    prefixs = &apos;simple_&apos; + &apos;_&apos;.join(keys) + &apos;_&apos;
+    pivot = pd.pivot_table(dfoff, index=keys, values=&apos;cnt&apos;, aggfunc=len)
+    pivot = pd.DataFrame(pivot).rename(columns={&apos;cnt&apos;: prefixs + &apos;received_cnt&apos;}).reset_index()
+    feature = pd.merge(feature, pivot, on=keys, how=&apos;left&apos;)
+
+    # 用户当天的领券数
+    keys = [&quot;User_id&quot;, &apos;Date_received&apos;]
+    prefixs = &apos;simple_&apos; + &apos;_&apos;.join(keys) + &apos;_&apos;
+    pivot = pd.pivot_table(dfoff, index=keys, values=&apos;cnt&apos;, aggfunc=len)
+    pivot = pd.DataFrame(pivot).rename(columns={&apos;cnt&apos;: prefixs + &apos;received_cnt&apos;}).reset_index()
+    feature = pd.merge(feature, pivot, on=keys, how=&apos;left&apos;)
+
+    # 用户当天领取某个特定的优惠券
+    keys = [&quot;User_id&quot;, &quot;Coupon_id&quot;, &apos;Date_received&apos;]
+    prefixs = &apos;simple_&apos; + &apos;_&apos;.join(keys) + &apos;_&apos;
+    pivot = pd.pivot_table(dfoff, index=keys, values=&apos;cnt&apos;, aggfunc=len)
+    pivot = pd.DataFrame(pivot).rename(columns={&apos;cnt&apos;: prefixs + &apos;received_cnt&apos;}).reset_index()
+    feature = pd.merge(feature, pivot, on=keys, how=&apos;left&apos;)
+
+    # 用户是否当天多次领取某个特定的优惠券
+    keys = [&quot;User_id&quot;, &quot;Coupon_id&quot;, &apos;Date_received&apos;]
+    prefixs = &apos;simple_&apos; + &apos;_&apos;.join(keys) + &apos;_&apos;
+    pivot = pd.pivot_table(dfoff, index=keys, values=&apos;cnt&apos;, aggfunc=lambda x: 1 if len(x) &gt; 1 else 0)
+    pivot = pd.DataFrame(pivot).rename(columns={&apos;cnt&apos;: prefixs + &apos;repeat_received&apos;}).reset_index()
+    feature = pd.merge(feature, pivot, on=keys, how=&apos;left&apos;)
+
+    feature.drop([&apos;cnt&apos;], axis=1, inplace=True)
+    return feature
+</code></pre><p>##构建模型与训练<br>构建训练集、验证集与预测集时只加入重要的部分数据，缩短程序运行时间，提高训练速度。</p>
+<pre><code>train = get_feature(train_field)[[&quot;User_id&quot;, &quot;Coupon_id&quot;, &quot;Date_received&quot;,&quot;is_manjian&quot;,&quot;discount_rate&quot;,                                &quot;min_pay_of_manjian&quot;,&quot;null_Distance&quot;,&quot;label&quot;,&quot;simple_User_id_received_cnt&quot;,                                 &quot;simple_User_id_Coupon_id_received_cnt&quot;,&quot;simple_User_id_Date_received_received_cnt&quot;,                                &quot;simple_User_id_Coupon_id_Date_received_received_cnt&quot;,                            &quot;simple_User_id_Coupon_id_Date_received_repeat_received&quot;]]
+
+validate = get_feature(validate_field)[[&quot;User_id&quot;, &quot;Coupon_id&quot;, &quot;Date_received&quot;,&quot;is_manjian&quot;,&quot;discount_rate&quot;,                              &quot;min_pay_of_manjian&quot;,&quot;null_Distance&quot;,&quot;label&quot;,&quot;simple_User_id_received_cnt&quot;,                              &quot;simple_User_id_Coupon_id_received_cnt&quot;,&quot;simple_User_id_Date_received_received_cnt&quot;,                               &quot;simple_User_id_Coupon_id_Date_received_received_cnt&quot;,                              &quot;simple_User_id_Coupon_id_Date_received_repeat_received&quot;]]
+
+test = get_feature(test_field)[[&quot;User_id&quot;, &quot;Coupon_id&quot;, &quot;Date_received&quot;,&quot;is_manjian&quot;,&quot;discount_rate&quot;,                              &quot;min_pay_of_manjian&quot;,&quot;null_Distance&quot;,&quot;simple_User_id_received_cnt&quot;,                              &quot;simple_User_id_Coupon_id_received_cnt&quot;,&quot;simple_User_id_Date_received_received_cnt&quot;,                              &quot;simple_User_id_Coupon_id_Date_received_received_cnt&quot;,                             &quot;simple_User_id_Coupon_id_Date_received_repeat_received&quot;]]
+</code></pre><p>模型是用xgboost给出的决策树，然后计入训练集进行拟合训练，XGBoost是以分类回归树(CART树)进行组合。而从运用来看xgboost的使用主要是训练集的构建与特征的提取，以及迭代的次数，从这些方面入手可以大大提高整个模型的预测准度。</p>
+<pre><code>dtrain = xgb.DMatrix(train.drop([&quot;User_id&quot;, &quot;Coupon_id&quot;,&quot;Date_received&quot;,&apos;label&apos;], axis= 1) ,label= train[&apos;label&apos;])
+</code></pre><p>最后加入数据集，让训练好的模型进行预测</p>
+<pre><code>pedict = model.predict(dtest)
+result = pd.concat([test[[&quot;User_id&quot;, &quot;Coupon_id&quot;,&quot;Date_received&quot;]],pedict],axis= 1)
+</code></pre><p>然后保存预测后的数据集为csv文件</p>
+<p>##总结<br>代码已上传github：  <a href="https://github.com/chenpb-lu/Data_analyst" target="_blank" rel="noopener">https://github.com/chenpb-lu/Data_analyst</a><br>不过当然自己写的还是很基础的东西，多学一点没坏处，不过我没有把自己的预测集上传那个比赛，所以并不知道自己的预测准度是多少，应该不会太高。毕竟看了别人大佬的都是十几个特征起的。<br>好好加油，今天也是很开心呀！陈先生希望自己可以每天都很甜。每天吃一块超级好吃的曲奇~</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>赏瓶可乐吧(*^▽^*)</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="陈十三 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="陈十三 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/O2O优惠券预测/" rel="tag"># O2O优惠券预测</a>
+          
+            <a href="/tags/数据挖掘/" rel="tag"># 数据挖掘</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/27/Linux面试题整理/" rel="next" title="Linux面试题整理">
+                <i class="fa fa-chevron-left"></i> Linux面试题整理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/1.jpg" alt="陈十三">
+            
+              <p class="site-author-name" itemprop="name">陈十三</p>
+              <p class="site-description motion-element" itemprop="description">学习与交流</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">陈十三</span>
+
+  
+</div>
+
+<!-- 
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+ -->
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'vzmErYHn1YpeNJrQRiEaT80M-gzGzoHsz',
+        appKey: 'X8MpEppGeY0OcM9hkErRiiyo',
+        placeholder: '评论交流一下吧',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
