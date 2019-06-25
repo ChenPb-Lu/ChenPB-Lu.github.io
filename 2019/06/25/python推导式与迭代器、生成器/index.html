@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="python,推导式,迭代器,生成器,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前言正式开始疯狂学习状态了，把考试考完之后就把刷leetcode再次提上日程！然后幸福生活还有8天！可以说是苦日子里的小甘甜 python推导式推导式comprehensions（又称解析式），是Python的一种独有特性。推导式是可以从一个数据序列构建另一个新的数据序列的结构体。 共有三种推导，在Python2和3中都有支持：    列表(list)推导式    字典(dict)推导式    集">
+<meta name="keywords" content="python,推导式,迭代器,生成器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python推导式与迭代器、生成器">
+<meta property="og:url" content="http://yoursite.com/2019/06/25/python推导式与迭代器、生成器/index.html">
+<meta property="og:site_name" content="陈先生的博客">
+<meta property="og:description" content="前言正式开始疯狂学习状态了，把考试考完之后就把刷leetcode再次提上日程！然后幸福生活还有8天！可以说是苦日子里的小甘甜 python推导式推导式comprehensions（又称解析式），是Python的一种独有特性。推导式是可以从一个数据序列构建另一个新的数据序列的结构体。 共有三种推导，在Python2和3中都有支持：    列表(list)推导式    字典(dict)推导式    集">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-06-25T01:24:06.697Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python推导式与迭代器、生成器">
+<meta name="twitter:description" content="前言正式开始疯狂学习状态了，把考试考完之后就把刷leetcode再次提上日程！然后幸福生活还有8天！可以说是苦日子里的小甘甜 python推导式推导式comprehensions（又称解析式），是Python的一种独有特性。推导式是可以从一个数据序列构建另一个新的数据序列的结构体。 共有三种推导，在Python2和3中都有支持：    列表(list)推导式    字典(dict)推导式    集">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/06/25/python推导式与迭代器、生成器/">
+
+
+
+
+
+  <title>python推导式与迭代器、生成器 | 陈先生的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">陈先生的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/25/python推导式与迭代器、生成器/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈十三">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈先生的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">python推导式与迭代器、生成器</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-25T09:21:50+08:00">
+                2019-06-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/06/25/python推导式与迭代器、生成器/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/06/25/python推导式与迭代器、生成器/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>正式开始疯狂学习状态了，把考试考完之后就把刷leetcode再次提上日程！然后幸福生活还有8天！可以说是苦日子里的小甘甜</p>
+<h3 id="python推导式"><a href="#python推导式" class="headerlink" title="python推导式"></a>python推导式</h3><p>推导式comprehensions（又称解析式），是Python的一种独有特性。推导式是可以从一个数据序列构建另一个新的数据序列的结构体。 共有三种推导，在Python2和3中都有支持：  </p>
+<ul>
+<li>列表(list)推导式   </li>
+<li>字典(dict)推导式   </li>
+<li>集合(set)推导式</li>
+</ul>
+<h4 id="列表推导式"><a href="#列表推导式" class="headerlink" title="列表推导式"></a>列表推导式</h4><p>variable = [out_exp_res for out_exp in input_list  out_exp ]<br>  out_exp_res:　　列表生成元素表达式，可以是有返回值的函数。<br>  for out_exp in input_list：　　迭代input_list将out_exp传入out_exp_res表达式中。<br> out_exp：　　条件表达式，筛选数据</p>
+<p>例子：</p>
+<pre><code>#打印30以内的数字，所有能被3整除的整数的平方
+result = [i**2 for i in range(1,31) if i % 3 == 0]   
+print(result)   
+[9, 36, 81, 144, 225, 324, 441, 576, 729, 900]
+#找到嵌套列表中名字含有2个&apos;e&apos;的所有名字
+[&apos;Alice&apos;, &apos;Jill&apos;, &apos;Ana&apos;, &apos;Wendy&apos;, &apos;Jennifer&apos;, &apos;Sherry&apos;, &apos;Eve&apos;]]   
+result = [i for names_a in names for i in names_a if i.lower().count(&apos;e&apos;) == 2]    
+print(result)   
+[&apos;Jefferson&apos;, &apos;Wesley&apos;, &apos;Steven&apos;, &apos;Jennifer&apos;, &apos;Eve&apos;]
+</code></pre><p>三元运算与列表推导式(if else 放在循环语句前)</p>
+<pre><code>q = [x if x%3==0 else -x for x in range(1,101)]    
+print(q)
+</code></pre><a id="more"></a>
+<h4 id="字典推导式"><a href="#字典推导式" class="headerlink" title="字典推导式"></a>字典推导式</h4><p>字典推导和列表推导的使用方法是类似的，只不中括号该改成大括号。<br>基本格式：variable = {out_key:out_value for out_key,out_value in input_ldict if out_exp == 2}</p>
+<p>. out_key: 返回字典结果的key<br>. out_value: 返回字典结果的value<br>. for out_key,out_value in input_list：迭代input_list将out_exp传入out_exp_res表达式中。<br>. if out_exp == 2：根据条件过滤哪些值可以。</p>
+<p>例子：<br>合并大小写对应的value值，将k统一成小写</p>
+<pre><code>result3 = {x.lower():q4.get(x.upper(),0)+q4.get(x.lower(),0) for x in q4.keys()}   
+print(result3)   
+{&apos;b&apos;: 9, &apos;a&apos;: 5, &apos;c&apos;: 3}
+</code></pre><h4 id="集合推导式"><a href="#集合推导式" class="headerlink" title="集合推导式"></a>集合推导式</h4><p>它们跟列表推导式也是类似的。 唯一的区别在于它使用大括号{}，而且列表推导式自带去重功能</p>
+<pre><code>l = [-1， 1 ，2 ，1]
+li = {i*i for i in l}
+print(li)
+</code></pre><h3 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h3><p>迭代是Python最强大的功能之一，是访问集合元素的一种方式。<br>迭代器是一个可以记住遍历的位置的对象。<br>迭代器对象从集合的第一个元素开始访问，直到所有的元素被访问完结束。迭代器只能往前不会后退。<br>迭代器有两个基本的方法：iter() 和 next()。  </p>
+<h4 id="可迭代对象"><a href="#可迭代对象" class="headerlink" title="可迭代对象"></a>可迭代对象</h4><p>凡是可以返回一个迭代器的对象都可称之为可迭代对象。   </p>
+<ul>
+<li>如何确认一个对象是不是可迭代对象：<br>可迭代对象实现了<strong>iter</strong>方法，该方法返回一个迭代器对象</li>
+<li><p>使用Iterable判断</p>
+<p>  from collections.abc import  Iterator<br>  a = range(100)<br>  if isinstance(a, Iterator):   </p>
+<pre><code>print(&quot;yes&quot;)  
+</code></pre><p>  else:   </p>
+<pre><code>print(&quot;no&quot;)   
+</code></pre></li>
+</ul>
+<h4 id="可迭代对象有哪些"><a href="#可迭代对象有哪些" class="headerlink" title="可迭代对象有哪些"></a>可迭代对象有哪些</h4><p>• 容器都是可迭代对象    </p>
+<ul>
+<li>容器(container)   </li>
+</ul>
+<ol>
+<li>容器是一种把多个元素组织在一起的数据结构，容器中的元素可以逐个地迭代获取，可以用in, not<br>in关键字判断元素是否包含在容器中。<br>通常这类数据结构把所有的元素存储在内存中（也有一些特例，并不是所有的元素都放在内存，比如<br>迭代器和生成器对象）   </li>
+<li>在Python中，常见的容器对象有str,list, deque, tuple , …   </li>
+</ol>
+<p>• 此外还有更多的对象同样也是可迭代对象，比如处于打开状态的files，sockets等等。<br>• 凡是可以返回一个迭代器的对象都可称之为可迭代对象   </p>
+<h4 id="什么是迭代器"><a href="#什么是迭代器" class="headerlink" title="什么是迭代器"></a>什么是迭代器</h4><p>迭代器是有状态的，可以被next()调用，函数调用并不断返回下一个值的对象称为迭代器(Iterator)。<br>任何实现了<strong>iter</strong>()和<strong>next</strong>()都是迭代器</p>
+<pre><code>. __iter__()：返回迭代器自身   
+.  __next__()：返回容器中的下一个值   
+. 如果容器中没有更多元素了，则抛出StopIteration异常   
+. （for循环取数据遇到StopIteration时，会退出循环）   
+. 所有的Iterable均可以通过内置函数iter()来转变为Iterator。   
+</code></pre><h4 id="可迭代对象和迭代器转换"><a href="#可迭代对象和迭代器转换" class="headerlink" title="可迭代对象和迭代器转换"></a>可迭代对象和迭代器转换</h4><p>iter()函数：</p>
+<pre><code>a = [1,2,3]
+a_iter = iter(a)
+</code></pre><h4 id="生成无限序列"><a href="#生成无限序列" class="headerlink" title="生成无限序列"></a>生成无限序列</h4><pre><code>from  itertools import  count,cycle
+counter = count(start=1, step=2)
+print(counter, type(counter))
+print(next(counter))
+print(next(counter))
+print(next(counter))
+count(1, 2) &lt;class &apos;itertools.count&apos;&gt;
+1
+3
+5
+</code></pre><h4 id="从有序序列中生成无限序列"><a href="#从有序序列中生成无限序列" class="headerlink" title="从有序序列中生成无限序列"></a>从有序序列中生成无限序列</h4><pre><code>from  itertools import  count,cycle
+counter = count(start=1, step=2)
+print(counter, type(counter))
+weeks = cycle([1,2,3,4,5,6,7])
+print(weeks , type(weeks))
+for i in range(21):
+    print(next(weeks))
+1
+2
+3
+4
+5
+6
+7
+1
+2
+</code></pre><h4 id="迭代器的好处"><a href="#迭代器的好处" class="headerlink" title="迭代器的好处"></a>迭代器的好处</h4><p>迭代器就像一个懒加载的工厂，等到有人需要的时候才给它生成值返回，没调用的时候<br>就处于休眠状态等待下一次调用。</p>
+<h3 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h3><p>生成器算得上是Python语言中最吸引人的特性之一，生成器其实是一种特殊的迭代器，<br>不过这种迭代器更加优雅。它不需要手动编写<strong>iter</strong>()和<strong>next</strong>()方法，只需要一个<br>yiled关键字。</p>
+<ol>
+<li>生成器一定是迭代器（反之不成立）</li>
+<li>因此任何生成器也是以一种懒加载的模式生成值</li>
+</ol>
+<h4 id="yield关键字"><a href="#yield关键字" class="headerlink" title="yield关键字"></a>yield关键字</h4><p>包含yield表达式的函数是特殊的函数,叫做生成器函数(generator function),被调用时将</p>
+<p>返回一个迭代器(iterator),调用时可以使用next或send(msg)</p>
+<ol>
+<li>一个生成器中可以有多个yield</li>
+<li><p>一旦遇到yield，就会保存当前状态，然后返回yield后面的值</p>
+<p> a = [x+2 for x in range(10)]<br> print(a)<br> def func2():</p>
+<pre><code>yield 0
+yield 1
+yield 2
+yield 3
+yield 4
+yield 5
+raise StopIteration
+yield 6
+yield 7
+</code></pre><p> a = func2()<br> print(next(a))<br> print(next(a))<br> print(next(a))<br> print(next(a))<br> for i in a:</p>
+<pre><code>print(i)
+</code></pre></li>
+</ol>
+<h4 id="生成器例子"><a href="#生成器例子" class="headerlink" title="生成器例子"></a>生成器例子</h4><p>斐波拉基序列<br>    from itertools import  islice<br>    def fib():<br>        a = 1<br>        b = 1<br>        while True:<br>            yield a<br>            a ,b= b,a + b<br>    print(list(islice(fib(),0,10)))<br>    [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]</p>
+<pre><code>生成器 fib() 的执行过程
+• 当执行f=fib()返回的是一个生成器对象，此时函数体中的代码并不会执行，而是首先
+返回一个 iterable 对象！
+• 只有显示或隐示地调用next的时候才会真正执行函数里面的代码
+• 执行到语句 yield b 时，fab() 函数会返回yield后面(右边)的值，并记住当前执行的状
+态
+• 下次调用next时，程序流会回到 yield b 的下一条语句继续执行
+• 看起来就好像一个函数在正常执行的过程中被 yield 中断了数次，每次中断都会通过
+yield 返回当前的迭代值。
+• 由此可以看出，生成器通过关键字 yield 不断的将迭代器返回到内存进行处理，而不
+会一次性的将对象全部放入内存，从而节省内存空间。
+</code></pre><h4 id="send数据"><a href="#send数据" class="headerlink" title="send数据"></a>send数据</h4><p>除了可以使用 next() 方法来获取下一个生成的值，用户还可以使用 send() 方法将一个<br>新的或者是被修改的值返回给生成器。除此之外，还可以使用 close() 方法来随时退出<br>生成器</p>
+<pre><code>def counter(staet_at = 0):
+    count = staet_at
+    while True:
+        val = (yield count)
+        if val is not None:
+            count = val
+        else :
+            count += 1
+
+count = counter(5)
+print(next(count))
+print(next(count))
+print(next(count))
+print(count.send(9))
+print(next(count))
+count.close()
+print(next(count))
+</code></pre><h3 id="迭代器与生成器的区别"><a href="#迭代器与生成器的区别" class="headerlink" title="迭代器与生成器的区别"></a>迭代器与生成器的区别</h3><p>先说迭代器，对于string、list、dict、tuple等这类容器对象，使用for循环遍历是很方便的。在后台for语句对容器对象调用iter()函数，iter()是python的内置函数。iter()会返回一个定义了next()方法的迭代器对象，它在容器中逐个访问容器内元素，next()也是python的内置函数。在没有后续元素时，next()会抛出一个StopIteration异常，通知for语句循环结束。   </p>
+<p>生成器（Generator）是创建迭代器的简单而强大的工具。它们写起来就像是正规的函数，只是在需要返回数据的时候使用yield语句。每次next()被调用时，生成器会返回它脱离的位置（它记忆语句最后一次执行的位置和所有的数据值）</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>赏瓶可乐吧(*^▽^*)</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="陈十三 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="陈十三 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+            <a href="/tags/推导式/" rel="tag"># 推导式</a>
+          
+            <a href="/tags/迭代器/" rel="tag"># 迭代器</a>
+          
+            <a href="/tags/生成器/" rel="tag"># 生成器</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/16/git与gitee开发使用/" rel="next" title="git与gitee开发使用">
+                <i class="fa fa-chevron-left"></i> git与gitee开发使用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/1.jpg" alt="陈十三">
+            
+              <p class="site-author-name" itemprop="name">陈十三</p>
+              <p class="site-description motion-element" itemprop="description">学习与交流</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#python推导式"><span class="nav-number">1.1.</span> <span class="nav-text">python推导式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#列表推导式"><span class="nav-number">1.1.1.</span> <span class="nav-text">列表推导式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字典推导式"><span class="nav-number">1.1.2.</span> <span class="nav-text">字典推导式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#集合推导式"><span class="nav-number">1.1.3.</span> <span class="nav-text">集合推导式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#迭代器"><span class="nav-number">1.2.</span> <span class="nav-text">迭代器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#可迭代对象"><span class="nav-number">1.2.1.</span> <span class="nav-text">可迭代对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可迭代对象有哪些"><span class="nav-number">1.2.2.</span> <span class="nav-text">可迭代对象有哪些</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是迭代器"><span class="nav-number">1.2.3.</span> <span class="nav-text">什么是迭代器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可迭代对象和迭代器转换"><span class="nav-number">1.2.4.</span> <span class="nav-text">可迭代对象和迭代器转换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生成无限序列"><span class="nav-number">1.2.5.</span> <span class="nav-text">生成无限序列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#从有序序列中生成无限序列"><span class="nav-number">1.2.6.</span> <span class="nav-text">从有序序列中生成无限序列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#迭代器的好处"><span class="nav-number">1.2.7.</span> <span class="nav-text">迭代器的好处</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成器"><span class="nav-number">1.3.</span> <span class="nav-text">生成器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#yield关键字"><span class="nav-number">1.3.1.</span> <span class="nav-text">yield关键字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生成器例子"><span class="nav-number">1.3.2.</span> <span class="nav-text">生成器例子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#send数据"><span class="nav-number">1.3.3.</span> <span class="nav-text">send数据</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#迭代器与生成器的区别"><span class="nav-number">1.4.</span> <span class="nav-text">迭代器与生成器的区别</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"></span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+  <div class="theme-info">主题 –  v</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'vzmErYHn1YpeNJrQRiEaT80M-gzGzoHsz',
+        appKey: 'X8MpEppGeY0OcM9hkErRiiyo',
+        placeholder: '评论交流一下吧',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
