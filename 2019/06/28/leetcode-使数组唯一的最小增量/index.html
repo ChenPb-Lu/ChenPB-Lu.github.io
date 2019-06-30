@@ -87,12 +87,12 @@
 <meta property="og:site_name" content="陈先生的博客">
 <meta property="og:description" content="前言考试陆陆续续结束，长沙最热的一段时间叶快到了。不过没啥大不了的，冲！冲一个好的未来出来。而且暑假还有美好生活体验版，累是不可能累的。还有希望宝宝的颈椎听听话话的！ 题目给定整数数组 A，每次 move 操作将会选择任意 A[i]，并将其递增 1。 返回使 A 中的每个值都是唯一的最少操作次数。 示例 1: 输入：[1,2,2]输出：1解释：经过一次 move 操作，数组将变为 [1, 2, 3">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2019/06/28/leetcode-使数组唯一的最小增量/images/leetcode1.png">
-<meta property="og:updated_time" content="2019-06-28T02:28:04.189Z">
+<meta property="og:image" content="https://wx3.sinaimg.cn/mw690/006AhDVYgy1g4j18f6w11j30gh0akgln.jpg">
+<meta property="og:updated_time" content="2019-06-30T03:44:10.952Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="leetcode-使数组唯一的最小增量">
 <meta name="twitter:description" content="前言考试陆陆续续结束，长沙最热的一段时间叶快到了。不过没啥大不了的，冲！冲一个好的未来出来。而且暑假还有美好生活体验版，累是不可能累的。还有希望宝宝的颈椎听听话话的！ 题目给定整数数组 A，每次 move 操作将会选择任意 A[i]，并将其递增 1。 返回使 A 中的每个值都是唯一的最少操作次数。 示例 1: 输入：[1,2,2]输出：1解释：经过一次 move 操作，数组将变为 [1, 2, 3">
-<meta name="twitter:image" content="http://yoursite.com/2019/06/28/leetcode-使数组唯一的最小增量/images/leetcode1.png">
+<meta name="twitter:image" content="https://wx3.sinaimg.cn/mw690/006AhDVYgy1g4j18f6w11j30gh0akgln.jpg">
 
 
 
@@ -397,7 +397,7 @@
 </ol>
 <a id="more"></a>
 <h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>这道题一开始是打算最求一种速度最快而且不需要太多内存消耗的解法，就在排序的同时进行判断以及move操作。可是后来发现，数组在乱序的时候move操作无法判断它递增后的值是否存在，所以最终的结果会导致繁琐而且效率没有很大的提高。就选择下面这种先排序后move的方法。只需让A[i-1] 与 A[i] 相比判断大小，而move的次数就是两者之差加1.如下图：</p>
-<p><img src="./images/leetcode1.png" alt></p>
+<p><img src="https://wx3.sinaimg.cn/mw690/006AhDVYgy1g4j18f6w11j30gh0akgln.jpg" alt="流程"></p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code>def minIncrementForUnique(A) :
 
     A.sort()
