@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="git 使用,">
+  <meta name="keywords" content="Linux,运维,MySQL,编译安装,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="点这里了解更多 前言Git 不仅仅是个版本控制系统，它也是个内容管理系统(CMS)，工作管理系统等。同时，git 是在今后的工作中用到的一门十分重要的技术，方便团队开发以及数据的保留。所以熟悉相关的使用是有必要的，之前b站代码泄漏的事情也让我觉得确实需要重视一下git的使用。还有16天，开心心，幸福生活即将来临！！！ 仓库文件概述.gitignore用于保存不希望被同步到仓库中的文件，我们在本地工">
-<meta name="keywords" content="git 使用">
+<meta name="description" content="##前言折腾了两三天总算是吧MySQL给编译安装好，这两天编译安装走了很多弯路，今天编译安装的步骤和一些要点整理一下。 MySQL的编译安装安装所需要系统库相关库文件gcc gcc-c++ gcc-g77 autoconf automake zlib fiex libxml ncurses-devel libmcrypt libtool-ltdl-devel* yum install gcc gc">
+<meta name="keywords" content="Linux,运维,MySQL,编译安装">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git与gitee开发使用">
-<meta property="og:url" content="http://yoursite.com/2019/06/16/git与gitee开发使用/index.html">
+<meta property="og:title" content="Linux编译安装MySQL">
+<meta property="og:url" content="http://yoursite.com/2019/07/19/Linux编译安装MySQL/index.html">
 <meta property="og:site_name" content="陈先生的博客">
-<meta property="og:description" content="点这里了解更多 前言Git 不仅仅是个版本控制系统，它也是个内容管理系统(CMS)，工作管理系统等。同时，git 是在今后的工作中用到的一门十分重要的技术，方便团队开发以及数据的保留。所以熟悉相关的使用是有必要的，之前b站代码泄漏的事情也让我觉得确实需要重视一下git的使用。还有16天，开心心，幸福生活即将来临！！！ 仓库文件概述.gitignore用于保存不希望被同步到仓库中的文件，我们在本地工">
+<meta property="og:description" content="##前言折腾了两三天总算是吧MySQL给编译安装好，这两天编译安装走了很多弯路，今天编译安装的步骤和一些要点整理一下。 MySQL的编译安装安装所需要系统库相关库文件gcc gcc-c++ gcc-g77 autoconf automake zlib fiex libxml ncurses-devel libmcrypt libtool-ltdl-devel* yum install gcc gc">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-17T03:23:47.682Z">
+<meta property="og:updated_time" content="2019-07-19T16:22:13.746Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git与gitee开发使用">
-<meta name="twitter:description" content="点这里了解更多 前言Git 不仅仅是个版本控制系统，它也是个内容管理系统(CMS)，工作管理系统等。同时，git 是在今后的工作中用到的一门十分重要的技术，方便团队开发以及数据的保留。所以熟悉相关的使用是有必要的，之前b站代码泄漏的事情也让我觉得确实需要重视一下git的使用。还有16天，开心心，幸福生活即将来临！！！ 仓库文件概述.gitignore用于保存不希望被同步到仓库中的文件，我们在本地工">
+<meta name="twitter:title" content="Linux编译安装MySQL">
+<meta name="twitter:description" content="##前言折腾了两三天总算是吧MySQL给编译安装好，这两天编译安装走了很多弯路，今天编译安装的步骤和一些要点整理一下。 MySQL的编译安装安装所需要系统库相关库文件gcc gcc-c++ gcc-g77 autoconf automake zlib fiex libxml ncurses-devel libmcrypt libtool-ltdl-devel* yum install gcc gc">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/06/16/git与gitee开发使用/">
+  <link rel="canonical" href="http://yoursite.com/2019/07/19/Linux编译安装MySQL/">
 
 
 
 
 
-  <title>git与gitee开发使用 | 陈先生的博客</title>
+  <title>Linux编译安装MySQL | 陈先生的博客</title>
   
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/16/git与gitee开发使用/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/19/Linux编译安装MySQL/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陈十三">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">git与gitee开发使用</h1>
+          <h1 class="post-title" itemprop="name headline">Linux编译安装MySQL</h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-16T10:34:55+08:00">
-                2019-06-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-19T23:01:29+08:00">
+                2019-07-19
               </time>
             
 
@@ -305,8 +305,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/git/" itemprop="url" rel="index">
-                    <span itemprop="name">git</span>
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
                   </a>
                 </span>
 
@@ -323,8 +323,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/06/16/git与gitee开发使用/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/06/16/git与gitee开发使用/" itemprop="commentCount"></span>
+                <a href="/2019/07/19/Linux编译安装MySQL/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/07/19/Linux编译安装MySQL/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -383,101 +383,66 @@
       
 
       
-        <p><a href="https://chenpb-lu.github.io" target="_blank" rel="noopener">点这里了解更多</a></p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Git 不仅仅是个版本控制系统，它也是个内容管理系统(CMS)，工作管理系统等。同时，git 是在今后的工作中用到的一门十分重要的技术，方便团队开发以及数据的保留。所以熟悉相关的使用是有必要的，之前b站代码泄漏的事情也让我觉得确实需要重视一下git的使用。还有16天，开心心，幸福生活即将来临！！！</p>
-<h2 id="仓库文件概述"><a href="#仓库文件概述" class="headerlink" title="仓库文件概述"></a>仓库文件概述</h2><h3 id="gitignore"><a href="#gitignore" class="headerlink" title=".gitignore"></a>.gitignore</h3><p>用于保存不希望被同步到仓库中的文件，我们在本地工程常会修改一些配置文件，这些文件不需要被提交，而我们又不想每次执行git status时都让这些文件显示出来，就可以加入到.gitignore 文件中。</p>
-<h3 id="README-md"><a href="#README-md" class="headerlink" title="README.md"></a>README.md</h3><p>仓库自述文件，一般用来介绍项目及基本的使用操作</p>
-<a id="more"></a>
-<h2 id="常用git命令"><a href="#常用git命令" class="headerlink" title="常用git命令"></a>常用git命令</h2><ul>
-<li>git clone + 远端仓库地址 :克隆远端仓库到本地</li>
-<li>git status ：查看当前工作区和暂存区文件的状态。<br>git status –s：查看工作区状况</li>
-<li>git log : 查看历史</li>
-<li>git add : 标记文件添加到仓库<br>git add . =&gt;标记当前目录及子目录的文件</li>
-<li>git commit : 提交文件到本地才仓库</li>
-<li>git branch [分支名] : 添加新的分支<br>git branch -a : 查看所有分支</li>
-<li>git pull :拉取远端仓库的内容（更新本地仓库）</li>
-<li>git push : 提交到远端仓库</li>
-<li>git checkout ：切换分支</li>
-</ul>
-<h2 id="git-合并远程分支的操作"><a href="#git-合并远程分支的操作" class="headerlink" title="git 合并远程分支的操作"></a>git 合并远程分支的操作</h2><pre><code># 查看分支
-$ git branch -a
-* master
-  remotes/origin/HEAD -&gt; origin/master
-  remotes/origin/homework
-  remotes/origin/master
+        <p>##前言<br>折腾了两三天总算是吧MySQL给编译安装好，这两天编译安装走了很多弯路，今天编译安装的步骤和一些要点整理一下。</p>
+<h2 id="MySQL的编译安装"><a href="#MySQL的编译安装" class="headerlink" title="MySQL的编译安装"></a>MySQL的编译安装</h2><h3 id="安装所需要系统库相关库文件"><a href="#安装所需要系统库相关库文件" class="headerlink" title="安装所需要系统库相关库文件"></a>安装所需要系统库相关库文件</h3><p>gcc gcc-c++ gcc-g77 autoconf automake zlib<em> fiex</em> libxml<em> ncurses-devel libmcrypt</em> libtool-ltdl-devel*</p>
+<pre><code>yum install gcc gcc-c++ gcc-g77 autoconf automake zlib* fiex* libxml* ncurses-devel libmcrypt* libtool-ltdl-devel* -y
+</code></pre><p>安装编译所需的依赖包</p>
+<h3 id="创建mysql安装目录"><a href="#创建mysql安装目录" class="headerlink" title="创建mysql安装目录"></a>创建mysql安装目录</h3><p>编译安装的优势在于可以自定义安装，由用户设定一下配置。比如安装目录，数据存放目录等</p>
+<pre><code>[root@localhost mysql]# mkdir -p /usr/local /mysql/
+</code></pre><h3 id="创建数据存放目录"><a href="#创建数据存放目录" class="headerlink" title="创建数据存放目录"></a>创建数据存放目录</h3><pre><code>[root@localhost mysql]# mkdir -p /data/mysql/
+</code></pre><h3 id="创建用户和用户组与赋予数据存放目录权限"><a href="#创建用户和用户组与赋予数据存放目录权限" class="headerlink" title="创建用户和用户组与赋予数据存放目录权限"></a>创建用户和用户组与赋予数据存放目录权限</h3><pre><code>[root@localhost mysql]# useradd  -r -s mysql mysql
+</code></pre><p>-r 创建系统用户（不会创建家目录）</p>
+<h3 id="安装cmake"><a href="#安装cmake" class="headerlink" title="安装cmake"></a>安装cmake</h3><p>（mysql5.5以后是通过cmake来编译的）</p>
+<pre><code>yum install cmake -y
+</code></pre><a id="more"></a>
+<h3 id="下载MySQL"><a href="#下载MySQL" class="headerlink" title="下载MySQL"></a>下载MySQL</h3><p>编译安装需要用到源码包，先到MySQL官网下载源码包地址：<a href="https://dev.mysql.com/downloads/mysql/5.7.html#downloads" target="_blank" rel="noopener">https://dev.mysql.com/downloads/mysql/5.7.html#downloads</a><br>这里我下载的是社区版的5.7版本</p>
+<p><img src alt><br>这里注意下载Source Code 源码，然后最好选择带boost的版本以免以后重新下插件</p>
+<h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><p>在安装包的目录下解压</p>
+<pre><code>[root@localhost down]# tar xf mysql-boots-5.7.27.tar.gz
+[root@localhost down]# cd mysql-5.7.27
+</code></pre><h3 id="编译前配置"><a href="#编译前配置" class="headerlink" title="编译前配置"></a>编译前配置</h3><pre><code>cmake -DCMAKE_INSTALL_PREFIX=/usr/local/mysql \
 
-# 本地没有要合并的分支就先创建
-$ git branch homework
+-DMYSQL_UNIX_ADDR=/data/mysql/mysql.sock \
 
-# 切换分支
-$ git checkout homework
-Switched to branch &apos;homework&apos;
+-DDEFAULT_CHARSET=utf8 \
 
-# 查看目的源
-$ git remote -v
-origin  http://git.sanchuangedu.cn:3000/chenpb/python2019Summer.git (fetch)
-origin  http://git.sanchuangedu.cn:3000/chenpb/python2019Summer.git (push)
+-DDEFAULT_COLLATION=utf8_general_ci \
 
-# 拉去远端仓库的分支内容
-$ git pull origin homework
-From http://git.sanchuangedu.cn:3000/chenpb/python2019Summer
- * branch            homework   -&gt; FETCH_HEAD
-Updating 0c27965..24f384d
-</code></pre><h2 id="git-提交例子："><a href="#git-提交例子：" class="headerlink" title="git 提交例子："></a>git 提交例子：</h2><pre><code># 切换到test1分支
-$ git checkout test1
-Switched to branch &apos;test1&apos;
+-DWITH_EXTRA_CHARSETS:STRING=utf8,gbk \
 
+-DWITH_MYISAM_STORAGE_ENGINE=1 \
 
-# 添加文件
-$ vim myhomework.txt
+-DWITH_INNOBASE_STORAGE_ENGINE=1 \
 
-# 将myhomework.txt创建快照，进行暂存态
-$ git add myhomework.txt
-warning: LF will be replaced by CRLF in myhomework.txt.
-The file will have its original line endings in your working directory.
+-DWITH_MEMORY_STORAGE_ENGINE=1 \
 
-# 提交到本地仓库
-$ git commit
-[test1 a749a0f] add file myhoework.txt
- 1 file changed, 1 insertion(+)
- create mode 100644 myhomework.txt
+-DWITH_READLINE=1 \
 
-# 提交到远程仓库
-$ git push origin test1
-Counting objects: 3, done.
-Delta compression using up to 4 threads.
-Compressing objects: 100% (2/2), done.
-Writing objects: 100% (3/3), 297 bytes | 0 bytes/s, done.
-Total 3 (delta 1), reused 0 (delta 0)
-remote: Powered by Gitee.com
-To https://gitee.com/vaster/python201802.git
-   a7f9383..a749a0f  test1 -&gt; test1
-</code></pre><h2 id="git-冲突问题"><a href="#git-冲突问题" class="headerlink" title="git 冲突问题"></a>git 冲突问题</h2><h3 id="冲突发生的原因"><a href="#冲突发生的原因" class="headerlink" title="冲突发生的原因"></a>冲突发生的原因</h3><p>开发过程中，我们都有自己的特性分支，所以冲突发生的并不多，但也碰到过。诸如公共类的公共方法，我和别人同时修改同一个文件，他提交后我再提交就会报冲突的错误。<br>发生冲突，在IDE里面一般都是对比本地文件和远程分支的文件，然后把远程分支上文件的内容手工修改到本地文件，然后再提交冲突的文件使其保证与远程分支的文件一致，这样才会消除冲突，然后再提交自己修改的部分。特别要注意下，修改本地冲突文件使其与远程仓库的文件保持一致后，需要提交后才能消除冲突，否则无法继续提交。必要时可与同事交流，消除冲突。</p>
-<h3 id="解决冲突"><a href="#解决冲突" class="headerlink" title="解决冲突"></a>解决冲突</h3><p>通过git stash命令，把工作区的修改提交到栈区，目的是保存工作区的修改；<br>通过git pull命令，拉取远程分支上的代码并合并到本地分支，目的是消除冲突；<br>通过git stash pop命令，把保存在栈区的修改部分合并到最新的工作空间中；</p>
-<h2 id="将dev分支的内容合并到master分支"><a href="#将dev分支的内容合并到master分支" class="headerlink" title="将dev分支的内容合并到master分支"></a>将dev分支的内容合并到master分支</h2><pre><code>#先查看下当前的本地和远程分支    
-$ git branch -a  
-* master
-  remotes/origin/HEAD -&gt; origin/master
-  remotes/origin/dev
-  remotes/origin/master
+-DENABLED_LOCAL_INFILE=1 \
 
-#确保master分支也是最新的
-$ git pull 
-Already up to date.
+-DMYSQL_DATADIR=/data/mysql \
 
- #切换到dev 分支 
-$ git checkout dev 
+-DMYSQL_USER=mysql \
 
-#确保dev 分支也是最新的
-$ git pull 
-Already up to date.
-
-#执行合并的关键代码，此时执行结果时将本地的master合并到本地dev分支
-$ git merge master 
-
-#将合并的本地dev分支推送到远程dev
-$ git push origin dev 
-</code></pre><h2 id="学习链接"><a href="#学习链接" class="headerlink" title="学习链接"></a>学习链接</h2><p><a href="https://segmentfault.com/a/1190000019315509" target="_blank" rel="noopener">20道经典面试题</a></p>
+-DMYSQL_TCP_PORT=3306
+</code></pre><p>这个过程叫预编译，主要是生成MakeFile文件，就是编译时的配置文件</p>
+<h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><pre><code>make  
+</code></pre><p>这个过程很久，虚拟机的话预先把内存和CPU数量提高，速度会快很多<br>    make -j 2<br>用两个进程开始编译</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><pre><code>make install
+</code></pre><p>到这一步仅仅完成了一半</p>
+<h3 id="清空配置文件"><a href="#清空配置文件" class="headerlink" title="清空配置文件"></a>清空配置文件</h3><pre><code>&gt;/etc/my.cfn
+</code></pre><p>因为Linux的默认db是mariadb，所以/etc/my.cfn 下放的是mariadb的配置文件，需要先清空在进行初始化</p>
+<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><pre><code>cd /usr/local/mysql/bin
+./mysqld --initalize --user=mysql --basedir=/usr/local/mysql
+--datadir=/data/mysql
+</code></pre><p>初始化后会获得一个临时密码用于登录mysql</p>
+<h3 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h3><pre><code>cp /usr/local/mysql/bin/mysql /usr/bin/
+</code></pre><h3 id="配置与启动MySQL"><a href="#配置与启动MySQL" class="headerlink" title="配置与启动MySQL"></a>配置与启动MySQL</h3><pre><code>cp /usr/local/mysql/support-files/mysql.server /etc/init.d/mysqld
+service mysqld start
+</code></pre><h3 id="进入MySQL并修改密码"><a href="#进入MySQL并修改密码" class="headerlink" title="进入MySQL并修改密码"></a>进入MySQL并修改密码</h3><pre><code>mysql -uroot -p临时密码
+set password=&apos;密码&apos; #设置密码
+</code></pre><h3 id="设置开机自启"><a href="#设置开机自启" class="headerlink" title="设置开机自启"></a>设置开机自启</h3><pre><code>chkconfig mysqld on
+</code></pre><h3 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h3><p>总得来说，还是相当繁琐的，如果想不出错的话，就要对编译安装的一些原理要有所了解，记住自己设置的安装目录与数据目录，这样会大大提高效率与降低错误率。</p>
 
       
     </div>
@@ -524,7 +489,13 @@ $ git push origin dev
       
         <div class="post-tags">
           
-            <a href="/tags/git-使用/" rel="tag"># git 使用</a>
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+            <a href="/tags/运维/" rel="tag"># 运维</a>
+          
+            <a href="/tags/MySQL/" rel="tag"># MySQL</a>
+          
+            <a href="/tags/编译安装/" rel="tag"># 编译安装</a>
           
         </div>
       
@@ -537,8 +508,8 @@ $ git push origin dev
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/26/内网与外网解析/" rel="next" title="内网与外网解析">
-                <i class="fa fa-chevron-left"></i> 内网与外网解析
+              <a href="/2019/07/10/python-闭包与装饰器/" rel="next" title="python 闭包与装饰器">
+                <i class="fa fa-chevron-left"></i> python 闭包与装饰器
               </a>
             
           </div>
@@ -546,10 +517,6 @@ $ git push origin dev
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/06/25/python推导式与迭代器、生成器/" rel="prev" title="python推导式与迭代器、生成器">
-                python推导式与迭代器、生成器 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -712,7 +679,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#仓库文件概述"><span class="nav-number">2.</span> <span class="nav-text">仓库文件概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#gitignore"><span class="nav-number">2.1.</span> <span class="nav-text">.gitignore</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#README-md"><span class="nav-number">2.2.</span> <span class="nav-text">README.md</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用git命令"><span class="nav-number">3.</span> <span class="nav-text">常用git命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-合并远程分支的操作"><span class="nav-number">4.</span> <span class="nav-text">git 合并远程分支的操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-提交例子："><span class="nav-number">5.</span> <span class="nav-text">git 提交例子：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-冲突问题"><span class="nav-number">6.</span> <span class="nav-text">git 冲突问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#冲突发生的原因"><span class="nav-number">6.1.</span> <span class="nav-text">冲突发生的原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决冲突"><span class="nav-number">6.2.</span> <span class="nav-text">解决冲突</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将dev分支的内容合并到master分支"><span class="nav-number">7.</span> <span class="nav-text">将dev分支的内容合并到master分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#学习链接"><span class="nav-number">8.</span> <span class="nav-text">学习链接</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL的编译安装"><span class="nav-number">1.</span> <span class="nav-text">MySQL的编译安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装所需要系统库相关库文件"><span class="nav-number">1.1.</span> <span class="nav-text">安装所需要系统库相关库文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建mysql安装目录"><span class="nav-number">1.2.</span> <span class="nav-text">创建mysql安装目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建数据存放目录"><span class="nav-number">1.3.</span> <span class="nav-text">创建数据存放目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建用户和用户组与赋予数据存放目录权限"><span class="nav-number">1.4.</span> <span class="nav-text">创建用户和用户组与赋予数据存放目录权限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装cmake"><span class="nav-number">1.5.</span> <span class="nav-text">安装cmake</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载MySQL"><span class="nav-number">1.6.</span> <span class="nav-text">下载MySQL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解压"><span class="nav-number">1.7.</span> <span class="nav-text">解压</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译前配置"><span class="nav-number">1.8.</span> <span class="nav-text">编译前配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译"><span class="nav-number">1.9.</span> <span class="nav-text">编译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">1.10.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#清空配置文件"><span class="nav-number">1.11.</span> <span class="nav-text">清空配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化"><span class="nav-number">1.12.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置环境变量"><span class="nav-number">1.13.</span> <span class="nav-text">配置环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置与启动MySQL"><span class="nav-number">1.14.</span> <span class="nav-text">配置与启动MySQL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进入MySQL并修改密码"><span class="nav-number">1.15.</span> <span class="nav-text">进入MySQL并修改密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置开机自启"><span class="nav-number">1.16.</span> <span class="nav-text">设置开机自启</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结束"><span class="nav-number">1.17.</span> <span class="nav-text">结束</span></a></li></ol></li></ol></div>
             
 
           </div>

@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="陈先生的博客">
 <meta property="og:description" content="前言开始集训学习已经有一个多星期了，最近有一个百度内推面试的机会，要好好把握一下，好好写写简历，然后再用零碎时间学习其他知识。准备准备自己的项目。 闭包什么是闭包在函数中可以（嵌套）定义另一个函数时，如果内部的函数引用了外部的函数的变量，则可能产生  闭包。闭包可以用来在一个函数与一组“私有”变量之间创建关联关系。在给定函数被多次调用的过程中，这些私有变量能够保持其持久性。 闭包的创建必须有一个内">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-10T12:20:03.899Z">
+<meta property="og:updated_time" content="2019-07-19T16:23:12.424Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python 闭包与装饰器">
 <meta name="twitter:description" content="前言开始集训学习已经有一个多星期了，最近有一个百度内推面试的机会，要好好把握一下，好好写写简历，然后再用零碎时间学习其他知识。准备准备自己的项目。 闭包什么是闭包在函数中可以（嵌套）定义另一个函数时，如果内部的函数引用了外部的函数的变量，则可能产生  闭包。闭包可以用来在一个函数与一组“私有”变量之间创建关联关系。在给定函数被多次调用的过程中，这些私有变量能够保持其持久性。 闭包的创建必须有一个内">
@@ -385,18 +385,8 @@
       
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>开始集训学习已经有一个多星期了，最近有一个百度内推面试的机会，要好好把握一下，好好写写简历，然后再用零碎时间学习其他知识。准备准备自己的项目。</p>
 <h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><h4 id="什么是闭包"><a href="#什么是闭包" class="headerlink" title="什么是闭包"></a>什么是闭包</h4><p>在函数中可以（嵌套）定义另一个函数时，如果内部的函数引用了外部的函数的变量，则可能产生  闭包。<br>闭包可以用来在一个函数与一组“私有”变量之间创建关联关系。<br>在给定函数被多次调用的过程中，这些私有变量能够保持其持久性。</p>
-<h4 id="闭包的创建"><a href="#闭包的创建" class="headerlink" title="闭包的创建"></a>闭包的创建</h4><p>必须有一个内嵌函数(函数里定义的函数）——这对应函数之间的嵌套<br>内嵌函数必须引用一个定义在闭合范围内(外部函数里)的变量——内部函数引用外部变量<br>外部函数必须返回内嵌函数——必须返回那个内部函数<br> 闭包的概念很简单：一个可以引用在函数闭合范围内变量的函数。即”内部函数”  ，只有那个内部函数才有所谓的__closure__属性。</p>
-<pre><code>import random
-def funx():
-    n = []
-    print(&quot;I am funx&quot;)
-    def funy():
-        print(n)
-        n.append(random.randint(0,100))
-        print(&quot;I am funy&quot;)
-    return funy
-
-print(type(funx))
+<h4 id="闭包的创建"><a href="#闭包的创建" class="headerlink" title="闭包的创建"></a>闭包的创建</h4><p>必须有一个内嵌函数(函数里定义的函数）——这对应函数之间的嵌套<br>内嵌函数必须引用一个定义在闭合范围内(外部函数里)的变量——内部函数引用外部变量<br>外部函数必须返回内嵌函数——必须返回那个内部函数<br> 闭包的概念很简单：一个可以引用在函数闭合范围内变量的函数。即”内部函数”  ，只有那个内部函数才有所谓的__closure__属性。<br><a id="more"></a><br>    import random<br>    def funx():<br>        n = []<br>        print(“I am funx”)<br>        def funy():<br>            print(n)<br>            n.append(random.randint(0,100))<br>            print(“I am funy”)<br>        return funy</p>
+<pre><code>print(type(funx))
 #返回的也是一个函数
 fun = funx()
 fun()
@@ -626,6 +616,10 @@ print(add(1,3))
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/07/19/Linux编译安装MySQL/" rel="prev" title="Linux编译安装MySQL">
+                Linux编译安装MySQL <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -732,7 +726,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -754,7 +748,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
