@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="LVS简介LVS是 Linux Virtual Server 的简称，也就是Linux虚拟服务器。使用 LVS 可以达到的技术目标是：通过 LVS 达到的负载均衡技术和 Linux 操作系统实现一个高性能高可用的 Linux 服务器集群，它具有良好的可靠性、可扩展性和可操作性。从而以低廉的成本实现最优的性能。LVS 是一个实现负载均衡集群的开源软件项目，LVS架构从逻辑上可分为调度层、Server">
+<meta property="og:type" content="article">
+<meta property="og:title" content="lvs负载均衡简介 与Linux下lvs NAT模式实验">
+<meta property="og:url" content="http://yoursite.com/2019/07/20/lvs负载均衡简介-与Linux下lvs-NAT模式实验/index.html">
+<meta property="og:site_name" content="陈先生的博客">
+<meta property="og:description" content="LVS简介LVS是 Linux Virtual Server 的简称，也就是Linux虚拟服务器。使用 LVS 可以达到的技术目标是：通过 LVS 达到的负载均衡技术和 Linux 操作系统实现一个高性能高可用的 Linux 服务器集群，它具有良好的可靠性、可扩展性和可操作性。从而以低廉的成本实现最优的性能。LVS 是一个实现负载均衡集群的开源软件项目，LVS架构从逻辑上可分为调度层、Server">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/781035/201702/781035-20170207085512619-1627288925.png">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/781035/201702/781035-20170208130339541-1597888386.png">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/781035/201702/781035-20170208132504057-1671947616.png">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/781035/201702/781035-20170208131643026-1985709106.png">
+<meta property="og:updated_time" content="2019-07-20T14:51:31.678Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="lvs负载均衡简介 与Linux下lvs NAT模式实验">
+<meta name="twitter:description" content="LVS简介LVS是 Linux Virtual Server 的简称，也就是Linux虚拟服务器。使用 LVS 可以达到的技术目标是：通过 LVS 达到的负载均衡技术和 Linux 操作系统实现一个高性能高可用的 Linux 服务器集群，它具有良好的可靠性、可扩展性和可操作性。从而以低廉的成本实现最优的性能。LVS 是一个实现负载均衡集群的开源软件项目，LVS架构从逻辑上可分为调度层、Server">
+<meta name="twitter:image" content="https://images2015.cnblogs.com/blog/781035/201702/781035-20170207085512619-1627288925.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/07/20/lvs负载均衡简介-与Linux下lvs-NAT模式实验/">
+
+
+
+
+
+  <title>lvs负载均衡简介 与Linux下lvs NAT模式实验 | 陈先生的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">陈先生的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/20/lvs负载均衡简介-与Linux下lvs-NAT模式实验/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈十三">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈先生的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">lvs负载均衡简介 与Linux下lvs NAT模式实验</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-20T19:00:57+08:00">
+                2019-07-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/07/20/lvs负载均衡简介-与Linux下lvs-NAT模式实验/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/07/20/lvs负载均衡简介-与Linux下lvs-NAT模式实验/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="LVS简介"><a href="#LVS简介" class="headerlink" title="LVS简介"></a>LVS简介</h2><p>LVS是 Linux Virtual Server 的简称，也就是Linux虚拟服务器。使用 LVS 可以达到的技术目标是：通过 LVS 达到的负载均衡技术和 Linux 操作系统实现一个高性能高可用的 Linux 服务器集群，它具有良好的可靠性、可扩展性和可操作性。从而以低廉的成本实现最优的性能。LVS 是一个实现负载均衡集群的开源软件项目，LVS架构从逻辑上可分为调度层、Server集群层和共享存储。</p>
+<h3 id="LVS的组成"><a href="#LVS的组成" class="headerlink" title="LVS的组成"></a>LVS的组成</h3><p>LVS 由2部分程序组成，包括 ipvs 和 ipvsadm。   </p>
+<ol>
+<li>ipvs(ip virtual server)：一段代码工作在内核空间，叫ipvs，是真正生效实现调度的代码。   </li>
+<li>ipvsadm：另外一段是工作在用户空间，叫ipvsadm，负责为ipvs内核框架编写规则，定义谁是集群服务，而谁是后端真实的服务器(Real Server)</li>
+</ol>
+<h3 id="LVS的工作原理"><a href="#LVS的工作原理" class="headerlink" title="LVS的工作原理"></a>LVS的工作原理</h3><ol>
+<li>当用户向负载均衡调度器（Director Server）发起请求，调度器将请求发往至内核空间</li>
+<li>PREROUTING链首先会接收到用户请求，判断目标IP确定是本机IP，将数据包发往INPUT链</li>
+<li>IPVS是工作在INPUT链上的，当用户请求到达INPUT时，IPVS会将用户请求和自己已定义好的集群服务进行比对，如果用户请求的就是定义的集群服务，那么此时IPVS会强行修改数据包里的目标IP地址及端口，并将新的数据包发往POSTROUTING链</li>
+<li>POSTROUTING链接收数据包后发现目标IP地址刚好是自己的后端服务器，那么此时通过选路，将数据包最终发送给后端的服务器<br><img src="https://images2015.cnblogs.com/blog/781035/201702/781035-20170207085512619-1627288925.png" alt></li>
+</ol>
+<p>VIP：向外部直接面向用户请求，作为用户请求的目标的IP地址。</p>
+<h3 id="LVS的三种模式"><a href="#LVS的三种模式" class="headerlink" title="LVS的三种模式"></a>LVS的三种模式</h3><pre><code>1. DS：Director Server。指的是前端负载均衡器节点。
+2. RS：Real Server。后端真实的工作服务器。
+3. VIP：向外部直接面向用户请求，作为用户请求的目标的IP地址。
+4. DIP：Director Server IP，主要用于和内部主机通讯的IP地址。
+5. RIP：Real Server IP，后端服务器的IP地址。
+6. CIP：Client IP，访问客户端的IP地址。
+</code></pre><ul>
+<li><p>Virtual Server via Network Address Translation（VS/NAT）<br>通过网络地址转换，调度器重写请求报文的目标地址，根据预设的调度算法，将请求分派给后端的真实服务器；真实服务器的响应报文通过调度器时，报文的源地址被重写，再返回给客户，完成整个负载调度过程。<br><img src="https://images2015.cnblogs.com/blog/781035/201702/781035-20170208130339541-1597888386.png" alt><br>相当于LB充当网关</p>
+<pre><code>RS应该使用私有地址，RS的网关必须指向DIP
+DIP和RIP必须在同一个网段内
+请求和响应报文都需要经过Director Server，高负载场景中，Director Server易成为性能瓶颈
+支持端口映射
+RS可以使用任意操作系统
+缺陷：对Director Server压力会比较大，请求和响应都需经过director server
+</code></pre></li>
+</ul>
+<ul>
+<li><p>Virtual Server via IP Tunneling（VS/TUN）<br>采用NAT技术时，由于请求和响应报文都必须经过调度器地址重写，当客户请求越来越多时，调度器的处理能力将成为瓶颈。为了解决这个问题，调度器把请求报 文通过IP隧道转发至真实服务器，而真实服务器将响应直接返回给客户，所以调度器只处理请求报文。由于一般网络服务应答比请求报文大许多，采用 VS/TUN技术后，集群系统的最大吞吐量可以提高10倍。<br><img src="https://images2015.cnblogs.com/blog/781035/201702/781035-20170208132504057-1671947616.png" alt>   </p>
+</li>
+<li><p>Virtual Server via Direct Routing（VS/DR）<br>VS/DR通过改写请求报文的MAC地址，将请求发送到真实服务器，而真实服务器将响应直接返回给客户。同VS/TUN技术一样，VS/DR技术可极大地 提高集群系统的伸缩性。这种方法没有IP隧道的开销，对集群中的真实服务器也没有必须支持IP隧道协议的要求，但是要求调度器与真实服务器都有一块网卡连 在同一物理网段上<br><img src="https://images2015.cnblogs.com/blog/781035/201702/781035-20170208131643026-1985709106.png" alt></p>
+<pre><code>特点：保证前端路由将目标地址为VIP报文统统发给Director Server，而不是RS
+RS可以使用私有地址；也可以是公网地址，如果使用公网地址，此时可以通过互联网对RIP进行直接访问
+RS跟Director Server必须在同一个物理网络中
+所有的请求报文经由Director Server，但响应报文必须不能进过Director Server
+不支持地址转换，也不支持端口映射
+RS可以是大多数常见的操作系统
+RS的网关绝不允许指向DIP(因为我们不允许他经过director)
+RS上的lo接口配置VIP的IP地址
+缺陷：RS和DS必须在同一机房中
+</code></pre><h3 id="LVS的8种调度方式"><a href="#LVS的8种调度方式" class="headerlink" title="LVS的8种调度方式"></a>LVS的8种调度方式</h3><p>针对不同的网络服务需求和服务器配置，IPVS调度器实现了如下八种负载调度算法：</p>
+</li>
+</ul>
+<ol>
+<li><p><strong>轮叫</strong>（Round Robin）<br>调度器通过”轮叫”调度算法将外部请求按顺序轮流分配到集群中的真实服务器上，它均等地对待每一台服务器，而不管服务器上实际的连接数和系统负载。</p>
+</li>
+<li><p><strong>加权轮叫</strong>（Weighted Round Robin）<br>调度器通过”加权轮叫”调度算法根据真实服务器的不同处理能力来调度访问请求。这样可以保证处理能力强的服务器处理更多的访问流量。调度器可以自动问询真实服务器的负载情况，并动态地调整其权值。</p>
+</li>
+<li><p><strong>最少链接</strong>（Least Connections）<br>调度器通过”最少连接”调度算法动态地将网络请求调度到已建立的链接数最少的服务器上。如果集群系统的真实服务器具有相近的系统性能，采用”最小连接”调度算法可以较好地均衡负载。</p>
+</li>
+<li><p><strong>加权最少链接</strong>（Weighted Least Connections）<br>在集群系统中的服务器性能差异较大的情况下，调度器采用”加权最少链接”调度算法优化负载均衡性能，具有较高权值的服务器将承受较大比例的活动连接负载。调度器可以自动问询真实服务器的负载情况，并动态地调整其权值。</p>
+</li>
+<li><p><strong>基于局部性的最少链接（</strong>Locality-Based Least Connections）<br>“基于局部性的最少链接” 调度算法是针对目标IP地址的负载均衡，目前主要用于Cache集群系统。该算法根据请求的目标IP地址找出该目标IP地址最近使用的服务器，若该服务器 是可用的且没有超载，将请求发送到该服务器；若服务器不存在，或者该服务器超载且有服务器处于一半的工作负载，则用”最少链接”的原则选出一个可用的服务 器，将请求发送到该服务器。</p>
+</li>
+</ol>
+<p>6.<strong> 带复制的基于局部性最少链接</strong>（Locality-Based Least Connections with Replication）<br>“带复制的基于局部性最少链接”调度算法也是针对目标IP地址的负载均衡，目前主要用于Cache集群系统。它与LBLC算法的不同之处是它要维护从一个 目标IP地址到一组服务器的映射，而LBLC算法维护从一个目标IP地址到一台服务器的映射。该算法根据请求的目标IP地址找出该目标IP地址对应的服务 器组，按”最小连接”原则从服务器组中选出一台服务器，若服务器没有超载，将请求发送到该服务器，若服务器超载；则按”最小连接”原则从这个集群中选出一 台服务器，将该服务器加入到服务器组中，将请求发送到该服务器。同时，当该服务器组有一段时间没有被修改，将最忙的服务器从服务器组中删除，以降低复制的 程度。</p>
+<ol start="7">
+<li><p><strong>目标地址散列</strong>（Destination Hashing）<br>“目标地址散列”调度算法根据请求的目标IP地址，作为散列键（Hash Key）从静态分配的散列表找出对应的服务器，若该服务器是可用的且未超载，将请求发送到该服务器，否则返回空。</p>
+</li>
+<li><p><strong>源地址散列</strong>（Source Hashing）<br>“源地址散列”调度算法根据请求的源IP地址，作为散列键（Hash Key）从静态分配的散列表找出对应的服务器，若该服务器是可用的且未超载，将请求发送到该服务器，否则返回空。</p>
+</li>
+</ol>
+<h3 id="lvs-NAT模式的实验"><a href="#lvs-NAT模式的实验" class="headerlink" title="lvs NAT模式的实验"></a>lvs NAT模式的实验</h3><p>三台服务器，一台作为 director，两台作为 real server，director 有一个外网网卡(192.168.0.54) 和一个内网ip(192.168.80.8)，两个 real server 上只有内网 ip (192.168.80.9) 和 (192.168.80.10)，并且需要把两个 real server 的内网网关设置为 director 的内网 ip(192.168.80.8)</p>
+<p>ipvsadm 是一个给lvs软件传递参数和查看相关信息的工具</p>
+<pre><code>[root@LB ~]# yum  install ipvsadm  
+
+关闭防火墙和selinux
+
+[root@LB ~]# iptables -F
+清空防火墙规则#
+[root@LB ~]# service firewalld stop
+Redirecting to /bin/systemctl stop firewalld.service
+[root@LB ~]# getenforce 
+Enforcing
+[root@LB ~]# setenforce 0
+[root@LB ~]# getenforce 
+Permissive
+[root@LB ~]# 
+[root@LB ~]# iptables -L
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination         
+[root@LB ~]# getenforce 
+Permissive
+[root@LB ~]# 
+
+[root@LB ~]# cat lvs_nat.sh 
+#! /bin/bash                                                                              
+# director 服务器上开启路由转发功能
+echo 1 &gt; /proc/sys/net/ipv4/ip_forward
+
+# director 设置nat防火墙
+iptables -t nat -F
+iptables -t nat -X
+iptables -t nat -A POSTROUTING -s 192.168.80.0/24 -o ens33  -j SNAT  --to-source 192.168.0.205
+# director设置ipvsadm
+IPVSADM=&apos;/usr/sbin/ipvsadm&apos;
+$IPVSADM -C
+#清空规则
+$IPVSADM -A -t 192.168.0.205:80 -s rr　　
+# rr为轮询
+$IPVSADM -a -t 192.168.0.205:80 -r 192.168.80.2:80 -m 
+# -a增加服务器 -m表示LVS模式为NAT
+$IPVSADM -a -t 192.168.0.205:80 -r 192.168.80.3:80 -m
+# -r指定服务器IP
+[root@LB ~]# 
+[root@LB ~]# ipvsadm -l
+IP Virtual Server version 1.2.1 (size=4096)
+Prot LocalAddress:Port Scheduler Flags
+  -&gt; RemoteAddress:Port           Forward Weight ActiveConn InActConn
+TCP  LB:http rr
+  -&gt; 192.168.80.2:http            Masq    1      12         5         
+  -&gt; 192.168.80.3:http            Masq    1      9          10        
+[root@LB ~]# 
+</code></pre><p>####测试</p>
+<pre><code>在 RS1 上执行
+# echo &quot;rs1rs1&quot; &gt;/usr/share/nginx/html/index.html
+
+在 RS2 上执行
+# echo &quot;rs2rs2&quot; &gt;/usr/share/nginx/html/index.html
+</code></pre><p>访问192.168.0.54：80</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>赏瓶可乐吧(*^▽^*)</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="陈十三 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="陈十三 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/19/Linux编译安装MySQL/" rel="next" title="Linux编译安装MySQL">
+                <i class="fa fa-chevron-left"></i> Linux编译安装MySQL
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/1.jpg" alt="陈十三">
+            
+              <p class="site-author-name" itemprop="name">陈十三</p>
+              <p class="site-description motion-element" itemprop="description">学习与交流</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#LVS简介"><span class="nav-number">1.</span> <span class="nav-text">LVS简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#LVS的组成"><span class="nav-number">1.1.</span> <span class="nav-text">LVS的组成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LVS的工作原理"><span class="nav-number">1.2.</span> <span class="nav-text">LVS的工作原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LVS的三种模式"><span class="nav-number">1.3.</span> <span class="nav-text">LVS的三种模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LVS的8种调度方式"><span class="nav-number">1.4.</span> <span class="nav-text">LVS的8种调度方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lvs-NAT模式的实验"><span class="nav-number">1.5.</span> <span class="nav-text">lvs NAT模式的实验</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"></span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+  <div class="theme-info">主题 –  v</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'vzmErYHn1YpeNJrQRiEaT80M-gzGzoHsz',
+        appKey: 'X8MpEppGeY0OcM9hkErRiiyo',
+        placeholder: '评论交流一下吧',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
