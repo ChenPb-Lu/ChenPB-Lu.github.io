@@ -252,6 +252,205 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/19/python-django-自定义过滤器/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈十三">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈先生的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/19/python-django-自定义过滤器/" itemprop="url">python django 自定义过滤器</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-19T11:20:35+08:00">
+                2019-08-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/08/19/python-django-自定义过滤器/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/08/19/python-django-自定义过滤器/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近写自己的django项目的时候，遇到了一个问题：前端无法解析json格式文本，本来是打算在前端调用存在数据库里的一些json数据，但是用js的json转换时出错了。这应该是一个常见的问题，前端html将json字符串中的 “  双引号 转义成了 &qout; 导致js无法转换json。</p>
+<p>这个时候想到的一个方法就是在后端将json的字符串加上转义字符\，不过想了一下，还是比较繁琐的。这个时候django的自定义过滤就是仙女下凡一样，完美的解决了我的需求，在之后的一些功能需求上，自定义过滤器也给了我很大的帮助，所以在整理记录一下，随便开启一下很久没动过的博客。</p>
+
+
+## 模板标签
+
+官方文档： https://docs.djangoproject.com/zh-hans/2.0/ref/templates/builtins/
+
+内建标签
+
+django给我们提供了内建标签的功能，主要功能是在前端模板编写循环语句或者判断语句以及导出某个子模块（常见的就是 csrf_token  这个标签用于跨站请求伪造保护）
+
+而我觉得一些模板标签参与的语句类型如下：
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/19/python-django-自定义过滤器/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/20/lvs负载均衡简介-与Linux下lvs-NAT模式实验/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -363,8 +562,7 @@
 
       
         
-          
-            <h2 id="LVS简介"><a href="#LVS简介" class="headerlink" title="LVS简介"></a>LVS简介</h2><p>LVS是 Linux Virtual Server 的简称，也就是Linux虚拟服务器。使用 LVS 可以达到的技术目标是：通过 LVS 达到的负载均衡技术和 Linux 操作系统实现一个高性能高可用的 Linux 服务器集群，它具有良好的可靠性、可扩展性和可操作性。从而以低廉的成本实现最优的性能。LVS 是一个实现负载均衡集群的开源软件项目，LVS架构从逻辑上可分为调度层、Server集群层和共享存储。</p>
+          <h2 id="LVS简介"><a href="#LVS简介" class="headerlink" title="LVS简介"></a>LVS简介</h2><p>LVS是 Linux Virtual Server 的简称，也就是Linux虚拟服务器。使用 LVS 可以达到的技术目标是：通过 LVS 达到的负载均衡技术和 Linux 操作系统实现一个高性能高可用的 Linux 服务器集群，它具有良好的可靠性、可扩展性和可操作性。从而以低廉的成本实现最优的性能。LVS 是一个实现负载均衡集群的开源软件项目，LVS架构从逻辑上可分为调度层、Server集群层和共享存储。</p>
 <h3 id="LVS的组成"><a href="#LVS的组成" class="headerlink" title="LVS的组成"></a>LVS的组成</h3><p>LVS 由2部分程序组成，包括 ipvs 和 ipvsadm。   </p>
 <ol>
 <li>ipvs(ip virtual server)：一段代码工作在内核空间，叫ipvs，是真正生效实现调度的代码。   </li>
@@ -377,123 +575,13 @@
 <li>POSTROUTING链接收数据包后发现目标IP地址刚好是自己的后端服务器，那么此时通过选路，将数据包最终发送给后端的服务器<br><img src="https://images2015.cnblogs.com/blog/781035/201702/781035-20170207085512619-1627288925.png" alt></li>
 </ol>
 <p>VIP：向外部直接面向用户请求，作为用户请求的目标的IP地址。</p>
-<h3 id="LVS的三种模式"><a href="#LVS的三种模式" class="headerlink" title="LVS的三种模式"></a>LVS的三种模式</h3><pre><code>1. DS：Director Server。指的是前端负载均衡器节点。
-2. RS：Real Server。后端真实的工作服务器。
-3. VIP：向外部直接面向用户请求，作为用户请求的目标的IP地址。
-4. DIP：Director Server IP，主要用于和内部主机通讯的IP地址。
-5. RIP：Real Server IP，后端服务器的IP地址。
-6. CIP：Client IP，访问客户端的IP地址。
-</code></pre><ul>
-<li><p>Virtual Server via Network Address Translation（VS/NAT）<br>通过网络地址转换，调度器重写请求报文的目标地址，根据预设的调度算法，将请求分派给后端的真实服务器；真实服务器的响应报文通过调度器时，报文的源地址被重写，再返回给客户，完成整个负载调度过程。<br><img src="https://images2015.cnblogs.com/blog/781035/201702/781035-20170208130339541-1597888386.png" alt><br>相当于LB充当网关</p>
-<pre><code>RS应该使用私有地址，RS的网关必须指向DIP
-DIP和RIP必须在同一个网段内
-请求和响应报文都需要经过Director Server，高负载场景中，Director Server易成为性能瓶颈
-支持端口映射
-RS可以使用任意操作系统
-缺陷：对Director Server压力会比较大，请求和响应都需经过director server
-</code></pre></li>
-</ul>
-<ul>
-<li><p>Virtual Server via IP Tunneling（VS/TUN）<br>采用NAT技术时，由于请求和响应报文都必须经过调度器地址重写，当客户请求越来越多时，调度器的处理能力将成为瓶颈。为了解决这个问题，调度器把请求报 文通过IP隧道转发至真实服务器，而真实服务器将响应直接返回给客户，所以调度器只处理请求报文。由于一般网络服务应答比请求报文大许多，采用 VS/TUN技术后，集群系统的最大吞吐量可以提高10倍。<br><img src="https://images2015.cnblogs.com/blog/781035/201702/781035-20170208132504057-1671947616.png" alt>   </p>
-</li>
-<li><p>Virtual Server via Direct Routing（VS/DR）<br>VS/DR通过改写请求报文的MAC地址，将请求发送到真实服务器，而真实服务器将响应直接返回给客户。同VS/TUN技术一样，VS/DR技术可极大地 提高集群系统的伸缩性。这种方法没有IP隧道的开销，对集群中的真实服务器也没有必须支持IP隧道协议的要求，但是要求调度器与真实服务器都有一块网卡连 在同一物理网段上<br><img src="https://images2015.cnblogs.com/blog/781035/201702/781035-20170208131643026-1985709106.png" alt></p>
-<pre><code>特点：保证前端路由将目标地址为VIP报文统统发给Director Server，而不是RS
-RS可以使用私有地址；也可以是公网地址，如果使用公网地址，此时可以通过互联网对RIP进行直接访问
-RS跟Director Server必须在同一个物理网络中
-所有的请求报文经由Director Server，但响应报文必须不能进过Director Server
-不支持地址转换，也不支持端口映射
-RS可以是大多数常见的操作系统
-RS的网关绝不允许指向DIP(因为我们不允许他经过director)
-RS上的lo接口配置VIP的IP地址
-缺陷：RS和DS必须在同一机房中
-</code></pre><h3 id="LVS的8种调度方式"><a href="#LVS的8种调度方式" class="headerlink" title="LVS的8种调度方式"></a>LVS的8种调度方式</h3><p>针对不同的网络服务需求和服务器配置，IPVS调度器实现了如下八种负载调度算法：</p>
-</li>
-</ul>
-<ol>
-<li><p><strong>轮叫</strong>（Round Robin）<br>调度器通过”轮叫”调度算法将外部请求按顺序轮流分配到集群中的真实服务器上，它均等地对待每一台服务器，而不管服务器上实际的连接数和系统负载。</p>
-</li>
-<li><p><strong>加权轮叫</strong>（Weighted Round Robin）<br>调度器通过”加权轮叫”调度算法根据真实服务器的不同处理能力来调度访问请求。这样可以保证处理能力强的服务器处理更多的访问流量。调度器可以自动问询真实服务器的负载情况，并动态地调整其权值。</p>
-</li>
-<li><p><strong>最少链接</strong>（Least Connections）<br>调度器通过”最少连接”调度算法动态地将网络请求调度到已建立的链接数最少的服务器上。如果集群系统的真实服务器具有相近的系统性能，采用”最小连接”调度算法可以较好地均衡负载。</p>
-</li>
-<li><p><strong>加权最少链接</strong>（Weighted Least Connections）<br>在集群系统中的服务器性能差异较大的情况下，调度器采用”加权最少链接”调度算法优化负载均衡性能，具有较高权值的服务器将承受较大比例的活动连接负载。调度器可以自动问询真实服务器的负载情况，并动态地调整其权值。</p>
-</li>
-<li><p><strong>基于局部性的最少链接（</strong>Locality-Based Least Connections）<br>“基于局部性的最少链接” 调度算法是针对目标IP地址的负载均衡，目前主要用于Cache集群系统。该算法根据请求的目标IP地址找出该目标IP地址最近使用的服务器，若该服务器 是可用的且没有超载，将请求发送到该服务器；若服务器不存在，或者该服务器超载且有服务器处于一半的工作负载，则用”最少链接”的原则选出一个可用的服务 器，将请求发送到该服务器。</p>
-</li>
-</ol>
-<p>6.<strong> 带复制的基于局部性最少链接</strong>（Locality-Based Least Connections with Replication）<br>“带复制的基于局部性最少链接”调度算法也是针对目标IP地址的负载均衡，目前主要用于Cache集群系统。它与LBLC算法的不同之处是它要维护从一个 目标IP地址到一组服务器的映射，而LBLC算法维护从一个目标IP地址到一台服务器的映射。该算法根据请求的目标IP地址找出该目标IP地址对应的服务 器组，按”最小连接”原则从服务器组中选出一台服务器，若服务器没有超载，将请求发送到该服务器，若服务器超载；则按”最小连接”原则从这个集群中选出一 台服务器，将该服务器加入到服务器组中，将请求发送到该服务器。同时，当该服务器组有一段时间没有被修改，将最忙的服务器从服务器组中删除，以降低复制的 程度。</p>
-<ol start="7">
-<li><p><strong>目标地址散列</strong>（Destination Hashing）<br>“目标地址散列”调度算法根据请求的目标IP地址，作为散列键（Hash Key）从静态分配的散列表找出对应的服务器，若该服务器是可用的且未超载，将请求发送到该服务器，否则返回空。</p>
-</li>
-<li><p><strong>源地址散列</strong>（Source Hashing）<br>“源地址散列”调度算法根据请求的源IP地址，作为散列键（Hash Key）从静态分配的散列表找出对应的服务器，若该服务器是可用的且未超载，将请求发送到该服务器，否则返回空。</p>
-</li>
-</ol>
-<h3 id="lvs-NAT模式的实验"><a href="#lvs-NAT模式的实验" class="headerlink" title="lvs NAT模式的实验"></a>lvs NAT模式的实验</h3><p>三台服务器，一台作为 director，两台作为 real server，director 有一个外网网卡(192.168.0.54) 和一个内网ip(192.168.80.8)，两个 real server 上只有内网 ip (192.168.80.9) 和 (192.168.80.10)，并且需要把两个 real server 的内网网关设置为 director 的内网 ip(192.168.80.8)</p>
-<p>ipvsadm 是一个给lvs软件传递参数和查看相关信息的工具</p>
-<pre><code>[root@LB ~]# yum  install ipvsadm  
-
-关闭防火墙和selinux
-
-[root@LB ~]# iptables -F
-清空防火墙规则#
-[root@LB ~]# service firewalld stop
-Redirecting to /bin/systemctl stop firewalld.service
-[root@LB ~]# getenforce 
-Enforcing
-[root@LB ~]# setenforce 0
-[root@LB ~]# getenforce 
-Permissive
-[root@LB ~]# 
-[root@LB ~]# iptables -L
-Chain INPUT (policy ACCEPT)
-target     prot opt source               destination         
-
-Chain FORWARD (policy ACCEPT)
-target     prot opt source               destination         
-
-Chain OUTPUT (policy ACCEPT)
-target     prot opt source               destination         
-[root@LB ~]# getenforce 
-Permissive
-[root@LB ~]# 
-
-[root@LB ~]# cat lvs_nat.sh 
-#! /bin/bash                                                                              
-# director 服务器上开启路由转发功能
-echo 1 &gt; /proc/sys/net/ipv4/ip_forward
-
-# director 设置nat防火墙
-iptables -t nat -F
-iptables -t nat -X
-iptables -t nat -A POSTROUTING -s 192.168.80.0/24 -o ens33  -j SNAT  --to-source 192.168.0.205
-# director设置ipvsadm
-IPVSADM=&apos;/usr/sbin/ipvsadm&apos;
-$IPVSADM -C
-#清空规则
-$IPVSADM -A -t 192.168.0.205:80 -s rr　　
-# rr为轮询
-$IPVSADM -a -t 192.168.0.205:80 -r 192.168.80.2:80 -m 
-# -a增加服务器 -m表示LVS模式为NAT
-$IPVSADM -a -t 192.168.0.205:80 -r 192.168.80.3:80 -m
-# -r指定服务器IP
-[root@LB ~]# 
-[root@LB ~]# ipvsadm -l
-IP Virtual Server version 1.2.1 (size=4096)
-Prot LocalAddress:Port Scheduler Flags
-  -&gt; RemoteAddress:Port           Forward Weight ActiveConn InActConn
-TCP  LB:http rr
-  -&gt; 192.168.80.2:http            Masq    1      12         5         
-  -&gt; 192.168.80.3:http            Masq    1      9          10        
-[root@LB ~]# 
-</code></pre><p>####测试</p>
-<pre><code>在 RS1 上执行
-# echo &quot;rs1rs1&quot; &gt;/usr/share/nginx/html/index.html
-
-在 RS2 上执行
-# echo &quot;rs2rs2&quot; &gt;/usr/share/nginx/html/index.html
-</code></pre><p>访问192.168.0.54：80</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/07/20/lvs负载均衡简介-与Linux下lvs-NAT模式实验/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2087,197 +2175,6 @@ print(q)
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/13/leetcode-三数之和/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈十三">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="陈先生的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/13/leetcode-三数之和/" itemprop="url">leetcode-三数之和</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-13T11:06:13+08:00">
-                2019-05-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode-题解/" itemprop="url" rel="index">
-                    <span itemprop="name">leetcode 题解</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/05/13/leetcode-三数之和/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/13/leetcode-三数之和/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天是给自己打零分的自己，表现过于差劲。还是要好好学习呀~明天要注意言行，做到没有弱点。下个星期的周日就是蜜月日了，有点小期待哦，快点来快点来。说点不开心的事吧，不在青协的人觉得青协越来越好了，而留在青协的人越来越不喜欢青协了。呼，有点低迷啊。哄一下我吧，小宝贝。开始刷题吧，蛮久没刷leetcode了，还是要每周刷一下。</p>
-<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？找出所有满足条件且不重复的三元组。</p>
-<p>注意：答案中不可以包含重复的三元组。</p>
-<p>例如, 给定数组 nums = [-1, 0, 1, 2, -1, -4]，</p>
-<p>满足要求的三元组集合为：<br>[<br>  [-1, 0, 1],<br>  [-1, -1, 2]<br>]</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/05/13/leetcode-三数之和/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2330,7 +2227,7 @@ print(q)
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2352,7 +2249,7 @@ print(q)
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
