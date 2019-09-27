@@ -252,6 +252,279 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/26/MsSQL数据库面试总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈十三">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈先生的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/26/MsSQL数据库面试总结/" itemprop="url">MySQL数据库面试总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-26T17:56:52+08:00">
+                2019-09-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/面试/" itemprop="url" rel="index">
+                    <span itemprop="name">面试</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/09/26/MsSQL数据库面试总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/09/26/MsSQL数据库面试总结/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="MySQL索引"><a href="#MySQL索引" class="headerlink" title="MySQL索引"></a>MySQL索引</h2><h5 id="一、什么是索引，为什么要使用索引？"><a href="#一、什么是索引，为什么要使用索引？" class="headerlink" title="一、什么是索引，为什么要使用索引？"></a>一、什么是索引，为什么要使用索引？</h5><p>索引用于快速找出在某个列中有一特定值的行，不使用索引，MySQL必须从第一条记录开始读完整个表，直到找出相关的行，表越大，查询数据所花费的时间就越多，如果表中查询的列有一个索引，MySQL能够快速到达一个位置去搜索数据文件，而不必查看所有数据，那么将会节省很大一部分时间。</p>
+<hr>
+<h5 id="二、MySQL中索引的优点和缺点还有使用原则"><a href="#二、MySQL中索引的优点和缺点还有使用原则" class="headerlink" title="二、MySQL中索引的优点和缺点还有使用原则"></a>二、MySQL中索引的优点和缺点还有使用原则</h5><h6 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h6><ol>
+<li>所有的MySql列类型(字段类型)都可以被索引，也就是可以给任意字段设置索引</li>
+<li>大大加快数据的查询速度</li>
+</ol>
+<h6 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h6><ol>
+<li>创建索引和维护索引要耗费时间，并且随着数据量的增加所耗费的时间也会增加</li>
+<li>索引也需要占空间，我们知道数据表中的数据也会有最大上线设置的，如果我们有大量的索引，索引文件可能会比数据文件更快达到上线值</li>
+<li>当对表中的数据进行增加、删除、修改时，索引也需要动态的维护，降低了数据的维护速度。</li>
+</ol>
+<h6 id="使用原则："><a href="#使用原则：" class="headerlink" title="使用原则："></a>使用原则：</h6><pre><code>1. 对经常更新的表就避免对其进行过多的索引，对经常用于查询的字段应该创建索引
+2. 数据量小的表最好不要使用索引，因为由于数据较少，可能查询全部数据花费的时间比遍历索引的时间还要短，索引就可能不会产生优化效果。
+3. 在一同值少的列上(字段上)不要建立索引，比如在学生表的&quot;性别&quot;字段上只有男，女两个不同值。相反的，在一个字段上不同值较多可以建立索引。
+</code></pre><hr>
+<h5 id="三、MySQL存储引擎"><a href="#三、MySQL存储引擎" class="headerlink" title="三、MySQL存储引擎"></a>三、MySQL存储引擎</h5><h6 id="MyISAM存储引擎"><a href="#MyISAM存储引擎" class="headerlink" title="MyISAM存储引擎"></a><strong>MyISAM存储引擎</strong></h6><p>不支持事务、也不支持外键，优势是访问速度快，对事务完整性没有 要求以select，insert为主的应用基本上可以用这个引擎来创建表</p>
+<p>支持3种不同的存储格式，分别是：静态表；动态表；压缩表</p>
+<p>静态表：表中的字段都是非变长字段，这样每个记录都是固定长度的，优点存储非常迅速，容易缓存，出现故障容易恢复；缺点是占用的空间通常比动态表多（因为存储时会按照列的宽度定义补足空格）ps：在取数据的时候，默认会把字段后面的空格去掉，如果不注意会把数据本身带的空格也会忽略。</p>
+<p>动态表：记录不是固定长度的，这样存储的优点是占用的空间相对较少；缺点：频繁的更新、删除数据容易产生碎片，需要定期执行OPTIMIZE TABLE或者myisamchk-r命令来改善性能</p>
+<p>压缩表：因为每个记录是被单独压缩的，所以只有非常小的访问开支</p>
+<h6 id="InnoDB存储引擎"><a href="#InnoDB存储引擎" class="headerlink" title="InnoDB存储引擎"></a><strong>InnoDB存储引擎</strong></h6><p>该存储引擎提供了具有提交、回滚和崩溃恢复能力的事务安全。但是对比MyISAM引擎，写的处理效率会差一些，并且会占用更多的磁盘空间以保留数据和索引。<br>InnoDB存储引擎的特点：支持自动增长列，支持外键约束</p>
+<h6 id="MEMORY存储引擎"><a href="#MEMORY存储引擎" class="headerlink" title="MEMORY存储引擎"></a><strong>MEMORY存储引擎</strong></h6><p>Memory存储引擎使用存在于内存中的内容来创建表。每个memory表只实际对应一个磁盘文件，格式是.frm。memory类型的表访问非常的快，因为它的数据是放在内存中的，并且默认使用HASH索引，但是一旦服务关闭，表中的数据就会丢失掉。<br>MEMORY存储引擎的表可以选择使用BTREE索引或者HASH索引，两种不同类型的索引有其不同的使用范围</p>
+<p>Hash索引优点：<br>Hash 索引结构的特殊性，其检索效率非常高，索引的检索可以一次定位，不像B-Tree 索引需要从根节点到枝节点，最后才能访问到页节点这样多次的IO访问，所以 Hash 索引的查询效率要远高于 B-Tree 索引。<br>Hash索引缺点： 那么不精确查找呢，也很明显，因为hash算法是基于等值计算的，所以对于“like”等范围查找hash索引无效，不支持；</p>
+<p>Memory类型的存储引擎主要用于哪些内容变化不频繁的代码表，或者作为统计操作的中间结果表，便于高效地对中间结果进行分析并得到最终的统计结果，。对存储引擎为memory的表进行更新操作要谨慎，因为数据并没有实际写入到磁盘中，所以一定要对下次重新启动服务后如何获得这些修改后的数据有所考虑。</p>
+<hr>
+<h5 id="四、索引的结构"><a href="#四、索引的结构" class="headerlink" title="四、索引的结构"></a>四、索引的结构</h5><p>mysql索引的数据结构是树，常用的存储引擎innodb采用的是B+Tree。这里对B+Tree及其相关的</p>
+<h6 id="查找树进行简要介绍："><a href="#查找树进行简要介绍：" class="headerlink" title="查找树进行简要介绍："></a>查找树进行简要介绍：</h6><h6 id="1、二叉排序树（也称为二叉查找树）"><a href="#1、二叉排序树（也称为二叉查找树）" class="headerlink" title="1、二叉排序树（也称为二叉查找树）"></a>1、二叉排序树（也称为二叉查找树）</h6><p>二叉排序树是最简单的查找树，特点：</p>
+<p>a)是一棵二叉树;</p>
+<p>b)左子树所有结点的值小于它的父结点的值，右子树所有结点的值大于它的父结点的值。</p>
+<h6 id="2、平衡二叉树（又称AVL树）"><a href="#2、平衡二叉树（又称AVL树）" class="headerlink" title="2、平衡二叉树（又称AVL树）"></a>2、平衡二叉树（又称AVL树）</h6><p>平衡二叉树是二叉排序树的基础上，对树的深度进行了限制，从而减少了查找比较的次数，</p>
+<p>特点：</p>
+<p>a)是一棵二叉树;</p>
+<p>b)左子树所有结点的值小于它的父结点的值，右子树所有结点的值大于它的父结点的值;</p>
+<p>c)左子树与右子树的深度差在-1、0、1内，否则对子树进行旋转调整。</p>
+<h6 id="3、B-树（B-Tree）"><a href="#3、B-树（B-Tree）" class="headerlink" title="3、B-树（B-Tree）"></a>3、B-树（B-Tree）</h6><p>B-树是多路平衡查找树，相对于平衡二叉树，对父结点的直接子结点个数，不再仅限于2，</p>
+<p>可以指定m(自定义)，这样可以在树的深度不大量增加的前提下，保存更多的结点。</p>
+<p>B-树是通常在文件系统中使用。</p>
+<p>特点：</p>
+<p>a)树的每个结点最多有m(自定义)子结点;</p>
+<p>b)若根结点不是叶子结点，则至少有两个子结点;</p>
+<p>c) 除根结点外的所有非叶子结点，至少有m/2上取整个子结点;</p>
+<p>d)父结点下的最左边子树所有结点的值均小于父结点最小值，</p>
+<p>最右边子树所有结点的值均大于父结点最大值，</p>
+<p>其余中间子树所有结点的值则介于指针的父结点两边的值;</p>
+<p>e)所有叶子结点都在同一层;</p>
+<p>注意：所有结点均带有值</p>
+<h6 id="4、B-树（B-Tree）"><a href="#4、B-树（B-Tree）" class="headerlink" title="4、B+树（B+Tree）"></a>4、B+树（B+Tree）</h6><p>B+树是B-树变体，相对于B-树，叶子结点的值包含了所有的值，所有父结点的值是重复了叶子结点的值，</p>
+<p>父结点只起索引查找的作用，同时所叶子结点也也构成了一条有序的链表。</p>
+<p>mysql中存储引擎为innodb的索引，采用的数据结构即是B+树。</p>
+<p>特点：</p>
+<p>a)有m个子结点的父结点就有m个关键字;</p>
+<p>b)所有叶子结点包含了所有关键字(值)，且构成由小到大的有序链表;</p>
+<p>c) 所有非叶子结点起索引作用，结点仅包含子树所有结点的最大值;</p>
+<p>d)所有叶子结点都在同一层;</p>
+<p>注意：叶子结点包含了所有的关键字（值）。</p>
+<h6 id="5、B树（BTree）"><a href="#5、B树（BTree）" class="headerlink" title="5、B树（BTree）"></a>5、B<em>树（B</em>Tree）</h6><p>B*树是B+树的变体，相对B+树，增加了对同一层非叶子结点的指针，即同一层非叶子结点也构成了一条链表。</p>
+<h6 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h6><p>综上，上述各种查找树是相互关联的。</p>
+<p>归结到mysql中innodb索引，采用的是B+树，如聚簇索引，是通过主键来聚集数据，采用B+树实现，</p>
+<p>这即是一种索引，也是mysql的一种数据存储结构，叶子结点包含了所有的数据，非叶子结点仅起索引作用（若</p>
+<p>没有定义主键，则innodb会隐式定义一个主键来作为聚簇索引）</p>
+<h5 id="索引的类型"><a href="#索引的类型" class="headerlink" title="索引的类型"></a>索引的类型</h5><p>注意：索引是在存储引擎中实现的，也就是说不同的存储引擎，会使用不同的索引</p>
+<p>　　　MyISAM和InnoDB存储引擎：只支持BTREE索引， 也就是说默认使用BTREE，不能够更换MEMORY/HEAP存储引擎：支持HASH和BTREE索引</p>
+<p>索引我们分为四类来讲 单列索引(普通索引，唯一索引，主键索引)、组合索引、全文索引、空间索引、</p>
+<ol>
+<li><strong>单列索引</strong>：一个索引只包含单个列，但一个表中可以有多个单列索引。 这里不要搞混淆了。</li>
+</ol>
+<p>　　  （1）普通索引：MySQL中基本索引类型，没有什么限制，允许在定义索引的列中插入重复值和空值，纯粹为了查询数据更快一点。</p>
+<p>　      （2）唯一索引：索引列中的值必须是唯一的，但是允许为空值，</p>
+<p>　      （3）主键索引：是一种特殊的唯一索引，不允许有空值。</p>
+<p>　2. <strong>组合索引</strong></p>
+<p>　　在表中的多个字段组合上创建的索引，只有在查询条件中使用了这些字段的左边字段时，索引才会被使用，使用组合索引时遵循最左前缀集合。</p>
+<ol start="3">
+<li><strong>全文索引</strong></li>
+</ol>
+<p>　　全文索引，只有在MyISAM引擎上才能使用，只能在CHAR,VARCHAR,TEXT类型字段上使用全文索引，介绍了要求，说说什么是全文索引，就是在一堆文字中，通过其中的某个关键字等，就能找到该字段所属的记录行，比如有”你是个靓仔，靓女 …” 通过靓仔，可能就可以找到该条记录。这里说的是可能，因为全文索引的使用涉及了很多细节，我们只需要知道这个大概意思，如果感兴趣进一步深入使用它，那么看下面测试该索引时，会给出一个博文，供大家参考。</p>
+<ol start="4">
+<li><strong>空间索引</strong></li>
+</ol>
+<p>　　空间索引是对空间数据类型的字段建立的索引，MySQL中的空间数据类型有四种，GEOMETRY、POINT、LINESTRING、POLYGON。在创建空间索引时，使用SPATIAL关键字。要求，引擎为MyISAM，创建空间索引的列，必须将其声明为NOT NULL。具体细节看下面</p>
+<h2 id="MySQL事务"><a href="#MySQL事务" class="headerlink" title="MySQL事务"></a>MySQL事务</h2><h6 id="原子性"><a href="#原子性" class="headerlink" title="原子性"></a>原子性</h6><p>​        一个事务中的所有操作,要么都完成,要么都不执行.对于一个事务来说,不可能只执行其中的一部分.</p>
+<h6 id="一致性"><a href="#一致性" class="headerlink" title="一致性"></a>一致性</h6><p>​       数据库总是从一个一致性的状态转换到另外一个一致性状态.</p>
+<h6 id="隔离性"><a href="#隔离性" class="headerlink" title="隔离性"></a>隔离性</h6><p>​       一个事务所做的修改在最终提交以前,对其它事务是不可见的.多个事务之间的操作相互不影响. 每降低一个事务        隔离级别都能提高数据库的并发</p>
+<p>​       1.读未提交          其它事务未提交就可以读<br>​       2.读已提交          其它事务只有提交了才能读<br>​       3.可重复读          只管自己启动事务时候的状态,不受其它事务的影响(mysql默认)<br>​       4.事务串行          按照顺序提交事务保证了数据的安全性,但无法实现并发</p>
+<p>​        会出现的问题：</p>
+<p>​        <strong>脏读</strong>：当一个事务读取到另外一个事务修改但未提交的数据时，就可能发生脏读。</p>
+<p>​        <strong>不可重复读</strong>：“不可重复读”现象发生在当执行SELECT 操作时没有获得读锁或者SELECT操作执行完后马上释放了读锁； 另外一个事务对数据进行了更新,读到了不同的结果.(update)</p>
+<p>​        <strong>幻读</strong>：“幻读”又叫”幻象读”,是’’不可重复读’’的一种特殊场景：当事务1两次执行’’SELECT … WHERE’’检索一定范围内数据的操作中间，事务2在这个表中创建了(如[[INSERT]])了一行新数据，这条新数据正好满足事务1的“WHERE”子句。（delete,insert.）</p>
+<h6 id="持久性"><a href="#持久性" class="headerlink" title="持久性"></a>持久性</h6><p>​          一旦一个事务已经提交了,就算服务器崩溃,仍然需要在下次启动的时候自动恢复.</p>
+<p>​         结合事务日志完成:</p>
+<p>​                事务日志写入磁盘的时候是顺序IO,写数据文件的时候是随机IO</p>
+<p>​         一旦事务提交了,必须立即执行一个IO操作,确保此事务立即写入磁盘.</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/19/python-django-自定义过滤器/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1984,197 +2257,6 @@ print(q)
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/26/内网与外网解析/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="陈十三">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="陈先生的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/26/内网与外网解析/" itemprop="url">内网与外网解析</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-26T00:01:30+08:00">
-                2019-05-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/计算机网络/" itemprop="url" rel="index">
-                    <span itemprop="name">计算机网络</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/05/26/内网与外网解析/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/26/内网与外网解析/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>##前言<br>今天真的是超级开心，宝宝第一次陪我去打球。好甜好甜的，感觉自己在场上是个超人！不过由此出现了危机意识，也许长高只能做做梦了，但是可通过锻炼长块来让宝宝获取安全感！宝宝真的对我太好了要好好地对宝宝，珍惜她。养一只小泡芙，嘻嘻，蛮期待的。</p>
-<p>学了计算机网络有一段时间了，要开始做做笔记，疏通疏通一下概念了。Django和爬虫进阶也开始自学了，抓紧学完写几个项目，去尝试一下面试！</p>
-<p>今天记录的是内网与外网的概念与它们之间的区别。</p>
-<hr>
-<p>##内网<br>内网就是局域网（Local Area Network，LAN）是在一个局部的地理范围内（如一个学校、工厂和机关内），一般是方圆几千米以内，将各种计算机，外部设备和数据库等互相联接起来组成的计算机通信网。它可以通过数据通信网或专用数据电路，与远方的局域网、数据库或处理中心相连接，构成一个较大范围的信息处理系统。局域网可以实现文件管理、应用软件共享、打印机共享、扫描仪共享、工作组内的日程安排、电子邮件和传真通信服务等功能。局域网严格意义上是封闭型的。它可以由办公室内几台甚至上千上万台计算机组成。决定局域网的主要技术要素为：网络拓扑，传输介质与介质访问控制方法。<br>局域网由网络硬件（包括网络服务器、网络工作站、网络打印机、网卡、网络互联设备等）和网络传输介质，以及网络软件所组成。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/05/26/内网与外网解析/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2227,7 +2309,7 @@ print(q)
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2238,7 +2320,7 @@ print(q)
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
